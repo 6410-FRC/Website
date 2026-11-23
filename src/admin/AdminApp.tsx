@@ -33,7 +33,8 @@ export default function AdminApp(){
   const load=async()=>{const s=await request<Snapshot>('/content');setSnapshot(s);setSelected(old=>old&&s.docs.some(d=>d.id===old)?old:(s.docs.find(d=>d.id==='pages/en/home')?.id||s.docs[0]?.id||''));};
   useEffect(()=>{request<Session>('/session').then(async s=>{setSession(s);await load()}).catch(()=>{}).finally(()=>setChecking(false))},[]);
   useEffect(()=>{if(doc)setDraft(editableData(doc))},[selected,snapshot]);
-  const changed=doc?JSON.stringify(draft)!==JSON.stringify(doc.data):false;
+  // Compare with what the form was filled with (editableData adds empty photo/SEO fields), not the raw saved data.
+  const changed=doc?JSON.stringify(draft)!==JSON.stringify(editableData(doc)):false;
   const save=async(show=true)=>{if(!doc||!changed)return true;setSaving(true);try{await request(`/docs/${encodeURIComponent(doc.id)}`,{method:'PUT',body:JSON.stringify({data:draft})},session!.csrfToken);await load();if(show)setNotice('Draft saved');return true}catch(e:any){setNotice(e.details?.[0]?.message||e.message);return false}finally{setSaving(false)}};
   const publish=async()=>{if(!(await save(false)))return;setSaving(true);try{await request('/publish',{method:'POST',body:JSON.stringify({all:true})},session!.csrfToken);await load();setNotice('Published — the website is updating')}catch(e:any){setNotice(e.message)}finally{setSaving(false)}};
   const preview=async()=>{await save(false);const path=doc?.collection==='pages'?`/${doc.lang}/${doc.slug==='home'?'':doc.slug}`:'/';try{const x=await request<{url:string}>('/preview?path='+encodeURIComponent(path));window.open(x.url,'wingnuts-preview')}catch(e:any){setNotice(e.message)}};
