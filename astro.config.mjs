@@ -6,7 +6,7 @@ import wingnutsAdmin from './src/cms/integration';
 import { fromRoot, isPreviewServer } from './src/cms/content-root';
 
 export default defineConfig({
-  site: 'https://wingnuts6410.org',
+  site: 'https://wingnuts6410.pages.dev',
   output: 'static',
   integrations: [react(), wingnutsAdmin({ previewPort: 4322 }), sitemap({ filter: (page) => !page.includes('/admin') })],
   vite: { plugins: [tailwindcss()] },
