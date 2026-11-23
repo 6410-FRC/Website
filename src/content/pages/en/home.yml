@@ -3,9 +3,8 @@ description: WINGNUTS 6410 is a student-led robotics team at Everett Alvarez Hig
 hero:
   kicker: FRC Team 6410
   tagline: Students from Salinas, California building robots, and building each other up.
-  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, exposing students in grades 9 through 12 to STEM experiences through participation in competitive robotics. Our Robotics Club provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology. Although our team is relatively small, we are actively recruiting new members and hope to continue growing our journey in the FIRST Robotics Competition. 
-"Through FIRST, students are able to design, build, test & reiterate their robot to compete at various events throughout Northern Califronia." 
-joinLabel: Join the team
+  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, exposing students in grades 9 - 12 to STEM experiences through participation in competitive robotics all around Northern California. Our Robotics Team provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology. Although our team is relatively small, we are actively recruiting new members and hope to continue growing our journey in the FIRST Robotics Competition. 
+  joinLabel: Join the team
   sponsorLabel: Become a sponsor
   photo: 
     src: /images/2026/MS2026/IMG_20261115_140729.jpg
@@ -13,37 +12,50 @@ joinLabel: Join the team
 about:
   title: About us
   body:
-    - WINGNUTS is the FRC team at Everett Alvarez High School. We are high school students who spend our time in the shop learning to design, machine, wire, and program a competitive robot, based on the game. 
-    - "As our team number suggests, we are considered a “veteran team.” 6410 was created in 2017 , however operations ceased in 2019. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS. Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as Fundrasing, Grants, Design, Outreach & so much more. "
+    - "As our team number suggests, we are considered a “veteran team.” Team 6410 was created in 2017 , however operations ceased in 2019. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS."
+    - "Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as non-technical fields such as Fundrasing, Grants, Design, Outreach & so much more. "
     - "Join our team! Must be an EAHS student. "
   actionLabel: Meet the team
   photo: 
     src: /images/2026/MS2026/image_attachment.jpg
     alt: Team Photo
 robot:
-  label: "2026"
+  label: "Rebuilt 2026"
   title: Meet Sticky Bot 
-  body: Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. Sticky Bot is named after all of the adhesive used to secure the radio in place. Fun Fact, our robot has Pokemon cards as good luck boosts. These were found by chance unboxing our new 3D Printer!
+  body: Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. Sticky Bot is named after all of the adhesive used to secure the radio in place. Fun Fact, our robot has Pokemon cards as good luck boosts, these were found by chance unboxing our new 3D Printer!
   actionLabel: See our robots
   photo: 
     src: /images/2026/SS2026/20261025_084505 (2).jpg
     alt: Robot Photo
 life:
   title: Team life
-  intro: Building a robot is only part of the season. Here is what the year looks like.
+  intro: Building a robot is only part of the season. Here is what our first year of robotics looks like. 
   cards:
-    - title: Build
-      caption: Design, prototyping, and long nights in the shop.
-    - title: Competition
-      caption: Matches, the pit, and cheering from the stands.
+    - title: Workshops 
+      caption: Students spend their off-season learning in workshops, specficially specializing in CAD, 3D Printing & Circuitry. In this photo, students are learning to create circuit cards, which they will then teach to local middle schoolers. 
+      photo:
+        src: /images/2026/Workshop.jpg
+        alt: Workshop Photo
+    - title: Off- Season Competitions
+      caption: Our team was able to attend 3 off-season competitions in our first year! Getting driving practice was a tremendous win for our rookie team. 
+      photo:
+        src: /images/2026/Driving Practice.jpg
+        alt: Competition Photo 
     - title: Community
-      caption: Demos, STEM nights, and sharing what we love.
+      photo:
+        src: /images/2026/Candybot.jpg
+        alt: Community Photo
+      caption: Our team strives to educate our community about STEM. As we are a new team, we are still building opportunities to engage with the youth about our operations and how impactful STEM education is. We are currently planning events in the near future to engage the youth, keep an eye out!
+      
 news:
   title: Latest updates
   actionLabel: All news
 sponsors:
   title: Thank you to our sponsors
-  body: Our sponsors make everything possible, from parts and tools to registration and travel.
+  body: Our sponsors make everything possible, from robot parts, tools, registration and travel. We truly are grateful for your support. If you are intersted in learning more about sponsoring our robotics team, please find the "sponsors" tab. 
+  photo:
+        src: static/images/DoW Logo.jpg
+        alt: DoW Logo
   actionLabel: See all sponsors
 support:
   title: Support the team

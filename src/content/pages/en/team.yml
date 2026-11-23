@@ -1,24 +1,26 @@
 title: Team
-intro: Meet the students and mentors behind WingNuts 6410.
+intro: Meet the students and mentors behind WINGNUTS 6410.
 body:
-  - WingNuts 6410 is the FIRST Robotics Competition team at Everett Alvarez High School in Salinas, California. Each season, we have six weeks to design and build a robot that can play a brand-new game, then we take it to competition.
-  - We are open to every student at the school. Some of us came in knowing how to code or use a drill, and plenty of us did not. What matters is showing up and being willing to learn.
+  - The Robotics Team is free to join, and made available to every attending Everett Alvarez High School Student. No prior experience is needed at all, what really matters is the passion to learn, be serious, and willing to grow. Talk to Ms. Kumar in room 106/107 for an application, or simply come by to observe the teams operations to learn more.
+photo: 
+  src: /images/2026/Eagle Team Pic.jpg
+  alt: Team Picture Eagle 
 subteams:
   title: Subteams
-  intro: Everyone on the team joins at least one subteam. Most of us end up helping on a few.
+  intro: Everyone on the team joins at least one subteam. Most students end up supporting multiple subteams, no prior experience needed. 
 values:
   title: How we work
   items:
     - title: Students lead
-      body: Students run each subteam and make the technical and business decisions.
+      body: Students run each subteam and make the hard hitting technical & non - technical descisions. 
     - title: Mentors guide
-      body: Mentors teach tools and skills, check safety, and ask good questions.
+      body: Mentors are guides. The focus on tool safety, passing skills down, ask questions, and keep the team operating.
     - title: Everyone belongs
       body: No experience is required. We will teach you what you need to know.
 mentors:
-  title: Mentors and leadership
-  body: Our student leads and mentors will be listed here once the team publishes the roster for the season.
+  title: Mentors
+  body: The engineers & teachers who work alongside our students through the season. Mentors help to foster the idea of Gracious Professionalism® and have the students do as much of the work as possible.
 cta:
   title: Want to be part of it?
-  body: New members are welcome at the start of every season.
+  body: New members & mentors are welcome at the start of every season.
   actionLabel: Join the team

@@ -2,4 +2,7 @@ nameEn: Business & Media
 nameEs: Negocios y Medios
 summaryEn: Manages sponsors, budgets, social media, photos, and the story of the team.
 summaryEs: Gestiona patrocinios, presupuesto, redes sociales, fotos y la historia del equipo.
+photo:
+   src: /images/Electrical.jpg
+   alt: Business 
 order: 40

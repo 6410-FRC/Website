@@ -2,4 +2,7 @@ nameEn: Electrical
 nameEs: Electricidad
 summaryEn: Wires the robot, mounts sensors and motors, and keeps everything safe and reliable.
 summaryEs: Cablea el robot, monta sensores y motores, y mantiene todo seguro y confiable.
+photo:
+   src: /images/Electrical.jpg
+   alt: Electrical
 order: 20
