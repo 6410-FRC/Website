@@ -1,5 +1,5 @@
 title: FRC Team 6410 - Salinas, CA
-description: WingNuts 6410 is the student FIRST Robotics Competition team at Everett Alvarez High School in Salinas, California.
+description: WINGNUTS 6410 is the student FIRST Robotics Competition team at Everett Alvarez High School in Salinas, California.
 hero:
   kicker: FIRST Robotics Competition Team 6410
   tagline: Students from Salinas building robots, and building each other up.
@@ -15,6 +15,9 @@ about:
     - WingNuts is the FRC team at Everett Alvarez High School. We are high school students who spend the season in the shop learning to design, machine, wire, and program a competition robot.
     - Students lead every part of the team, from mechanical design to sponsor outreach. Mentors help us learn the tools and stay safe, but the decisions are ours.
   actionLabel: Meet the team
+  photo: 
+    src: /images/2026/MS2026/image_attachment.jpg
+    alt: Team Photo
 robot:
   label: "2026"
   title: Robot reveal after team clearance
