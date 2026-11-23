@@ -1,0 +1,41 @@
+title: Equipo FRC 6410 · Salinas, CA
+description: WingNuts 6410 es el equipo estudiantil de FIRST Robotics Competition de Everett Alvarez High School en Salinas, California.
+hero:
+  kicker: FIRST Robotics Competition, Equipo 6410
+  tagline: Estudiantes de Salinas construyendo robots y apoyándonos unos a otros.
+  lead: Cada año diseñamos, construimos, programamos y competimos con un robot nuevo. En el camino aprendemos ingeniería, trabajo en equipo y cómo terminar un gran proyecto.
+  joinLabel: Únete al equipo
+  sponsorLabel: Sé patrocinador
+about:
+  title: Sobre nosotros
+  body:
+    - WingNuts es el equipo de FRC de Everett Alvarez High School. Somos estudiantes de preparatoria que pasamos la temporada en el taller aprendiendo a diseñar, fabricar, cablear y programar un robot de competencia.
+    - Los estudiantes lideran cada parte del equipo, desde el diseño mecánico hasta la relación con patrocinadores. Los mentores nos ayudan a aprender las herramientas y a trabajar con seguridad, pero las decisiones son nuestras.
+  actionLabel: Conoce al equipo
+robot:
+  label: "2026"
+  title: Revelación del robot tras la autorización del equipo
+  body: Nuestro robot 2026 está en proceso. Las fotos y los detalles se publicarán aquí cuando el equipo autorice su publicación.
+  actionLabel: Mira nuestros robots
+life:
+  title: Vida del equipo
+  intro: Construir un robot es solo una parte de la temporada. Así se ve el año.
+  cards:
+    - title: Construcción
+      caption: Diseño, prototipos y noches largas en el taller.
+    - title: Competencia
+      caption: Partidos, el pit y porras desde las gradas.
+    - title: Comunidad
+      caption: Demostraciones, noches STEM y compartir lo que amamos.
+news:
+  title: Últimas novedades
+  actionLabel: Todas las noticias
+sponsors:
+  title: Gracias a nuestros patrocinadores
+  body: Nuestros patrocinadores hacen todo posible, desde piezas y herramientas hasta la inscripción y los viajes.
+  actionLabel: Ver todos los patrocinadores
+support:
+  title: Apoya al equipo
+  body: Los patrocinios, las donaciones y el tiempo de los mentores ayudan a estudiantes de Salinas a construir algo real. Nos encantaría platicar.
+  actionLabel: Sé patrocinador
+  secondaryLabel: Únete al equipo

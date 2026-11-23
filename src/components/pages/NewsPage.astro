@@ -1,0 +1,25 @@
+---
+import NewsCard from '../NewsCard.astro';
+import { ui, type Locale } from '../../data/site';
+import { getNews, getPage } from '../../lib/content';
+const { locale } = Astro.props as { locale: Locale };
+const c = await getPage('newsPage', locale);
+const t = ui[locale];
+const posts = await getNews(locale);
+---
+<section class="section section-tight" aria-label={t.nav.news}>
+  <div class="container">
+    <div class="prose">
+      {c.body.map((p) => <p>{p}</p>)}
+    </div>
+    <ul class="category-list" aria-label={locale === 'es' ? 'Categorías' : 'Categories'}>
+      {[c.allLabel, ...Object.values(c.categories)].map((cat, i) => <li class:list={{ active: i === 0 }}>{cat}</li>)}
+    </ul>
+    {posts.length > 0 && (
+      <ul class="cards cards-3">
+        {posts.map((post) => <NewsCard {post} {locale} categories={c.categories} soonLabel={c.soonLabel} />)}
+      </ul>
+    )}
+    <p class="note">{c.note}</p>
+  </div>
+</section>

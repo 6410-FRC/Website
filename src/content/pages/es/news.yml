@@ -1,0 +1,12 @@
+title: Noticias
+intro: Novedades del taller, las competencias y la comunidad.
+body:
+  - Novedades de construcción, resúmenes de competencia, historias comunitarias y anuncios del equipo. Las publicaciones en inglés y español pueden salir por separado.
+allLabel: Todo
+categories:
+  team: Equipo
+  build: Construcción
+  competition: Competencia
+  outreach: Comunidad
+soonLabel: Próximamente
+note: Las publicaciones salen cuando están listas. Vuelve pronto.

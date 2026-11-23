@@ -1,0 +1,16 @@
+---
+import MediaPlaceholder from './MediaPlaceholder.astro';
+import { ui, type Locale } from '../data/site';
+import { formatDate, img, postUrl, type NewsPost } from '../lib/content';
+interface Props { post: NewsPost; locale: Locale; categories: Record<NewsPost['data']['category'], string>; soonLabel: string }
+const { post, locale, categories, soonLabel } = Astro.props;
+const url = postUrl(locale, post);
+---
+<li class="card post">
+  <MediaPlaceholder {...img(post.data.photo)} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" />
+  <div class="card-body">
+    <p class="post-meta"><span>{categories[post.data.category]}</span> · {post.data.date ? formatDate(post.data.date, locale) : soonLabel}</p>
+    <h3>{url ? <a href={url}>{post.data.title}</a> : post.data.title}</h3>
+    <p>{post.data.summary}</p>
+  </div>
+</li>

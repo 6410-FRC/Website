@@ -1,0 +1,25 @@
+title: Robots
+intro: Our robots, season by season.
+current:
+  title: This season
+  label: 2026 robot
+  heading: Robot reveal after team clearance
+  body: Our 2026 robot is being built right now. Photos, the robot name, and details will be posted after the team clears them for release.
+archive:
+  title: Robot archive
+  body: Past seasons will be added here as the team completes the archive. Each entry will include the game, the robot, and photos from competition.
+  placeholderTitle: Past season
+  placeholderCaption: Photos and details coming soon
+process:
+  title: How a season works
+  items:
+    - title: Kickoff
+      body: In January, FIRST reveals a new game. We read the rules and decide how we want to play it.
+    - title: Design and build
+      body: We prototype, model the robot in CAD, machine parts, wire it, and write the code.
+    - title: Compete
+      body: We take the robot to regional events, work in the pit between matches, and scout other teams.
+cta:
+  title: Follow along
+  body: Build updates and competition recaps are posted on the News page.
+  actionLabel: Read the news

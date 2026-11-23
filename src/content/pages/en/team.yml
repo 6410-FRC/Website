@@ -1,0 +1,24 @@
+title: Team
+intro: Meet the students and mentors behind WingNuts 6410.
+body:
+  - WingNuts 6410 is the FIRST Robotics Competition team at Everett Alvarez High School in Salinas, California. Each season, we have six weeks to design and build a robot that can play a brand-new game, then we take it to competition.
+  - We are open to every student at the school. Some of us came in knowing how to code or use a drill, and plenty of us did not. What matters is showing up and being willing to learn.
+subteams:
+  title: Subteams
+  intro: Everyone on the team joins at least one subteam. Most of us end up helping on a few.
+values:
+  title: How we work
+  items:
+    - title: Students lead
+      body: Students run each subteam and make the technical and business decisions.
+    - title: Mentors guide
+      body: Mentors teach tools and skills, check safety, and ask good questions.
+    - title: Everyone belongs
+      body: No experience is required. We will teach you what you need to know.
+mentors:
+  title: Mentors and leadership
+  body: Our student leads and mentors will be listed here once the team publishes the roster for the season.
+cta:
+  title: Want to be part of it?
+  body: New members are welcome at the start of every season.
+  actionLabel: Join the team

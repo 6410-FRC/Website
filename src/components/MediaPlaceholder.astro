@@ -1,0 +1,32 @@
+---
+/**
+ * Quiet image area. Renders a real <img> when `src` is provided (with an optional caption
+ * and photo credit from the admin); otherwise a solid navy or light-gray block with a short
+ * centered note. No stock or AI imagery: replace with real team photography via the admin.
+ */
+interface Props {
+  label: string;
+  ratio?: string;
+  tone?: 'navy' | 'gray';
+  src?: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  class?: string;
+}
+const { label, ratio = '4 / 3', tone = 'navy', src, alt = '', caption, credit, class: className } = Astro.props;
+---
+{src ? (
+  caption || credit ? (
+    <figure class:list={['media-figure', className]}>
+      <img class="media" src={src} alt={alt} loading="lazy" decoding="async" style={`--ratio:${ratio}`} />
+      <figcaption>{caption}{credit && <span class="media-credit">{credit}</span>}</figcaption>
+    </figure>
+  ) : (
+    <img class:list={['media', className]} src={src} alt={alt} loading="lazy" decoding="async" style={`--ratio:${ratio}`} />
+  )
+) : (
+  <div class:list={['media', `media-${tone}`, className]} role="img" aria-label={label} style={`--ratio:${ratio}`}>
+    <span>{label}</span>
+  </div>
+)}

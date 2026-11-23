@@ -1,0 +1,35 @@
+---
+/** One news story: /en/news/<slug>/ or /es/noticias/<slug>/. Only posts with a story get a page. */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MediaPlaceholder from '../../../components/MediaPlaceholder.astro';
+import { routeFor, routes, ui } from '../../../data/site';
+import { formatDate, getPage, hasStory, img, postSlug, postUrl, type NewsPost } from '../../../lib/content';
+export async function getStaticPaths() {
+  const posts = await getCollection('news', (post) => post.data.published && hasStory(post));
+  return posts.map((post) => ({ params: { lang: post.data.lang, slug: routes[post.data.lang].news, post: postSlug(post) }, props: { post } }));
+}
+const { post } = Astro.props as { post: NewsPost };
+const locale = post.data.lang;
+const n = await getPage('newsPage', locale);
+const { Content } = await render(post);
+const photo = img(post.data.photo);
+---
+<BaseLayout {locale} page="news" path={postUrl(locale, post)} title={post.data.title} description={post.data.summary}>
+  <article class="inner-page page-news story">
+    <header class="page-header">
+      <div class="container">
+        <p class="post-meta"><span>{n.categories[post.data.category]}</span>{post.data.date && ` · ${formatDate(post.data.date, locale)}`}</p>
+        <h1>{post.data.title}</h1>
+        <p>{post.data.summary}</p>
+      </div>
+    </header>
+    <section class="section section-tight">
+      <div class="container">
+        {photo.src && <MediaPlaceholder {...photo} label="" ratio="16 / 9" class="wide-media" />}
+        <div class="prose story-body"><Content /></div>
+        <p class="center-link"><a class="text-link" href={routeFor(locale, 'news')}>{ui[locale].allNews}</a></p>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

@@ -1,0 +1,69 @@
+---
+import SponsorGrid from '../SponsorGrid.astro';
+import { routeFor, type Locale } from '../../data/site';
+import { getDownloads, getPage, getSettings } from '../../lib/content';
+const { locale } = Astro.props as { locale: Locale };
+const c = await getPage('sponsorsPage', locale);
+const settings = await getSettings();
+const packets = await getDownloads(locale, true);
+---
+<section class="section section-tight" aria-labelledby="why-title">
+  <div class="container">
+    <div class="prose">
+      {c.body.map((p) => <p>{p}</p>)}
+    </div>
+    <h2 id="why-title" class="section-heading">{c.why.title}</h2>
+    <ul class="features">
+      {c.why.items.map(({ title, body }) => (
+        <li>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="section band-gray" aria-labelledby="tiers-title">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="tiers-title">{c.tiers.title}</h2>
+      <p>{c.tiers.intro}</p>
+    </div>
+    <ul class="cards cards-4">
+      {c.tiers.items.map((tier) => (
+        <li class="card tier">
+          <div class="card-body">
+            <h3>{tier.name}</h3>
+            <ul class="check-list">
+              {tier.benefits.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+    {packets.length ? (
+      <div class="button-row downloads">
+        {packets.map(({ data }) => <a class="button button-outline" href={data.file} download>{data.title}</a>)}
+      </div>
+    ) : <p class="note">{c.tiers.packetNote}</p>}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="grid-title">
+  <div class="container">
+    <div class="section-title center">
+      <h2 id="grid-title">{c.grid.title}</h2>
+      <p>{c.grid.body}</p>
+    </div>
+    <SponsorGrid {locale} label={c.grid.title} cells={8} />
+  </div>
+</section>
+
+<section class="section band-navy support" aria-labelledby="sponsors-cta-title">
+  <div class="container support-inner">
+    <h2 id="sponsors-cta-title">{c.cta.title}</h2>
+    <p>{c.cta.body}</p>
+    <a class="button button-gold" href={settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join')}>{c.cta.actionLabel}</a>
+  </div>
+</section>

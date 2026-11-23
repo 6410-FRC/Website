@@ -1,0 +1,44 @@
+title: Sponsors
+intro: The people and companies who make our season possible.
+body:
+  - Building a competition robot takes parts, tools, registration fees, and travel. Our sponsors cover those costs and give students in Salinas the chance to do real engineering.
+why:
+  title: Why sponsor WingNuts
+  items:
+    - title: Fund the season
+      body: Registration, materials, tools, safety equipment, and transportation to events.
+    - title: Reach students
+      body: Support hands-on STEM education for high school students in the Salinas Valley.
+    - title: Be recognized
+      body: Your name on the robot, the pit, team shirts, this website, and at every event.
+tiers:
+  title: Sponsorship levels
+  intro: Sponsorship amounts and full benefits are listed in our sponsorship packet.
+  items:
+    - name: Platinum
+      benefits:
+        - Large logo on the robot and pit banner
+        - Logo on team shirts
+        - Logo and link on this website
+        - Team visit or robot demonstration
+    - name: Gold
+      benefits:
+        - Logo on the robot and pit banner
+        - Logo on team shirts
+        - Logo and link on this website
+    - name: Silver
+      benefits:
+        - Logo on the pit banner
+        - Logo on this website
+    - name: Bronze
+      benefits:
+        - Name on the pit banner
+        - Name on this website
+  packetNote: The sponsorship packet (English and Spanish) will be available for download soon.
+grid:
+  title: Our sponsors
+  body: Sponsor logos will appear here as sponsors join for the 2026 season.
+cta:
+  title: Ready to support the team?
+  body: Contact us to talk about sponsorship, in-kind donations, or mentoring.
+  actionLabel: Contact the team

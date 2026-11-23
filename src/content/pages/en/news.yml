@@ -1,0 +1,12 @@
+title: News
+intro: Updates from the shop, competitions, and the community.
+body:
+  - Build updates, competition recaps, outreach stories, and team announcements. English and Spanish posts may be published separately.
+allLabel: All
+categories:
+  team: Team
+  build: Build
+  competition: Competition
+  outreach: Outreach
+soonLabel: Coming soon
+note: Posts are published when they are ready. Check back soon.

@@ -1,0 +1,32 @@
+title: Join
+intro: There is a place on the team for students, mentors, and sponsors.
+body:
+  - Whether you are a student who wants to build, a professional who wants to mentor, or a company that wants to help, there is a place for you here.
+paths:
+  - title: Students
+    body: Any student at Everett Alvarez High School can join. No experience is needed. You will learn design, machining, wiring, programming, or the business side, and you will help decide what the robot does.
+    steps:
+      - Come to a meeting at the start of the season
+      - Try a couple of subteams
+      - Pick one and get to work
+    actionLabel: Ask about joining
+  - title: Mentors
+    body: Engineers, programmers, machinists, teachers, and organized adults of all kinds help us learn. Mentors teach skills, keep the shop safe, and let students make the calls.
+    steps:
+      - Tell us about your background
+      - Complete the school volunteer process
+      - Join us in the shop
+    actionLabel: Ask about mentoring
+  - title: Sponsors
+    body: Companies and community members fund the parts, tools, registration, and travel that make the season possible. Every level of support helps.
+    steps:
+      - Read our sponsorship page
+      - Contact the team
+      - Get recognized at every event
+    actionLabel: See sponsorship
+meeting:
+  title: When and where we meet
+  body: Meeting days and times are posted at the start of each season. We meet at Everett Alvarez High School in Salinas.
+contact:
+  title: Contact
+  body: Contact forms are coming soon. Until then, reach the team through the school office or send a message to the team email listed by the school.

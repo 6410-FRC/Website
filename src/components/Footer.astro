@@ -1,0 +1,50 @@
+---
+import BrandMark from './BrandMark.astro';
+import { routeFor, routes, ui, type Locale, type PageKey } from '../data/site';
+import type { Settings } from '../lib/content';
+const { locale, settings } = Astro.props as { locale: Locale; settings: Settings };
+const t = ui[locale];
+const other: Locale = locale === 'en' ? 'es' : 'en';
+const nav = Object.keys(routes[locale]) as PageKey[];
+const year = new Date().getFullYear();
+const social = settings.socialLinks ?? [];
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href={routeFor(locale)}>
+          <BrandMark />
+          <span class="brand-text"><span class="brand-name">{settings.teamName}</span></span>
+        </a>
+        <p>{t.footer.tagline}</p>
+        <p class="footer-affiliation">{t.footer.affiliation} {settings.schoolName}<br />{t.location}</p>
+      </div>
+      <div class="footer-col">
+        <h2>{t.footer.explore}</h2>
+        <ul>
+          <li><a href={routeFor(locale)}>{t.nav.home}</a></li>
+          {nav.map((key) => <li><a href={routeFor(locale, key)}>{t.nav[key]}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>{t.footer.contact}</h2>
+        <p>{t.footer.contactNote}</p>
+        <ul>
+          <li><a href={settings.contactFormUrl || routeFor(locale, 'join')}>{t.nav.join}</a></li>
+          <li><a href={routeFor(other)} lang={other} hreflang={other}>{t.language}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>{t.footer.follow}</h2>
+        <ul class="footer-social">
+          {social.length ? social.map((link) => <li><a href={link.url}>{link.label}</a></li>) : t.footer.social.map((name) => <li>{name} <span>({t.footer.comingSoon})</span></li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>© {year} {settings.teamName} · {settings.schoolName}</p>
+      <p>{t.footer.legal}</p>
+    </div>
+  </div>
+</footer>

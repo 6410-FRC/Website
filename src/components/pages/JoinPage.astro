@@ -1,0 +1,49 @@
+---
+import { routeFor, type Locale } from '../../data/site';
+import { getDownloads, getPage, getSettings } from '../../lib/content';
+const { locale } = Astro.props as { locale: Locale };
+const c = await getPage('joinPage', locale);
+const s = await getSettings();
+const files = await getDownloads(locale, false);
+/* Default button links for Students, Mentors, Sponsors when no link is set in the admin. */
+const defaults = [s.joinFormUrl || routeFor(locale, 'team'), s.contactFormUrl || s.joinFormUrl || routeFor(locale, 'team'), routeFor(locale, 'sponsors')];
+---
+<section class="section section-tight" aria-label={locale === 'es' ? 'Caminos para unirse' : 'Ways to join'}>
+  <div class="container">
+    <div class="prose">
+      {c.body.map((p) => <p>{p}</p>)}
+    </div>
+    <ul class="cards cards-3">
+      {c.paths.map((path, i) => (
+        <li class="card path">
+          <div class="card-body">
+            <h2>{path.title}</h2>
+            <p>{path.body}</p>
+            <ol class="step-list">
+              {path.steps.map((step) => <li>{step}</li>)}
+            </ol>
+            <a class="button button-outline" href={path.url || defaults[i] || routeFor(locale, 'join')}>{path.actionLabel}</a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="section band-gray" aria-labelledby="meeting-title">
+  <div class="container split">
+    <div>
+      <h2 id="meeting-title">{c.meeting.title}</h2>
+      <p>{c.meeting.body}</p>
+    </div>
+    <div class="panel">
+      <h2>{c.contact.title}</h2>
+      <p>{c.contact.body}</p>
+      {files.length > 0 && (
+        <ul class="check-list downloads">
+          {files.map(({ data }) => <li><a href={data.file} download>{data.title}</a></li>)}
+        </ul>
+      )}
+    </div>
+  </div>
+</section>

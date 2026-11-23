@@ -1,0 +1,32 @@
+title: Únete
+intro: Hay lugar en el equipo para estudiantes, mentores y patrocinadores.
+body:
+  - Si eres estudiante y quieres construir, profesional y quieres ser mentor, o una empresa que quiere ayudar, aquí hay un lugar para ti.
+paths:
+  - title: Estudiantes
+    body: Cualquier estudiante de Everett Alvarez High School puede unirse. No se necesita experiencia. Aprenderás diseño, fabricación, cableado, programación o la parte de negocios, y ayudarás a decidir qué hace el robot.
+    steps:
+      - Ven a una reunión al inicio de la temporada
+      - Prueba un par de subequipos
+      - Elige uno y ponte a trabajar
+    actionLabel: Pregunta cómo unirte
+  - title: Mentores
+    body: Ingenieros, programadores, maquinistas, maestros y adultos organizados de todo tipo nos ayudan a aprender. Los mentores enseñan habilidades, cuidan la seguridad del taller y dejan que los estudiantes decidan.
+    steps:
+      - Cuéntanos sobre tu experiencia
+      - Completa el proceso de voluntariado de la escuela
+      - Acompáñanos en el taller
+    actionLabel: Pregunta sobre mentoría
+  - title: Patrocinadores
+    body: Empresas y miembros de la comunidad financian las piezas, herramientas, inscripción y viajes que hacen posible la temporada. Todo nivel de apoyo ayuda.
+    steps:
+      - Lee nuestra página de patrocinio
+      - Contacta al equipo
+      - Recibe reconocimiento en cada evento
+    actionLabel: Ver patrocinio
+meeting:
+  title: Cuándo y dónde nos reunimos
+  body: Los días y horarios de reunión se publican al inicio de cada temporada. Nos reunimos en Everett Alvarez High School en Salinas.
+contact:
+  title: Contacto
+  body: Los formularios de contacto estarán disponibles pronto. Mientras tanto, comunícate con el equipo a través de la oficina de la escuela o al correo del equipo publicado por la escuela.

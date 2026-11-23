@@ -1,0 +1,44 @@
+---
+import MediaPlaceholder from '../MediaPlaceholder.astro';
+import { routeFor, ui, type Locale } from '../../data/site';
+import { getPage, getPrograms, getSettings, img, pick } from '../../lib/content';
+const { locale } = Astro.props as { locale: Locale };
+const c = await getPage('outreachPage', locale);
+const t = ui[locale];
+const programs = await getPrograms();
+const settings = await getSettings();
+---
+<section class="section section-tight" aria-labelledby="programs-title">
+  <div class="container">
+    <div class="prose">
+      {c.body.map((p) => <p>{p}</p>)}
+    </div>
+    <h2 id="programs-title" class="section-heading">{c.programsTitle}</h2>
+    <div class="program-list">
+      {programs.map(({ data }, i) => (
+        <div class:list={['split', { 'split-reverse': i % 2 === 1 }]}>
+          <div>
+            <h3>{pick(locale, data.titleEn, data.titleEs)}</h3>
+            <p>{pick(locale, data.bodyEn, data.bodyEs)}</p>
+          </div>
+          <MediaPlaceholder {...img(data.photo)} label={t.photoSoon} ratio="4 / 3" tone={i % 2 === 1 ? 'navy' : 'gray'} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section band-gray" aria-labelledby="invite-title">
+  <div class="container split">
+    <div>
+      <h2 id="invite-title">{c.invite.title}</h2>
+      <p>{c.invite.body}</p>
+      <a class="button" href={settings.contactFormUrl || routeFor(locale, 'join')}>{c.invite.actionLabel}</a>
+    </div>
+    <div class="panel">
+      <ul class="check-list">
+        {c.invite.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

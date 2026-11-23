@@ -1,0 +1,19 @@
+# Copy to wrangler.toml if you deploy with the Wrangler CLI (the Cloudflare dashboard works too).
+# Never put secrets in this file. Set them with:
+#   npx wrangler pages secret put GITHUB_APP_PRIVATE_KEY
+#   npx wrangler pages secret put ADMIN_SESSION_SECRET
+# or in the Pages project: Settings → Variables and Secrets.
+name = "wingnuts6410"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-06-01"
+
+[vars]
+CF_ACCESS_TEAM_DOMAIN = "https://YOUR-TEAM.cloudflareaccess.com"
+CF_ACCESS_AUD = "PASTE_ACCESS_APPLICATION_AUDIENCE_TAG"
+GITHUB_APP_ID = "123456"
+GITHUB_APP_INSTALLATION_ID = "12345678"
+GITHUB_REPO = "your-org/wingnuts-website"
+GITHUB_BRANCH_MAIN = "main"
+GITHUB_BRANCH_DRAFTS = "cms-drafts"
+PREVIEW_BASE_URL = "https://cms-drafts.wingnuts6410.pages.dev"
+# Secrets (not here): GITHUB_APP_PRIVATE_KEY, ADMIN_SESSION_SECRET

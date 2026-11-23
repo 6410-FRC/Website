@@ -1,0 +1,13 @@
+title: Comunidad
+intro: Compartimos la robótica y STEM con el Valle de Salinas.
+body:
+  - La robótica no debe quedarse dentro de nuestro taller. Llevamos el robot y actividades STEM prácticas a escuelas, familias y eventos comunitarios en todo el Valle de Salinas.
+programsTitle: Nuestros programas
+invite:
+  title: Invítanos a tu evento
+  body: ¿Planeas un evento escolar o comunitario? Cuéntanos sobre el público, la fecha y el espacio disponible, y encontraremos la forma de estar ahí.
+  items:
+    - Público y rango de edad
+    - Fecha, hora y duración del evento
+    - Espacio, tipo de piso y acceso a electricidad
+  actionLabel: Contacta al equipo

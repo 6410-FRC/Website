@@ -1,0 +1,44 @@
+title: Patrocinadores
+intro: Las personas y empresas que hacen posible nuestra temporada.
+body:
+  - Construir un robot de competencia requiere piezas, herramientas, cuotas de inscripción y viajes. Nuestros patrocinadores cubren esos costos y dan a estudiantes de Salinas la oportunidad de hacer ingeniería real.
+why:
+  title: Por qué patrocinar a WingNuts
+  items:
+    - title: Financia la temporada
+      body: Inscripción, materiales, herramientas, equipo de seguridad y transporte a los eventos.
+    - title: Llega a los estudiantes
+      body: Apoya la educación STEM práctica de estudiantes de preparatoria en el Valle de Salinas.
+    - title: Obtén reconocimiento
+      body: Tu nombre en el robot, el pit, las playeras del equipo, este sitio web y en cada evento.
+tiers:
+  title: Niveles de patrocinio
+  intro: Los montos y los beneficios completos están en nuestro paquete de patrocinio.
+  items:
+    - name: Platino
+      benefits:
+        - Logotipo grande en el robot y la lona del pit
+        - Logotipo en las playeras del equipo
+        - Logotipo y enlace en este sitio
+        - Visita del equipo o demostración del robot
+    - name: Oro
+      benefits:
+        - Logotipo en el robot y la lona del pit
+        - Logotipo en las playeras del equipo
+        - Logotipo y enlace en este sitio
+    - name: Plata
+      benefits:
+        - Logotipo en la lona del pit
+        - Logotipo en este sitio
+    - name: Bronce
+      benefits:
+        - Nombre en la lona del pit
+        - Nombre en este sitio
+  packetNote: El paquete de patrocinio (inglés y español) estará disponible para descargar pronto.
+grid:
+  title: Nuestros patrocinadores
+  body: Los logotipos aparecerán aquí conforme se sumen patrocinadores para la temporada 2026.
+cta:
+  title: ¿Listo para apoyar al equipo?
+  body: Contáctanos para hablar de patrocinio, donaciones en especie o mentoría.
+  actionLabel: Contacta al equipo

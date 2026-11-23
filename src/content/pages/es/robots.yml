@@ -1,0 +1,25 @@
+title: Robots
+intro: Nuestros robots, temporada por temporada.
+current:
+  title: Esta temporada
+  label: Robot 2026
+  heading: Revelación del robot tras la autorización del equipo
+  body: Nuestro robot 2026 se está construyendo ahora mismo. Las fotos, el nombre del robot y los detalles se publicarán cuando el equipo autorice su publicación.
+archive:
+  title: Archivo de robots
+  body: Las temporadas anteriores se agregarán aquí conforme el equipo complete el archivo. Cada entrada incluirá el juego, el robot y fotos de la competencia.
+  placeholderTitle: Temporada anterior
+  placeholderCaption: Fotos y detalles próximamente
+process:
+  title: Cómo funciona una temporada
+  items:
+    - title: Kickoff
+      body: En enero, FIRST revela un juego nuevo. Leemos las reglas y decidimos cómo queremos jugarlo.
+    - title: Diseño y construcción
+      body: Hacemos prototipos, modelamos el robot en CAD, fabricamos piezas, lo cableamos y escribimos el código.
+    - title: Competencia
+      body: Llevamos el robot a eventos regionales, trabajamos en el pit entre partidos y hacemos scouting de otros equipos.
+cta:
+  title: Sigue el proceso
+  body: Las novedades de construcción y los resúmenes de competencia se publican en la página de Noticias.
+  actionLabel: Lee las noticias
