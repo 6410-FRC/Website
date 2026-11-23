@@ -25,7 +25,7 @@ robot:
   body: 
   - Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. 
   - Sticky Bot is named after... all of the adhesive used to secure the radio in place.
-  - Fun Fact, our robot has Pokemon cards as "good luck" boosts. These were found by chance unboxing our new 3D Printer!
+  - Fun Fact, our robot has Pokemon cards as good luck boosts. These were found by chance unboxing our new 3D Printer!
   actionLabel: See our robots
 life:
   title: Team life
