@@ -22,7 +22,9 @@ about:
 robot:
   label: "2026"
   title: Meet Sticky Bot 
-  body: Our 2026 robot is in the works. Photos and details will be posted here once the team clears them for release.
+  body: Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. 
+  - Sticky Bot is named after all of the adhesive used to secure the radio in place.
+  - Fun Fact, our robot has Pokemon cards as good luck boosts. These were found by chance unboxing our new 3D Printer!
   actionLabel: See our robots
 life:
   title: Team life
