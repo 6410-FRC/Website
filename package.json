@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "admin:setup": "node scripts/admin-setup.mjs",
+    "admin:live-password": "node scripts/live-password.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check"

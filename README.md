@@ -33,8 +33,9 @@ There is no Sanity account, database, subscription, or credit card. Published co
 
 The included live-site adapter is designed for Cloudflare Pages' free tier:
 
-- Cloudflare Access protects `/admin/` so only approved administrators can enter.
-- A GitHub App writes drafts to a private draft branch and publishes approved files to the main branch.
+- `/admin/` on the live site asks for a username and a long generated password. Create a new one with `npm run admin:live-password` and store the printed value as the `ADMIN_PASSWORD_HASH` secret. (Cloudflare Access is also supported: set `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` instead.)
+- A GitHub App writes drafts to a draft branch and publishes approved files to the main branch.
+- `.github/workflows/deploy.yml` rebuilds the live site after each publish, and the draft preview after each save.
 - Static visitors never run a database or paid CMS.
 
 See `wrangler.example.toml` for the live environment variables. Keep the Cloudflare project, GitHub repository, and GitHub App under school/team ownership with at least two adult administrators.
@@ -44,6 +45,7 @@ See `wrangler.example.toml` for the live environment variables. Keep the Cloudfl
 ```sh
 npm run dev          # local website and editor
 npm run admin:setup  # change local editor credentials
+npm run admin:live-password  # new password for the live editor
 npm run check        # TypeScript and Astro validation
 npm run build        # production build into dist/
 ```

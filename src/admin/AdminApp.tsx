@@ -4,7 +4,7 @@ type Status = 'published' | 'new' | 'changed' | 'deleted';
 type Doc = { id:string; collection:string; lang?:string; slug:string; data:Record<string, any>; status:Status; error?:string };
 type Upload = { name:string; url:string; type:string; status:Status };
 type Snapshot = { docs:Doc[]; uploads:Upload[]; pending:string[] };
-type Session = { mode:'local'|'cloudflare'; user:{name:string}; csrfToken:string };
+type Session = { mode:'local'|'cloudflare'|'password'; user:{name:string}; csrfToken:string };
 
 const GROUPS: Record<string, {label:string; help:string}> = {
   pages:{label:'Pages',help:'Headlines, sections, buttons, and page photos'}, news:{label:'News',help:'Team stories and announcements'},

@@ -8,12 +8,15 @@ pages_build_output_dir = "dist"
 compatibility_date = "2026-06-01"
 
 [vars]
-CF_ACCESS_TEAM_DOMAIN = "https://YOUR-TEAM.cloudflareaccess.com"
-CF_ACCESS_AUD = "PASTE_ACCESS_APPLICATION_AUDIENCE_TAG"
+# Sign-in: either set the ADMIN_PASSWORD_HASH secret (npm run admin:live-password),
+# or use Cloudflare Access by setting these two values:
+# CF_ACCESS_TEAM_DOMAIN = "https://YOUR-TEAM.cloudflareaccess.com"
+# CF_ACCESS_AUD = "PASTE_ACCESS_APPLICATION_AUDIENCE_TAG"
+ADMIN_USERNAME = "admin"
 GITHUB_APP_ID = "123456"
 GITHUB_APP_INSTALLATION_ID = "12345678"
 GITHUB_REPO = "your-org/wingnuts-website"
 GITHUB_BRANCH_MAIN = "main"
 GITHUB_BRANCH_DRAFTS = "cms-drafts"
 PREVIEW_BASE_URL = "https://cms-drafts.wingnuts6410.pages.dev"
-# Secrets (not here): GITHUB_APP_PRIVATE_KEY, ADMIN_SESSION_SECRET
+# Secrets (not here): GITHUB_APP_PRIVATE_KEY, ADMIN_SESSION_SECRET, ADMIN_PASSWORD_HASH

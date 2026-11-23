@@ -31,10 +31,10 @@ export interface AdminUser { name: string; email?: string }
 export interface AuthContext { user: AdminUser; csrfToken: string }
 
 export interface AuthProvider {
-  mode: 'local' | 'cloudflare';
+  mode: 'local' | 'cloudflare' | 'password';
   /** Identify the caller, or null when they are not signed in. */
   authenticate(request: Request): Promise<AuthContext | null>;
-  /** Local mode only: username/password sign in. Returns the response to send (sets the session cookie). */
+  /** Local and password modes: username/password sign in. Returns the response to send (sets the session cookie). */
   login?(request: Request, body: { username?: string; password?: string }): Promise<Response>;
   logout?(request: Request): Promise<Response>;
 }

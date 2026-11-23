@@ -33,7 +33,7 @@ async function route(request: Request, auth: AuthProvider, ws: Workspace): Promi
   const unsafe = method !== 'GET' && method !== 'HEAD';
   if (unsafe) assertSameOrigin(request);
 
-  // Sign-in endpoints (local mode only; production identity comes from Cloudflare Access).
+  // Sign-in endpoints (local and password modes; with Cloudflare Access, identity comes from Access).
   if (path === '/login' && method === 'POST') {
     if (!auth.login) throw new AdminError(404, 'Sign-in is handled by Cloudflare Access on the live site.');
     return auth.login(request, await readJson(request));
