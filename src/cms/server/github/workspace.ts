@@ -50,6 +50,12 @@ export class GitHubWorkspace implements Workspace {
     if (cmp.status === 'identical' || cmp.status === 'ahead') return;
     // main moved: replay pending draft files onto the new main head, then move the draft branch there.
     const pending = cmp.files.filter((f) => f.status !== 'unchanged');
+    if (!pending.length) {
+      // Nothing is pending, so the draft branch simply follows main. (GitHub rejects an empty tree update.)
+      await this.gh.rest(`/git/refs/heads/${encodeURIComponent(this.config.draftBranch)}`, { method: 'PATCH', body: JSON.stringify({ sha: mainSha, force: true }) });
+      this.draft.invalidate();
+      return;
+    }
     await this.commitOnto(mainSha, this.config.draftBranch, pending.map((f) => ({ path: f.filename, sha: f.status === 'removed' ? null : f.sha })), 'Refresh drafts on top of the live site', true);
   }
 
