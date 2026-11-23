@@ -1,0 +1,28 @@
+# Rebuilds and publishes the site whenever the editor (or a developer) changes it.
+#   main        -> https://wingnuts6410.pages.dev          (the live site)
+#   cms-drafts  -> https://cms-drafts.wingnuts6410.pages.dev (private draft preview)
+name: Deploy website
+on:
+  push:
+    branches: [main, cms-drafts]
+  workflow_dispatch:
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx wrangler@4 pages deploy dist --project-name wingnuts6410 --branch "${{ github.ref_name }}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
