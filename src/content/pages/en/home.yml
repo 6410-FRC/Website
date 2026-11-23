@@ -6,6 +6,9 @@ hero:
   lead: Every year we design, build, program, and compete with a new robot. Along the way we learn engineering, teamwork, and how to see a big project through.
   joinLabel: Join the team
   sponsorLabel: Become a sponsor
+  photo: 
+    src: /images/2026/MS2026/IMG_20261115_140729.jpg
+    alt: Monterey Scrimmage 2026 Group Photo
 about:
   title: About us
   body:
