@@ -13,7 +13,7 @@ about:
   title: About us
   body:
     - WINGNUTS is the FRC team at Everett Alvarez High School. We are high school students who spend our time in the shop learning to design, machine, wire, and program a competitive robot, based on the game. 
-    - "As our team number suggests, we are considered a “veteran team.” 6410 was created in 2017 , however operations ceased in 2019. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS. Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as Fundrasing, Grants, Design, Outreach & so much more. "
+    - "As our team number suggests, we are considered a “veteran team.” 6410 was created in 2017 , however operations ceased in 2019. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS. Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as Fundraising, Grants, Design, Outreach & so much more. "
     - "Join our team! Must be an EAHS student. "
   actionLabel: Meet the team
   photo: 
@@ -26,7 +26,6 @@ robot:
   - Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. 
   - Sticky Bot is named after... all of the adhesive used to secure the radio in place.
   - Fun Fact, our robot has Pokemon cards as "good luck" boosts. These were found by chance unboxing our new 3D Printer!
-
   actionLabel: See our robots
 life:
   title: Team life
