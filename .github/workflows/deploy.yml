@@ -1,10 +1,9 @@
-# Rebuilds and publishes the site whenever the editor (or a developer) changes it.
-#   main        -> https://wingnuts6410.pages.dev          (the live site)
-#   cms-drafts  -> https://cms-drafts.wingnuts6410.pages.dev (private draft preview)
+# Rebuilds and publishes the site whenever a change is pushed to the main branch.
+#   main -> https://wingnuts6410.pages.dev
 name: Deploy website
 on:
   push:
-    branches: [main, cms-drafts]
+    branches: [main]
   workflow_dispatch:
 concurrency:
   group: deploy-${{ github.ref_name }}
@@ -21,6 +20,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run check
       - run: npm run build
       - run: npx wrangler@4 pages deploy dist --project-name wingnuts6410 --branch "${{ github.ref_name }}"
         env:

@@ -1,62 +1,104 @@
 # WingNuts 6410 website
 
-A bilingual Astro website for FRC Team 6410 at Everett Alvarez High School. It includes a custom, no-code editor at `/admin/`; editors never see Git, YAML, or source files.
+The bilingual (English and Spanish) website for FRC Team 6410 at Everett Alvarez High School, built with [SvelteKit](https://svelte.dev/docs/kit). The whole site is built into plain files; there is no database, no login and no admin page. To change the site, edit the files in this folder and push to GitHub.
 
-## Use it locally
+## Run it on your computer
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open:
+Open `http://localhost:5173/en/`. The page updates as you save files.
 
-- Website: `http://localhost:4321/en/`
-- Editor: `http://localhost:4321/admin/`
+## Change the words on a page
 
-The local username and password reminder is in `.local/ADMIN_LOGIN_LOCAL.txt`. That folder is ignored by Git. To change the local password, run `npm run admin:setup`.
+All text lives in `src/content/`. Edit the file, save, and check the page in your browser.
 
-## Editing the website
+| What | File |
+| --- | --- |
+| Team name, school name, form links, social links, announcement bar | `src/content/settings/site.yml` |
+| Home, Team, Robots, Outreach, Sponsors, News, Join (English) | `src/content/pages/en/*.yml` |
+| The same pages in Spanish | `src/content/pages/es/*.yml` |
+| News stories | `src/content/news/en/*.md` and `src/content/news/es/*.md` |
+| Subteams (Team page) | `src/content/team/*.yml` |
+| Outreach programs | `src/content/outreach/*.yml` |
+| Robot seasons | `src/content/seasons/*.yml` |
+| Sponsors | `src/content/sponsors/*.yml` |
+| Downloads (sponsor packet, handbook) | `src/content/downloads/*.yml` |
 
-1. Sign in at `/admin/`.
-2. Choose a page or item from the left side.
-3. Change text, reorder or hide sections, or upload an image.
-4. Select **Save draft**. Visitors cannot see drafts.
-5. Select **Preview** to check the draft.
-6. Select **Publish changes** when it is ready.
+Menu labels, footer text and the "coming soon" notes are in `src/lib/site.ts`.
 
-The editor covers site settings, all English and Spanish pages, news, robots and seasons, outreach, subteams, sponsors, downloads, images, links, visibility, and SEO. New repeatable items can be added with **Add new**. Current robot seasons start hidden.
+If a file has a typo or is missing something, `npm run dev` and `npm run build` stop and name the file and the field.
 
-## Storage and cost
+## Common edits
 
-There is no Sanity account, database, subscription, or credit card. Published content stays in `src/content/`, and uploaded files stay in `public/uploads/`. Local drafts stay in `.local/drafts/` until published.
+**Add a photo.** Put the picture in `static/images/`, then point to it from the content file. A description (`alt`) is required.
 
-The included live-site adapter is designed for Cloudflare Pages' free tier:
-
-- `/admin/` on the live site asks for a username and a long generated password. Create a new one with `npm run admin:live-password` and store the printed value as the `ADMIN_PASSWORD_HASH` secret. (Cloudflare Access is also supported: set `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` instead.)
-- A GitHub App writes drafts to a draft branch and publishes approved files to the main branch.
-- `.github/workflows/deploy.yml` rebuilds the live site after each publish, and the draft preview after each save.
-- Static visitors never run a database or paid CMS.
-
-See `wrangler.example.toml` for the live environment variables. Keep the Cloudflare project, GitHub repository, and GitHub App under school/team ownership with at least two adult administrators.
-
-## Commands
-
-```sh
-npm run dev          # local website and editor
-npm run admin:setup  # change local editor credentials
-npm run admin:live-password  # new password for the live editor
-npm run check        # TypeScript and Astro validation
-npm run build        # production build into dist/
+```yaml
+photo:
+  src: /images/team-2026.jpg
+  alt: The team standing behind the robot at the regional
+  caption: Optional caption
+  credit: Optional photo credit
 ```
 
-## Important files
+**Add a news story.** Create `src/content/news/en/my-story.md` (and a Spanish one in `news/es/` if you have it). A story with text below the header gets its own page; one without text only shows as a card.
 
-- `src/admin/` — custom editor interface
-- `src/cms/` — validation, drafts, publishing, authentication, and storage
-- `functions/api/admin/` — Cloudflare Pages production API
-- `src/content/` — published editable content
-- `public/uploads/` — published images and PDFs
-- `.local/` — private local credentials and drafts; never committed
+```md
+---
+lang: en
+title: "Our first event of the season"
+date: 2026-03-14
+category: competition   # team, build, competition or outreach
+summary: One or two sentences for the card.
+published: true
+---
 
-Do not place student/family form submissions or private student information in the website. Use school-managed Google Forms for join, sponsor, and contact responses.
+The story goes here, written in Markdown.
+```
+
+**Add a sponsor.** Put the logo in `static/images/` and create `src/content/sponsors/acme.yml`:
+
+```yaml
+name: Acme Tools
+tier: Gold            # Platinum, Gold, Silver or Bronze
+logo:
+  src: /images/acme.png
+website: https://example.com
+```
+
+**Show a robot season.** In `src/content/seasons/2026.yml`, set `public: true` and fill in `robotName`, `gameName`, `summaryEn`, `summaryEs`, `photo` and `blueAllianceUrl`. The newest public season is featured; older ones fill the archive.
+
+**Add a download.** Put the PDF in `static/downloads/` and create `src/content/downloads/sponsor-packet.yml`:
+
+```yaml
+lang: en
+title: Sponsor packet (PDF)
+kind: packet          # packet shows on Sponsors; handbook or other show on Join
+file: /downloads/sponsor-packet.pdf
+published: true
+```
+
+## Publish
+
+```sh
+npm run check   # looks for mistakes
+npm run build   # builds the site into dist/
+git add -A && git commit -m "Describe the change" && git push
+```
+
+Pushing to the `main` branch on GitHub rebuilds and publishes the site automatically (`.github/workflows/deploy.yml`, Cloudflare Pages free tier). It takes about a minute.
+
+## Where things are
+
+- `src/content/` — all page text and lists
+- `static/` — pictures, downloads and other files served as they are
+- `src/routes/` — the pages: `/en/…` and `/es/…`
+- `src/lib/components/` — page sections, header, footer
+- `src/lib/schema.ts` — what each content file must contain
+- `src/lib/site.ts` — site address, page addresses, menu and footer text
+- `src/app.css` — all styling
+- `design/logo-drafts/` — logo drafts; not published
+
+Do not put student or family information in the website. Use school-managed Google Forms for join, sponsor and contact responses, and paste their links into `src/content/settings/site.yml`.
