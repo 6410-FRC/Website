@@ -209,6 +209,14 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .site-footer { background: var(--navy); color: var(--on-navy); padding-block: clamp(3rem, 5vw, 4rem) 1.5rem; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1.2fr 1fr; gap: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--navy-line); }
 .footer-brand .brand { color: var(--white); }
+.footer-brand .brand-mark {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
 .footer-brand .brand-num { color: var(--gold); }
 .footer-brand p { max-width: 34ch; margin: 1rem 0 0; color: var(--on-navy-muted); font-size: .95rem; }
 .footer-affiliation { font-size: .88rem !important; }
@@ -266,7 +274,18 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* Content from the admin: announcement bar, sponsor logos, downloads, news stories ---- */
 .announcement { padding: .5rem 0; background: var(--gold); color: var(--navy); font-size: .95rem; font-weight: 600; text-align: center; }
 .announcement a { color: inherit; }
-.logo-cell-real { background: var(--white); }
+.logo-cell-real {
+    background: transparent;
+    border: none;
+}
+.logo-cell-real a {
+    cursor: pointer;
+    transition: transform 200ms ease;
+}
+
+.logo-cell-real a:hover {
+    transform: scale(1.08);
+}
 .logo-cell-real a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
 .logo-cell-real img { max-height: 4.5rem; width: auto; max-width: 100%; object-fit: contain; }
 .downloads { margin-top: 1.5rem; }

@@ -100,7 +100,7 @@
 			<h2 id="sponsors-title">{c.sponsors.title}</h2>
 			<p>{c.sponsors.body}</p>
 		</div>
-		<SponsorGrid sponsors={data.sponsors} {locale} label={c.sponsors.title} cells={6} />
+		<SponsorGrid sponsors={data.sponsors} {locale} label={c.sponsors.title} cells={8} />
 		<p class="center-link"><a class="text-link" href={routeFor(locale, 'sponsors')}>{c.sponsors.actionLabel}</a></p>
 	</div>
 </section>
