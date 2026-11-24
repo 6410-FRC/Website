@@ -19,6 +19,7 @@
   --gold: #d4a72c;
   --gold-hover: #e0b43a;
   --gold-deep: #8a6a14;
+  --vegas-gold: #c5b358;
   --on-navy: #ffffff;
   --on-navy-muted: #c3cddc;
   --focus: #1f5fd6;
@@ -193,9 +194,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .support-inner > .button { margin-top: 1.25rem; }
 
 /* Inner page header --------------------------------------------------------- */
-.page-header { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--gray); border-bottom: 1px solid var(--line); }
+.page-header { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--vegas-gold); border-bottom: 1px solid rgb(11 37 69 / .18); }
 .page-header h1 { font-family:"Yeseva One"; }
-.page-header p { max-width: 60ch; margin: .75rem 0 0; color: var(--slate); font-size: 1.15rem; text-align: center; margin-inline: auto; }
+.page-header p { max-width: 60ch; margin: .75rem 0 0; color: var(--ink); font-size: 1.15rem; text-align: center; margin-inline: auto; }
 
 /* Footer -------------------------------------------------------------------- */
 .site-footer { background: var(--navy); color: var(--on-navy); padding-block: clamp(3rem, 5vw, 4rem) 1.5rem; }
@@ -268,3 +269,40 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .media-figure figcaption { margin-top: .5rem; color: var(--muted); font-size: .85rem; }
 .band-navy .media-figure figcaption { color: var(--on-navy-muted); }
 .media-credit { display: block; font-size: .78rem; opacity: .85; }
+
+/* Clickable pictures and the full-screen photo viewer (Lightbox.svelte) ---- */
+.media-button { position: relative; display: block; width: 100%; padding: 0; border: 0; background: var(--gray-2); overflow: hidden; cursor: zoom-in; }
+.media-button .media { transition: transform 450ms cubic-bezier(.2, .7, .2, 1); }
+.media-button:hover .media, .media-button:focus-visible .media { transform: scale(1.04); }
+.media-button:focus-visible { outline-offset: -3px; }
+.media-zoom { position: absolute; right: .75rem; bottom: .75rem; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: rgb(11 37 69 / .82); color: var(--white); opacity: 0; transform: translateY(4px); transition: opacity var(--fast), transform var(--fast); }
+.media-button:hover .media-zoom, .media-button:focus-visible .media-zoom { opacity: 1; transform: none; }
+.media-zoom svg { width: 1.05rem; height: 1.05rem; }
+.media-zoom svg, .lightbox-button svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: none) { .media-zoom { opacity: 1; transform: none; } }
+
+html:has(.lightbox[open]) { overflow: hidden; }
+.lightbox { position: fixed; inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 4.5rem clamp(.75rem, 3vw, 2rem) 1.5rem; border: 0; background: rgb(7 22 42 / .94); color: var(--white); cursor: zoom-out; backdrop-filter: blur(6px); }
+.lightbox::backdrop { background: transparent; }
+.lightbox[open] { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "prev figure next"; align-items: center; gap: clamp(.5rem, 2vw, 1.5rem); animation: lightbox-in 200ms ease-out; }
+.lightbox :focus-visible { outline-color: var(--gold); }
+.lightbox-figure { grid-area: figure; display: flex; flex-direction: column; align-items: center; min-height: 0; max-height: 100%; margin: 0; animation: lightbox-photo 260ms cubic-bezier(.2, .7, .2, 1); }
+.lightbox-figure img { width: auto; max-width: 100%; max-height: calc(100dvh - 13rem); border-radius: var(--radius); object-fit: contain; box-shadow: 0 24px 60px rgb(0 0 0 / .45); cursor: default; }
+.lightbox-figure figcaption { display: flex; flex-direction: column; align-items: center; gap: .25rem; max-width: 60ch; margin-top: 1.1rem; color: var(--on-navy-muted); font-size: .98rem; line-height: 1.5; text-align: center; cursor: default; }
+.lightbox-figure strong { color: var(--white); font-size: 1.2rem; font-weight: 700; letter-spacing: -.01em; }
+.lightbox-count { margin-top: .35rem; color: var(--gold); font-size: .8rem; font-weight: 600; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.lightbox-button { display: grid; place-items: center; width: 2.9rem; height: 2.9rem; padding: 0; border: 1px solid rgb(255 255 255 / .22); border-radius: 50%; background: rgb(255 255 255 / .08); color: var(--white); cursor: pointer; transition: background-color var(--fast), border-color var(--fast), color var(--fast); }
+.lightbox-button:hover { border-color: var(--gold); background: var(--gold); color: var(--navy); }
+.lightbox-button svg { width: 1.25rem; height: 1.25rem; }
+.lightbox-close { position: absolute; top: 1rem; right: clamp(.75rem, 3vw, 2rem); }
+.lightbox-prev { grid-area: prev; }
+.lightbox-next { grid-area: next; }
+@keyframes lightbox-in { from { opacity: 0; } }
+@keyframes lightbox-photo { from { opacity: 0; transform: scale(.98); } }
+@media (max-width: 640px) {
+  .lightbox[open] { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 1fr) auto; grid-template-areas: "figure figure" "prev next"; }
+  .lightbox-figure img { max-height: calc(100dvh - 17rem); }
+  .lightbox-prev { justify-self: end; }
+  .lightbox-next { justify-self: start; }
+}
+.page-header .post-meta, .page-header .post-meta span { color: var(--navy); }
