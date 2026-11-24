@@ -214,6 +214,11 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .footer-affiliation { font-size: .88rem !important; }
 .footer-col h2 { margin: 0 0 .9rem; color: var(--white); font-size: .95rem; }
 .footer-col ul { display: grid; gap: .5rem; }
+.footer-col li {
+    color: var(--on-navy-muted);
+    font-size: .95rem;
+    text-align: left;
+}
 .footer-col a { color: var(--on-navy-muted); font-size: .95rem; text-decoration: none; }
 .footer-col a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
 .footer-col p { margin: 0 0 .75rem; color: var(--on-navy-muted); font-size: .92rem; }

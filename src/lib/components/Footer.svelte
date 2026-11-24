@@ -32,13 +32,15 @@
 				</ul>
 			</div>
 			<div class="footer-col">
-				<h2>{t.footer.contact}</h2>
-				<p>{t.footer.contactNote}</p>
-				<ul>
-					<li><a href={settings.contactFormUrl || routeFor(locale, 'join')}>{t.nav.join}</a></li>
-					<li><a href={routeFor(other)} lang={other} hreflang={other}>{t.language}</a></li>
-				</ul>
-			</div>
+    <h2>{t.footer.contact}</h2>
+    <ul>
+        {#each typeof t.footer.contactNote === 'string' ? [t.footer.contactNote] : t.footer.contactNote as line}
+            <li>{line}</li>
+        {/each}
+        <li><a href={settings.contactFormUrl || routeFor(locale, 'join')}>{t.nav.join}</a></li>
+        <li><a href={routeFor(other)} lang={other} hreflang={other}>{t.language}</a></li>
+    </ul>
+</div>
 			<div class="footer-col">
 				<h2>{t.footer.follow}</h2>
 				<ul class="footer-social">
