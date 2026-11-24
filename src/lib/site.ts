@@ -33,7 +33,7 @@ export const ui = {
 		footer: {
 			tagline: 'Student-led FIRST Robotics Competition team.',
 			explore: 'Explore', contact: 'Contact', follow: 'Follow us', comingSoon: 'coming soon',
-			 contactNote: 'Reach the team through the school office or the Join page.',
+			 contactNote: ['2026frc6410@gmail.com', 'Reach us at the school office.'],
 			social: ['Instagram', 'YouTube', 'Facebook'],
 			legal: 'FIRST®, FRC®, and FIRST Robotics Competition® are trademarks of For Inspiration and Recognition of Science and Technology.'
 		}

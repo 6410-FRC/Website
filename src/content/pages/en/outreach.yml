@@ -8,6 +8,6 @@ invite:
   body: Planning a school or community event and would like a robot demonstration? Contact us and provide details, we would love to connect.
   items:
     - Send us a flyer
-    - Audience 
+    - Tell us about the audience 
     - Date, time, and length of the event
   actionLabel: Contact the team
