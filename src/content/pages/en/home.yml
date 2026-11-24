@@ -3,7 +3,7 @@ description: WINGNUTS 6410 is a student-led robotics team at Everett Alvarez Hig
 hero:
   kicker: FRC Team 6410
   tagline: Students from Salinas California building robots, and building each other up.
-  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, introducingstudents in grades 9 - 12 to STEM experiences through participation in competitive robotics all around Northern California. Our Robotics Team provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology. Although our team is relatively small, we are actively recruiting new members and hope to continue growing our journey in the FIRST Robotics Competition. 
+  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, introducing students in grades 9 - 12 to STEM experiences through participation in competitive robotics all around Northern California. This program provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology.  
   joinLabel: Join the team
   sponsorLabel: Become a sponsor
   photo: 
@@ -12,7 +12,8 @@ hero:
 about:
   title: About us
   body:
-    - "As our team number suggests, we are considered a “veteran team.” Team 6410 was created in 2017 , however operations ceased in 2019, where the team was previously known as “Supreme Eagles”. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS."
+    - Team 6410 consists of students from Everett Alvarez High School located in Salinas, California. The team was founded in 2017, previously known as "Supreme Eagles", later ceased operations, and was revived by Evan Tran, and Ms. Kumar who worked to rebuild the program and restore its presence in the FIRST Robotics Competition community.
+    - The 2026 season marked our team’s first year participating in the FIRST Robotics Competition. Although we are currently a small team of only 5–6 members, we have ambitious goals and a strong passion for robotics and STEM education. Building the robot was a challenging process and was not as streamlined as we had initially hoped. Because of this, we are seeking additional members, mentors, sponsors, and funding to help support the growth of our club and improve our ability to compete in future competitions. 
     - "Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as non-technical fields such as Fundrasing, Grants, Design, Outreach & so much more. "
     - "Join our team! Must be an EAHS student. "
   actionLabel: Meet the team
