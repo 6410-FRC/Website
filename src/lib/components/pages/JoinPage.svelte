@@ -45,13 +45,16 @@
 		<div class="panel">
 			<h2>{c.contact.title}</h2>
 			<p>
-   <p>
-    {#each c.contact.body.split(/(Email|Phone)/) as part}
+    {#each c.contact.body.split(/(Email|Phone|2026frc6410@gmail\.com)/) as part}
         {#if part === 'Phone'}
             <br />
             <strong>{part}</strong>
         {:else if part === 'Email'}
             <strong>{part}</strong>
+        {:else if part === '2026frc6410@gmail.com'}
+            <a href={settings.contactFormUrl} target="_blank" rel="noopener">
+                {part}
+            </a>
         {:else}
             {part}
         {/if}

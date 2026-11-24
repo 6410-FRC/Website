@@ -35,7 +35,15 @@
     <h2>{t.footer.contact}</h2>
     <ul>
         {#each typeof t.footer.contactNote === 'string' ? [t.footer.contactNote] : t.footer.contactNote as line}
-            <li>{line}</li>
+            <li>
+    {#if line === '2026frc6410@gmail.com'}
+        <a href={settings.contactFormUrl} target="_blank" rel="noopener">
+            {line}
+        </a>
+    {:else}
+        {line}
+    {/if}
+</li>
         {/each}
         <li><a href={settings.contactFormUrl || routeFor(locale, 'join')}>{t.nav.join}</a></li>
         <li><a href={routeFor(other)} lang={other} hreflang={other}>{t.language}</a></li>

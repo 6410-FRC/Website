@@ -49,7 +49,17 @@
 				{#each view.packets as packet (packet.file)}<a class="button button-outline" href={packet.file}  target = "_blank" rel="noopener" download>{packet.title}</a>{/each}
 			</div>
 		{:else}
-			<p class="note">{c.tiers.packetNote}</p>
+			<p class="note">
+    {#each c.tiers.packetNote.split(/(2026frc6410@gmail\.com)/) as part}
+        {#if part === '2026frc6410@gmail.com'}
+            <a href={settings.contactFormUrl} target="_blank" rel="noopener">
+                {part}
+            </a>
+        {:else}
+            {part}
+        {/if}
+    {/each}
+</p>
 		{/if}
 	</div>
 </section>
