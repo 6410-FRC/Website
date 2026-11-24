@@ -6,7 +6,7 @@ summary: Along with our Local Central Coast Alliance, we were honored to play at
 published: true
 link: https://canva.link/6so1kov71wrffh8
 photo:
-    src: /images/2026/Candybot.jpg
+    src: /images/2026/MS2026/MScrimmage.png
     alt: Photo
 translationKey: first-event
 ---

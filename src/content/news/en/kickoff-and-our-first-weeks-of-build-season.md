@@ -4,8 +4,9 @@ title: "Workshops at Capital City Classic"
 category: competition
 summary: Dedicated members head to Elk Grove to compete in our second off-season competition of the year!
 photo:
-    src: /images/2026/Candybot.jpg
+    src: /images/2026/CCC2026/CCC2026.png
     alt: Photo
 published: true
+link: https://canva.link/j8ae0ptpsmwqnlp
 translationKey: kickoff-build-season
 ---

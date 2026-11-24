@@ -46,7 +46,7 @@
 		</ul>
 		{#if view.packets.length}
 			<div class="button-row downloads">
-				{#each view.packets as packet (packet.file)}<a class="button button-outline" href={packet.file} download>{packet.title}</a>{/each}
+				{#each view.packets as packet (packet.file)}<a class="button button-outline" href={packet.file}  target = "_blank" rel="noopener" download>{packet.title}</a>{/each}
 			</div>
 		{:else}
 			<p class="note">{c.tiers.packetNote}</p>
@@ -68,6 +68,6 @@
 	<div class="container support-inner">
 		<h2 id="sponsors-cta-title">{c.cta.title}</h2>
 		<p>{c.cta.body}</p>
-		<a class="button button-gold" href={settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join')}>{c.cta.actionLabel}</a>
+		<a class="button button-gold" href={settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join')} target = "_blank" rel="noopener" >{c.cta.actionLabel}</a>
 	</div>
 </section>

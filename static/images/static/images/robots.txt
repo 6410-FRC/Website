@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wingnuts6410.pages.dev/sitemap.xml
