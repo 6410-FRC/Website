@@ -13,7 +13,7 @@
 	{#each shown as sponsor (sponsor.name)}
 		<li class="logo-cell logo-cell-real">
 			{#if sponsor.website}
-				<a href={sponsor.website} title={sponsor.name}><img src={sponsor.logo.src} alt={sponsor.logo.alt || sponsor.name} loading="lazy" decoding="async" /></a>
+				<a href={sponsor.website} title={sponsor.name} target = "_blank" rel="noopener" ><img src={sponsor.logo.src} alt={sponsor.logo.alt || sponsor.name} loading="lazy" decoding="async" /></a>
 			{:else}
 				<img src={sponsor.logo.src} alt={sponsor.logo.alt || sponsor.name} loading="lazy" decoding="async" />
 			{/if}

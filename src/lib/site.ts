@@ -31,9 +31,9 @@ export const ui = {
 		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
 		location: 'Salinas, California',
 		footer: {
-			tagline: 'A student FIRST Robotics Competition team from Salinas, California.',
+			tagline: 'A student-led FIRST Robotics Competition team.',
 			explore: 'Explore', contact: 'Contact', follow: 'Follow us', comingSoon: 'coming soon',
-			affiliation: 'A student team at', contactNote: 'Reach the team through the school office or the Join page.',
+			 contactNote: 'Reach the team through the school office or the Join page.',
 			social: ['Instagram', 'YouTube', 'Facebook'],
 			legal: 'FIRST®, FRC®, and FIRST Robotics Competition® are trademarks of For Inspiration and Recognition of Science and Technology.'
 		}
