@@ -90,7 +90,7 @@ export const newsSchema = z.object({
 	date: z.preprocess((v) => (v ? new Date(v as string) : undefined), z.date().optional()),
 	category: z.enum(['team', 'build', 'competition', 'outreach']).default('team'),
 	summary: z.string(), photo: imageSchema, published: z.boolean().default(true),
-	translationKey: opt
+	translationKey: opt, link: url
 });
 export const seasonSchema = z.object({
 	year: z.number().int().min(1992).max(2100), public: z.boolean().default(false),

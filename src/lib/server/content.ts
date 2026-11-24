@@ -68,7 +68,7 @@ export function getNews(locale: Locale) {
 				time: data.date?.getTime(),
 				dateLabel: data.date ? formatDate(data.date, locale) : undefined,
 				/** Only stories with text get their own page. */
-				url: body ? `${routeFor(locale, 'news')}${slug}/` : undefined,
+				url: data.link || ( body ? `${routeFor(locale, 'news')}${slug}/` : undefined),
 				html: body ? (marked.parse(body, { async: false }) as string) : ''
 			};
 		})
