@@ -12,7 +12,7 @@
 	const pick = (en: string, es?: string | null) => (locale === 'es' && es ? es : en);
 </script>
 
-<section class="section section-tight" aria-label={t.nav.team}>
+<section class="section section-tight " aria-label={t.nav.team}>
 	<div class="container">
 		<div class="prose">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}

@@ -54,8 +54,8 @@ sponsors:
   title: Thank you to our sponsors
   body: Our sponsors make everything possible, from robot parts, tools, registration and travel. We truly are grateful for your support. If you are intersted in learning more about sponsoring our robotics team, please find the "sponsors" tab. 
   photo:
-        src: static/images/DoW Logo.jpg
-        alt: DoW Logo
+    src: /images/2026/Logos/DoW.jpg
+    alt: DoW Logo
   actionLabel: See all sponsors
 support:
   title: Support the team

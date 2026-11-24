@@ -13,7 +13,7 @@
 	const pick = (en: string, es?: string | null) => (locale === 'es' && es ? es : en);
 </script>
 
-<section class="section section-tight" aria-labelledby="current-title">
+<section class="section section-tight" style="margin-bottom:0cm" aria-labelledby="current-title">
 	<div class="container">
 		<div class="section-title">
 			<h2 id="current-title">{c.current.title}</h2>
@@ -30,7 +30,7 @@
 	</div>
 </section>
 
-<section class="section band-gray" aria-labelledby="archive-title">
+<!-- <section class="section band-gray" aria-labelledby="archive-title">
 	<div class="container">
 		<div class="section-title">
 			<h2 id="archive-title">{c.archive.title}</h2>
@@ -59,11 +59,11 @@
 			{/each}
 		</ul>
 	</div>
-</section>
+</section> -->
 
-<section class="section" aria-labelledby="process-title">
+<section class="section section-tight" aria-labelledby="process-title">
 	<div class="container">
-		<div class="section-title">
+		<div class="section-title" style= " text-align: center; justify-content: center;">
 			<h2 id="process-title">{c.process.title}</h2>
 		</div>
 		<ol class="features features-numbered">

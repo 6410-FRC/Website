@@ -2,4 +2,7 @@ nameEn: Drive Team & Scouting
 nameEs: Equipo de Manejo y Scouting
 summaryEn: Drives the robot at competition and studies other teams to plan every match.
 summaryEs: Maneja el robot en competencia y estudia a los demás equipos para planear cada partido.
+photo:
+   src: /images/Scouting.jpg
+   alt: Scouting 
 order: 50

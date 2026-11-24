@@ -27,5 +27,8 @@
 		"vite": "^8.3.8",
 		"yaml": "^2.9.0",
 		"zod": "^4.5.4"
+	},
+	"dependencies": {
+		"@fontsource/yeseva-one": "^5.3.0"
 	}
 }

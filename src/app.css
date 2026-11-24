@@ -23,7 +23,7 @@
   --on-navy-muted: #c3cddc;
   --focus: #1f5fd6;
 
-  --sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Times New Roman", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --gutter: clamp(1.25rem, 5vw, 3rem);
   --section: clamp(3.5rem, 7vw, 6rem);
@@ -194,7 +194,8 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* Inner page header --------------------------------------------------------- */
 .page-header { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--gray); border-bottom: 1px solid var(--line); }
-.page-header p { max-width: 60ch; margin: .75rem 0 0; color: var(--slate); font-size: 1.15rem; }
+.page-header h1 { font-family:"Yeseva One"; }
+.page-header p { max-width: 60ch; margin: .75rem 0 0; color: var(--slate); font-size: 1.15rem; text-align: center; margin-inline: auto; }
 
 /* Footer -------------------------------------------------------------------- */
 .site-footer { background: var(--navy); color: var(--on-navy); padding-block: clamp(3rem, 5vw, 4rem) 1.5rem; }

@@ -12,7 +12,7 @@
 
 <article class={['inner-page', `page-${view.view}`]}>
 	<header class="page-header">
-		<div class="container">
+		<div class="container" style= "text-align:center; justify-content: center;" >
 			<h1>{view.c.title}</h1>
 			<p>{view.c.intro}</p>
 		</div>
