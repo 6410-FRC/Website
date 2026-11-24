@@ -1,6 +1,9 @@
-titleEn: Hands-on STEM activities
+titleEn: STEM - Day 
 titleEs: Actividades STEM prácticas
-bodyEn: Simple build-and-test activities that let younger students try engineering for themselves.
+bodyEn: Currently an event in progress, check back for updates. 
 bodyEs: Actividades sencillas de construir y probar que permiten a los estudiantes más jóvenes vivir la ingeniería por sí mismos.
+photo:
+    src: /images/2026/In progress photo.jpg
+    alt: Photo
 active: true
 order: 20

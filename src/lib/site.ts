@@ -31,7 +31,7 @@ export const ui = {
 		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
 		location: 'Salinas, California',
 		footer: {
-			tagline: 'A student-led FIRST Robotics Competition team.',
+			tagline: 'Student-led FIRST Robotics Competition team.',
 			explore: 'Explore', contact: 'Contact', follow: 'Follow us', comingSoon: 'coming soon',
 			 contactNote: 'Reach the team through the school office or the Join page.',
 			social: ['Instagram', 'YouTube', 'Facebook'],

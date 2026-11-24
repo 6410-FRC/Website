@@ -10,7 +10,7 @@
 
 <section class="section section-tight" aria-label={ui[locale].nav.news}>
 	<div class="container">
-		<div class="prose">
+		<div class="prose" style="text-align: center;">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
 		<ul class="category-list" aria-label={locale === 'es' ? 'Categorías' : 'Categories'}>

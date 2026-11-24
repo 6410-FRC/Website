@@ -2,15 +2,12 @@ title: Outreach
 intro:  Sharing robotics and STEM with the Salinas Valley.
 body:
   - " "
-photo:
-    src: /images/2026/Candybot.jpg
-    alt: Photo
 programsTitle: Our Work So Far
 invite:
   title: Invite us to your event
-  body: Planning a school or community event? Tell us about the audience, the date, and the space available, and we will find a way to be there.
+  body: Planning a school or community event and would like a robot demonstration? Contact us and provide details, we would love to connect.
   items:
-    - Audience and age range
+    - Send us a flyer
+    - Audience 
     - Date, time, and length of the event
-    - Space, floor type, and access to power
   actionLabel: Contact the team

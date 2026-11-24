@@ -2,5 +2,8 @@ titleEn: Trunk or Treat
 titleEs: Demostraciones del robot
 bodyEn: We bring the robot to community events so people can see it drive, ask questions, and meet the students who built it. We were honored to participate at a community center located in Castroville where we re-branded to "candy-bot." We used our robot to pass out sweet treats and team goodies!
 bodyEs: Llevamos el robot a escuelas y eventos comunitarios para que la gente lo vea moverse, haga preguntas y conozca a los estudiantes que lo construyeron.
+photo:
+    src: /images/2026/Candybot.jpg
+    alt: Candy Bot
 active: true
 order: 10

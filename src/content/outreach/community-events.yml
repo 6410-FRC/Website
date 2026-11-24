@@ -1,6 +1,9 @@
-titleEn: Community events
+titleEn: Fundraising 
 titleEs: Eventos comunitarios
-bodyEn: We show up where our neighbors gather, from school nights to local festivals, to share what we do.
+bodyEn:  We fundraise at all school events as well as on a monthly basis. We use this opportunity to demonstrate the robot and recruit new members.
 bodyEs: Participamos donde se reúne nuestra comunidad, desde noches escolares hasta festivales locales, para compartir lo que hacemos.
+photo:
+    src: /images/2026/Fundraising/Fundraising.jpg
+    alt: In Progress
 active: true
 order: 30

@@ -16,7 +16,7 @@
 		<div class="prose">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
-		<h2 id="programs-title" class="section-heading">{c.programsTitle}</h2>
+		<h2 id="programs-title" class="section-heading" style="text-align: left;" >{c.programsTitle}</h2>
 		<div class="program-list">
 			{#each view.programs as program, i (program.titleEn)}
 				<div class={['split', { 'split-reverse': i % 2 === 1 }]}>
