@@ -318,3 +318,6 @@ html:has(.lightbox[open]) { overflow: hidden; }
   .lightbox-next { justify-self: start; }
 }
 .page-header .post-meta, .page-header .post-meta span { color: var(--navy); }
+a[href*="mail.google.com"]:hover {
+    text-decoration: underline;
+}
