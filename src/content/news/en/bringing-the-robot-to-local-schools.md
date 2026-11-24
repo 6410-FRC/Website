@@ -1,8 +1,11 @@
 ---
 lang: en
-title: "Bringing the robot to local schools"
-category: outreach
-summary: Where we are headed this year and how to invite us.
+title: "WINGNUTS at Sunset Showdown!"
+category: competition
+summary: First off-season event, filled with thrills!
+photo:
+    src: /images/2026/Candybot.jpg
+    alt: Photo
 published: true
 translationKey: robot-to-local-schools
 ---

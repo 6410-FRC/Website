@@ -3,7 +3,7 @@ description: WINGNUTS 6410 is a student-led robotics team at Everett Alvarez Hig
 hero:
   kicker: FRC Team 6410
   tagline: Students from Salinas, California building robots, and building each other up.
-  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, exposing students in grades 9 - 12 to STEM experiences through participation in competitive robotics all around Northern California. Our Robotics Team provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology. Although our team is relatively small, we are actively recruiting new members and hope to continue growing our journey in the FIRST Robotics Competition. 
+  lead: Team 6410 is a high school robotics team based at Everett Alvarez High School, introducingstudents in grades 9 - 12 to STEM experiences through participation in competitive robotics all around Northern California. Our Robotics Team provides students with valuable hands on experience and opportunities related to future careers in fields such as computer programming,  engineering, and technology. Although our team is relatively small, we are actively recruiting new members and hope to continue growing our journey in the FIRST Robotics Competition. 
   joinLabel: Join the team
   sponsorLabel: Become a sponsor
   photo: 
@@ -12,7 +12,7 @@ hero:
 about:
   title: About us
   body:
-    - "As our team number suggests, we are considered a “veteran team.” Team 6410 was created in 2017 , however operations ceased in 2019. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS."
+    - "As our team number suggests, we are considered a “veteran team.” Team 6410 was created in 2017 , however operations ceased in 2019, where the team was previously known as “Supreme Eagles”. Team 6410 was brought back to life nearly a decade later in early 2026. We are currently a very small team of 5-6 students and are seeking to grow our program at EAHS."
     - "Students specialize in fields of:  Mechanical, Software, Electrical Engineering, as well as non-technical fields such as Fundrasing, Grants, Design, Outreach & so much more. "
     - "Join our team! Must be an EAHS student. "
   actionLabel: Meet the team
@@ -20,13 +20,14 @@ about:
     src: /images/2026/MS2026/image_attachment.jpg
     alt: Team Photo
 robot:
-  label: "Rebuilt 2026"
-  title: Meet Sticky Bot 
-  body: Rebuilt is all about scoring fuel, crossing obstacles, preventing your opponent from scoring and climbing the tower before time runs out. Alliances earn additional rewards for meeting specific scoring thresholds. Sticky Bot is named after all of the adhesive used to secure the radio in place. Fun Fact, our robot has Pokemon cards as good luck boosts, these were found by chance unboxing our new 3D Printer!
+  label: "About FIRST"
+  title: FIRST Robotics Competition
+  body: For Inspiration and Recognition of Science and Technology (FIRST) is a non-profit organization founded by Dean Kamen in 1989 with the goal of inspiring young people to pursue an education in STEM-related fields. Through competition, cooperation, and gracious professionalism, FIRST reaches students throughout the United States and the world. You can find more information at firstinspires.org. The FIRST Robotics Competition is an annual competition in which teams from around the world design, program, and build industrial sized robots within a limited time frame in order to compete in games that change each year. 
+
   actionLabel: See our robots
   photo: 
-    src: /images/2026/SS2026/20261025_084505 (2).jpg
-    alt: Robot Photo
+    src: /images/2026/Logos/FIRST Logo (Color) .jpg
+    alt: FIRST Photo
 life:
   title: Team life
   intro: Building a robot is only part of the season. Here is what our first year of robotics looks like. 
@@ -54,7 +55,7 @@ sponsors:
   title: Thank you to our sponsors
   body: Our sponsors make everything possible, from robot parts, tools, registration and travel. We truly are grateful for your support. If you are intersted in learning more about sponsoring our robotics team, please find the "sponsors" tab. 
   photo:
-    src: /images/2026/Logos/DoW.jpg
+    src: /images/DoW.jpg
     alt: DoW Logo
   actionLabel: See all sponsors
 support:

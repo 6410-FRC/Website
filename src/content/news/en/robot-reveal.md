@@ -1,8 +1,11 @@
 ---
 lang: en
 title: "Robot reveal"
-category: build
+category: competition
 summary: Posted after the team clears the robot for release.
 published: true
+photo:
+    src: /images/2026/Candybot.jpg
+    alt: Photo
 translationKey: robot-reveal
 ---

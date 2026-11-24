@@ -7,8 +7,14 @@
 	let { post, locale, categories, soonLabel }: Props = $props();
 </script>
 
-<li class="card post">
-	<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" />
+<li class="card post"> 
+	{#if post.url}
+		<a href={post.url} 	tabindex="-1" aria-hidden="true">
+			<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" /> 
+		</a>
+	{:else}
+		<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" />
+	{/if}
 	<div class="card-body">
 		<p class="post-meta"><span>{categories[post.category]}</span> · {post.dateLabel ?? soonLabel}</p>
 		<h3>{#if post.url}<a href={post.url}>{post.title}</a>{:else}{post.title}{/if}</h3>

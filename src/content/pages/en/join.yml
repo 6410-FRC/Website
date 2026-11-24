@@ -1,17 +1,17 @@
-title: Join
-intro: There is a place on the team for students, mentors, and sponsors.
+title: Join the Team!
+intro: ""
 body:
   - Whether you are a student who wants to build, a professional who wants to mentor, or a company that wants to help, there is a place for you here.
 paths:
   - title: Students
-    body: Any student at Everett Alvarez High School can join. No experience is needed. You will learn design, machining, wiring, programming, or the business side, and you will help decide what the robot does.
+    body: Any student at Everett Alvarez High School can join. No experience is needed. You will learn design, machining, wiring, programming, or on the business side you can support with merch design, marketing, sponsorships, youth outreach and so much more!
     steps:
-      - Come to a meeting at the start of the season
-      - Try a couple of subteams
-      - Pick one and get to work
-    actionLabel: Ask about joining
+      - Fill out an Application with Kumar
+      - Interest Form 
+      # - url: https://docs.google.com/forms/d/e/1FAIpQLSd1bYqw9l-D04EZo_1FecED1b0XwQvecVAyLCJmLeKWuj_C3A/viewform
+    actionLabel: Learn about the Team
   - title: Mentors
-    body: Engineers, programmers, machinists, teachers, and organized adults of all kinds help us learn. Mentors teach skills, keep the shop safe, and let students make the calls.
+    body: Engineers, programmers, machinists, teachers, and passionate community members are welcome to mentor. Mentors teach skills, keep the shop safe, and let students make the calls.
     steps:
       - Tell us about your background
       - Complete the school volunteer process
@@ -26,7 +26,7 @@ paths:
     actionLabel: See sponsorship
 meeting:
   title: When and where we meet
-  body: Meeting days and times are posted at the start of each season. We meet at Everett Alvarez High School in Salinas.
+  body: Location Room 106/107 at Everett Alvarez High School. WINGNUTS meets every Thursday during Homeroom during the regular school schedule, Fridays afterschool, as well as Saturday mornings. Meeting days may adapt and become more frequent as we near competition dates. 
 contact:
   title: Contact
-  body: Contact forms are coming soon. Until then, reach the team through the school office or send a message to the team email listed by the school.
+  body:  Email 2026fcr6410@gmail.com Phone (831) 796 7600 x 2369

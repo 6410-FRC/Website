@@ -1,8 +1,12 @@
 ---
 lang: en
-title: "Our first event of the season"
+title: "Monterey Scrimmage"
 category: competition
-summary: A recap will be posted after we compete.
+summary: Along with our Local Central Coast Alliance, we were honored to play at Monterey High's first official off-season event on their brand new practice field.
 published: true
+url: https://canva.link/6so1kov71wrffh8
+photo:
+    src: /images/2026/Candybot.jpg
+    alt: Photo
 translationKey: first-event
 ---
