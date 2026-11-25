@@ -2,6 +2,7 @@
 	/**
 	 * Wingnuts rain down the screen when the home page loads and pile up along the bottom. Then they vanish one
 	 * at a time in a random order, each fading slowly, and the pile keeps settling under gravity as they go.
+	 * They spin freely in the air; hitting each other, the walls or the floor changes their spin and sets them rolling.
 	 * They sit on top of the page but never block clicks. Skipped for visitors who have turned animations off.
 	 *
 	 * To change the picture: replace static/images/wingnut.png with another transparent PNG of the same name
@@ -19,9 +20,83 @@
 	const VANISH = 6000;
 	/** How long one wingnut takes to fade out, in milliseconds. */
 	const FADE = 1100;
+	/** Sound effects: soft thuds when wingnuts land. `false` turns them off. */
+	const SOUND = true;
+	/** How loud the sound effects are, from 0 (silent) to 1. */
+	const VOLUME = 0.9;
+	/**
+	 * Which hits make a sound. 'floor': only wingnuts landing on the bottom of the screen thud.
+	 * 'all': wingnuts landing on other wingnuts thud too, more quietly, so the pile building up is not silent.
+	 */
+	type Thuds = 'floor' | 'all';
+	const THUDS: Thuds = 'all';
 
 	let pieces = $state<number[]>([]);
 	let layer = $state<HTMLElement>();
+
+	/*
+	 * Sound is made on the spot with the Web Audio API, so there are no audio files. Browsers keep a page silent
+	 * until the visitor clicks, taps or presses a key on it, so the very first shower of a visit makes no sound;
+	 * showers after any click do (for example clicking the logo to make it rain again).
+	 */
+	let audio: AudioContext | undefined;
+	let out: GainNode | undefined;
+	let noise: AudioBuffer | undefined;
+	let lastThud = 0;
+
+	/** Called on the visitor's first click, tap or key press: after this the page is allowed to make sound. */
+	function wake() {
+		if (!SOUND) return;
+		if (!audio) {
+			const Ctx = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+			if (!Ctx) return;
+			audio = new Ctx();
+			out = audio.createGain();
+			out.gain.value = VOLUME;
+			const squash = audio.createDynamicsCompressor();
+			out.connect(squash);
+			squash.connect(audio.destination);
+			noise = audio.createBuffer(1, audio.sampleRate * 0.25, audio.sampleRate);
+			const data = noise.getChannelData(0);
+			for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+		}
+		if (audio.state === 'suspended') audio.resume();
+	}
+	/** Where a sound comes from, left to right, so it matches where it happened on screen. */
+	function placed(pan: number): AudioNode {
+		if (!audio!.createStereoPanner) return out!;
+		const side = audio!.createStereoPanner();
+		side.pan.value = Math.max(-1, Math.min(1, pan));
+		side.connect(out!);
+		return side;
+	}
+	/** A landing: a low, short, muffled bump. `soft` is for a wingnut landing on other wingnuts rather than the floor. */
+	function thud(strength: number, pan: number, soft = false) {
+		if (!audio || !noise || audio.state !== 'running') return;
+		const now = audio.currentTime;
+		if (now - lastThud < 0.03) return;
+		lastThud = now;
+		const level = (0.3 + Math.min(1, strength) * 0.7) * (soft ? 0.32 : 0.7);
+		const dest = placed(pan);
+		const tone = audio.createOscillator();
+		const amp = audio.createGain();
+		/* Low, but not so low that laptop and phone speakers cannot reproduce it. */
+		tone.frequency.setValueAtTime(190 + Math.random() * 40, now);
+		tone.frequency.exponentialRampToValueAtTime(95, now + 0.11);
+		amp.gain.setValueAtTime(level, now);
+		amp.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+		tone.connect(amp); amp.connect(dest);
+		tone.start(now); tone.stop(now + 0.16);
+		const puff = audio.createBufferSource();
+		const dull = audio.createBiquadFilter();
+		const quiet = audio.createGain();
+		puff.buffer = noise;
+		dull.type = 'lowpass'; dull.frequency.value = 900;
+		quiet.gain.setValueAtTime(level * 0.7, now);
+		quiet.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+		puff.connect(dull); dull.connect(quiet); quiet.connect(dest);
+		puff.start(now); puff.stop(now + 0.07);
+	}
 
 	let frame = 0;
 	/** Counts the showers started, so an older one stops as soon as a newer one begins. */
@@ -57,9 +132,15 @@
 			if (link && !link.target && link.origin === location.origin && link.pathname === location.pathname && !link.hash) start();
 		};
 		document.addEventListener('click', onclick);
-		return () => document.removeEventListener('click', onclick);
+		/* Any of these counts as the visitor's first interaction; browsers differ on which ones unlock sound. */
+		const unlock = ['pointerdown', 'mousedown', 'mouseup', 'touchend', 'click', 'keydown'];
+		for (const type of unlock) document.addEventListener(type, wake, true);
+		return () => {
+			document.removeEventListener('click', onclick);
+			for (const type of unlock) document.removeEventListener(type, wake, true);
+		};
 	});
-	onDestroy(() => { shower++; if (typeof cancelAnimationFrame === 'function') cancelAnimationFrame(frame); });
+	onDestroy(() => { shower++; if (typeof cancelAnimationFrame === 'function') cancelAnimationFrame(frame); audio?.close(); audio = undefined; });
 
 	function run(shape: number, small: boolean, mine: number) {
 		if (mine !== shower || !layer) return;
@@ -70,7 +151,7 @@
 			return {
 				el, w, h: w * shape, r: w * 0.3,
 				x: rand(30, window.innerWidth - 30), y: -rand(60, 200),
-				vx: rand(-60, 60), vy: rand(0, 120), a: rand(0, 6.28), va: rand(-4, 4),
+				vx: rand(-60, 60), vy: rand(0, 120), a: rand(0, 6.28), va: rand(-9, 9),
 				wait: i * rand(28, 46), on: false,
 				/* When this one starts to fade (set once the pile settles), and whether it has gone. */
 				leave: Infinity, fadingOut: false, gone: false
@@ -98,12 +179,16 @@
 					}
 					n.vy += 1900 * dt;
 					n.x += n.vx * dt; n.y += n.vy * dt; n.a += n.va * dt;
-					if (n.x < n.r) { n.x = n.r; n.vx = Math.abs(n.vx) * 0.4; }
-					if (n.x > width - n.r) { n.x = width - n.r; n.vx = -Math.abs(n.vx) * 0.4; }
+					/* Touching a wall or the floor grips the wingnut: sliding turns into spin and spin into rolling. */
+					if (n.x < n.r) { n.x = n.r; n.vx = Math.abs(n.vx) * 0.4; const slip = n.vy - n.va * n.r; n.vy -= slip * 0.2; n.va += (slip * 0.2) / n.r; }
+					if (n.x > width - n.r) { n.x = width - n.r; n.vx = -Math.abs(n.vx) * 0.4; const slip = n.vy + n.va * n.r; n.vy -= slip * 0.2; n.va -= (slip * 0.2) / n.r; }
 					if (n.y > height - n.r) {
+						if (n.vy > 260) thud(n.vy / 1400, (n.x / width) * 2 - 1);
 						n.y = height - n.r;
-						n.vy = -n.vy * 0.22; n.vx *= 0.82;
-						n.va = n.va * 0.6 + (n.vx / n.r) * 0.4;
+						n.vy = -n.vy * 0.22;
+						const slip = n.vx - n.va * n.r;
+						n.vx -= slip * 0.3; n.va += (slip * 0.3) / n.r;
+						n.vx *= 0.94;
 					}
 				}
 				/* Wingnuts push each other apart, treated as circles. */
@@ -121,18 +206,24 @@
 							q.x += nx * push; q.y += ny * push;
 							const closing = (q.vx - p.vx) * nx + (q.vy - p.vy) * ny;
 							if (closing < 0) {
+								if (THUDS === 'all' && closing < -320) thud(-closing / 1500, ((p.x + q.x) / width) - 1, true);
 								const hit = closing * 0.56;
 								p.vx += nx * hit; p.vy += ny * hit;
 								q.vx -= nx * hit; q.vy -= ny * hit;
-								p.va *= 0.9; q.va *= 0.9;
 							}
+							/* Where two wingnuts rub, friction passes spin between them: a glancing hit sets both turning. */
+							const tx = -ny, ty = nx;
+							const rub = ((q.vx - p.vx) * tx + (q.vy - p.vy) * ty - q.va * q.r - p.va * p.r) * 0.1;
+							p.vx += tx * rub; p.vy += ty * rub;
+							q.vx -= tx * rub; q.vy -= ty * rub;
+							p.va += rub / p.r; q.va += rub / q.r;
 						}
 					}
 				}
 				for (const n of nuts) {
 					if (!n.on || n.gone) continue;
 					if (n.y > height - n.r) { n.y = height - n.r; if (n.vy > 0) n.vy = 0; }
-					n.vx *= 0.992; n.va *= 0.985;
+					n.vx *= 0.992; n.va *= 0.999;
 				}
 			}
 			let fastest = 0, waiting = false, left = 0;
