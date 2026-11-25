@@ -30,7 +30,7 @@
 
 <!-- About -->
 <section class="section" aria-labelledby="about-title">
-	<div class="container split about-grid">
+	<div class="container split">
 		<div>
 			<h2 id="about-title">{c.about.title}</h2>
 			{#each c.about.body as paragraph}<p>{paragraph}</p>{/each}

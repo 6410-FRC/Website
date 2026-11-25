@@ -1,7 +1,8 @@
 title: Sponsors
 intro: " "
 body:
-  - Thank you to the partners who make every season possible for students in Salinas. Building a competition robot takes parts, tools, registration fees, and travel.    Our sponsors cover those costs and give students in Salinas the opportunity to do real hands-on engineering.
+  - Thank you to the partners who make every season possible for students in Salinas.
+  - Building a competition robot takes parts, tools, registration fees, and travel. Our sponsors cover those costs and give students in Salinas the opportunity to do real hands-on engineering.
 why:
   title: Why Sponsor Us? 
   items:
@@ -46,7 +47,7 @@ wall:
     Supporter: Supporter
   # Shown in a tier that has no sponsor yet. {tier} becomes the tier's name.
   emptyTitle: Your logo here
-  emptyBody: Become our first {tier} sponsor
+  emptyBody: Be a {tier} sponsor!
   supporterBody: Every contribution helps the team grow. Supporters are listed here by name.
   supporterInvite: Add your name
   # Supporter names, one per line starting with "- ". Leave as [] for none.
