@@ -22,6 +22,7 @@ mentors:
   body: The engineers & teachers who work alongside our students through the season. Mentors help to foster the idea of Gracious Professionalism® and have the students do as much of the work as possible.
   photo:
     src: "/images/2026/In progress photo.jpg"
+    expand: false
     alt: Mentor photo coming soon
 cta:
   title: Want to be part of it?

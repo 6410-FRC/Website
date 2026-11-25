@@ -24,7 +24,7 @@
 						<h3>{pick(program.titleEn, program.titleEs)}</h3>
 						<p>{pick(program.bodyEn, program.bodyEs)}</p>
 					</div>
-					<Media photo={program.photo} label={t.photoSoon} ratio="4 / 3" tone={i % 2 === 1 ? 'navy' : 'gray'} />
+					<Media photo={program.photo} label={t.photoSoon} ratio="4 / 3" tone={i % 2 === 1 ? 'navy' : 'gray'} title={pick(program.titleEn, program.titleEs)} />
 				</div>
 			{/each}
 		</div>

@@ -63,7 +63,7 @@
 		<ul class="cards cards-3">
 			{#each c.life.cards as card}
 				<li class="card">
-					<Media photo={card.photo} label={t.photoSoon} ratio="4 / 3" tone="gray" />
+					<Media photo={card.photo} label={t.photoSoon} ratio="4 / 3" tone="gray" title={card.title} text={card.caption} />
 					<div class="card-body">
 						<h3>{card.title}</h3>
 						<p>{card.caption}</p>
