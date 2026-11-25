@@ -16,7 +16,7 @@
 
 <section class="section section-tight" aria-label={locale === 'es' ? 'Caminos para unirse' : 'Ways to join'}>
 	<div class="container" style="text-align: center;">
-		<div class="prose" style="font-size: 1rem; text-align: center;">
+		<div class="prose" style="font-size: 1.4rem; font-weight: 600; text-align: center; color: var(--navy);">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
 		<ul class="cards cards-3">

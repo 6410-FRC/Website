@@ -61,6 +61,8 @@ sponsors:
   actionLabel: How you can be a sponsor!
 support:
   title: Support the team
-  body: Sponsorships, donations, and mentor time all help students in Salinas build something real. We would love to talk.
+  body: |
+    Sponsorships, donations, and mentor time all help students in Salinas build something real.
+    We would love to talk.
   actionLabel: Become a sponsor
   secondaryLabel: Join the team

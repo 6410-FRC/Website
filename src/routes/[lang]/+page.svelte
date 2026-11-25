@@ -109,7 +109,7 @@
 <section class="section band-navy support" aria-labelledby="support-title">
 	<div class="container support-inner">
 		<h2 id="support-title">{c.support.title}</h2>
-		<p>{c.support.body}</p>
+		<p style="white-space: pre-line;">{c.support.body}</p>
 		<div class="button-row">
 			<a class="button button-gold" href={settings.sponsorFormUrl || routeFor(locale, 'sponsors')}>{c.support.actionLabel}</a>
 <a class="button button-gold" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.support.secondaryLabel}</a>		</div>

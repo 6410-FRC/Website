@@ -15,7 +15,7 @@
 
 <section class="section section-tight" aria-label={ui[locale].nav.news}>
 	<div class="container">
-		<div class="prose" style="text-align: center;">
+		<div class="prose" style="font-size: 1.4rem; font-weight: 600; text-align: center; color: var(--navy);">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
 		<ul class="category-list" aria-label={locale === 'es' ? 'Filtrar por categoría' : 'Filter by category'}>
