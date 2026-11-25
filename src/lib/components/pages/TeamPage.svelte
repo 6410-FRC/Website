@@ -34,7 +34,6 @@
         {locale === 'es' ? '¿Qué roles te interesan?' : 'Which roles interest you?'}
     </a>
 </p>
-values:
 		</div>
 		<ul class="cards cards-3">
 			{#each view.subteams as team (team.nameEn)}
