@@ -2,6 +2,7 @@
 	import Media from '#lib/components/Media.svelte';
 	import NewsCard from '#lib/components/NewsCard.svelte';
 	import SponsorGrid from '#lib/components/SponsorGrid.svelte';
+	import WingnutRain from '#lib/components/WingnutRain.svelte';
 	import { routeFor, splitTeamName, ui } from '#lib/site.ts';
 
 	let { data } = $props();
@@ -10,6 +11,8 @@
 	const t = $derived(ui[locale]);
 	const brand = $derived(splitTeamName(settings.teamName));
 </script>
+
+<WingnutRain />
 
 <!-- Hero -->
 <section class="hero" aria-labelledby="hero-title">
