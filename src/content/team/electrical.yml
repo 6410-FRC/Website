@@ -5,4 +5,5 @@ summaryEs: Cablea el robot, monta sensores y motores, y mantiene todo seguro y c
 photo:
    src: /images/Electrical.jpg
    alt: Electrical
+   altEs: Subequipo de electricidad
 order: 20

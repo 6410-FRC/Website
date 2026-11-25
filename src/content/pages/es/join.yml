@@ -1,32 +1,31 @@
-title: Únete
-intro: Hay lugar en el equipo para estudiantes, mentores y patrocinadores.
+title: ¡Únete al equipo!
+intro: ""
 body:
   - Si eres estudiante y quieres construir, profesional y quieres ser mentor, o una empresa que quiere ayudar, aquí hay un lugar para ti.
 paths:
   - title: Estudiantes
-    body: Cualquier estudiante de Everett Alvarez High School puede unirse. No se necesita experiencia. Aprenderás diseño, fabricación, cableado, programación o la parte de negocios, y ayudarás a decidir qué hace el robot.
+    body: Cualquier estudiante de Everett Alvarez High School puede unirse. No se necesita experiencia. Puedes aprender diseño, fabricación, cableado y programación. También puedes ayudar a diseñar productos del equipo, difundir nuestro trabajo, conseguir patrocinios u organizar actividades para jóvenes.
     steps:
-      - Ven a una reunión al inicio de la temporada
-      - Prueba un par de subequipos
-      - Elige uno y ponte a trabajar
-    actionLabel: Pregunta cómo unirte
+      - Completa una solicitud con la Sra. Kumar
+      - Llena el formulario de interés
+    actionLabel: Conoce al equipo
   - title: Mentores
-    body: Ingenieros, programadores, maquinistas, maestros y adultos organizados de todo tipo nos ayudan a aprender. Los mentores enseñan habilidades, cuidan la seguridad del taller y dejan que los estudiantes decidan.
+    body: Invitamos a ingenieros, programadores, especialistas en maquinado, docentes y personas de la comunidad a ser mentores. Los mentores comparten sus conocimientos, mantienen el taller seguro y dejan que los estudiantes tomen las decisiones.
     steps:
       - Cuéntanos sobre tu experiencia
       - Completa el proceso de voluntariado de la escuela
       - Acompáñanos en el taller
-    actionLabel: Pregunta sobre mentoría
+    actionLabel: Pregunta cómo ser mentor
   - title: Patrocinadores
-    body: Empresas y miembros de la comunidad financian las piezas, herramientas, inscripción y viajes que hacen posible la temporada. Todo nivel de apoyo ayuda.
+    body: Empresas y miembros de la comunidad financian las piezas, las herramientas, la inscripción y los viajes que hacen posible la temporada. Cualquier aporte ayuda. También agradecemos las donaciones en especie.
     steps:
       - Lee nuestra página de patrocinio
       - Contacta al equipo
       - Recibe reconocimiento en cada evento
-    actionLabel: Ver patrocinio
+    actionLabel: Ver opciones de patrocinio
 meeting:
   title: Cuándo y dónde nos reunimos
-  body: Los días y horarios de reunión se publican al inicio de cada temporada. Nos reunimos en Everett Alvarez High School en Salinas.
+  body: Nos reunimos en el salón 106/107 de Everett Alvarez High School. Durante el ciclo escolar, WINGNUTS se reúne los jueves durante el periodo de tutoría (Homeroom), los viernes después de clases y los sábados por la mañana. Los horarios pueden cambiar y las reuniones pueden ser más frecuentes al acercarse las competencias.
 contact:
   title: Contacto
-  body: Los formularios de contacto estarán disponibles pronto. Mientras tanto, comunícate con el equipo a través de la oficina de la escuela o al correo del equipo publicado por la escuela.
+  body: Correo 2026frc6410@gmail.com Teléfono (831) 796-7600 ext. 2369

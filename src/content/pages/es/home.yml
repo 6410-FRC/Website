@@ -1,41 +1,61 @@
-title: Equipo FRC 6410 · Salinas, CA
-description: WingNuts 6410 es el equipo estudiantil de FIRST Robotics Competition de Everett Alvarez High School en Salinas, California.
+title: Equipo FRC 6410 - Salinas, CA
+description: WINGNUTS 6410 es un equipo de robótica dirigido por estudiantes de Everett Alvarez High School.
 hero:
-  kicker: FIRST Robotics Competition, Equipo 6410
-  tagline: Estudiantes de Salinas construyendo robots y apoyándonos unos a otros.
-  lead: Cada año diseñamos, construimos, programamos y competimos con un robot nuevo. En el camino aprendemos ingeniería, trabajo en equipo y cómo terminar un gran proyecto.
+  kicker: Equipo FRC 6410
+  tagline: Estudiantes de Salinas, California, que construyen robots y se apoyan entre sí.
+  lead: El Equipo 6410 es un equipo de robótica de Everett Alvarez High School. Estudiantes de 9.º a 12.º grado descubren las áreas STEM al participar en competencias de robótica por el norte de California. El programa les brinda experiencia práctica y oportunidades para explorar carreras en programación, ingeniería y tecnología.
   joinLabel: Únete al equipo
-  sponsorLabel: Sé patrocinador
+  sponsorLabel: Patrocina al equipo
+  photo:
+    src: /images/2026/MS2026/IMG_20261115_140729.jpg
+    alt: Foto grupal en el Monterey Scrimmage de 2026
 about:
   title: Sobre nosotros
   body:
-    - WingNuts es el equipo de FRC de Everett Alvarez High School. Somos estudiantes de preparatoria que pasamos la temporada en el taller aprendiendo a diseñar, fabricar, cablear y programar un robot de competencia.
-    - Los estudiantes lideran cada parte del equipo, desde el diseño mecánico hasta la relación con patrocinadores. Los mentores nos ayudan a aprender las herramientas y a trabajar con seguridad, pero las decisiones son nuestras.
+    - El Equipo 6410 está integrado por estudiantes de Everett Alvarez High School en Salinas, California. Se fundó en 2017 con el nombre Supreme Eagles. Después de una pausa, Evan Tran y la Sra. Kumar reactivaron el programa y lo reincorporaron a la comunidad de FIRST Robotics Competition.
+    - La temporada 2026 marcó nuestro primer año de regreso a FIRST Robotics Competition. Somos un equipo pequeño de entre cinco y seis integrantes, con grandes metas y entusiasmo por la robótica y la educación STEM. Construir el robot fue un reto mayor de lo esperado. Buscamos más integrantes, mentores, patrocinadores y recursos para fortalecer el club y seguir mejorando en futuras competencias.
+    - Los estudiantes se especializan en mecánica, programación e ingeniería eléctrica. También pueden participar en recaudación de fondos, solicitudes de subvenciones, diseño, actividades comunitarias y mucho más.
+    - ¡Únete al equipo! Debes estudiar en Everett Alvarez High School.
   actionLabel: Conoce al equipo
+  photo:
+    src: /images/2026/MS2026/image_attachment.jpg
+    alt: Foto del equipo
 robot:
-  label: "2026"
-  title: Revelación del robot tras la autorización del equipo
-  body: Nuestro robot 2026 está en proceso. Las fotos y los detalles se publicarán aquí cuando el equipo autorice su publicación.
-  actionLabel: Mira nuestros robots
+  label: Sobre FIRST
+  title: FIRST Robotics Competition
+  body: FIRST (For Inspiration and Recognition of Science and Technology) es una organización sin fines de lucro fundada por Dean Kamen en 1989 para inspirar a jóvenes a estudiar áreas STEM. Por medio de la competencia, la cooperación y Gracious Professionalism®, FIRST llega a estudiantes de Estados Unidos y de todo el mundo. En firstinspires.org encontrarás más información. En FIRST Robotics Competition, equipos de todo el mundo diseñan, programan y construyen robots de tamaño industrial en un tiempo limitado para competir en un juego distinto cada año.
+  actionLabel: Conoce nuestros robots
+  photo:
+    src: /images/2026/Logos/FIRST Logo (Color) .jpg
+    alt: Logotipo de FIRST
 life:
   title: Vida del equipo
-  intro: Construir un robot es solo una parte de la temporada. Así se ve el año.
+  intro: Construir un robot es solo una parte de la temporada. Así fue nuestro primer año de robótica.
   cards:
-    - title: Construcción
-      caption: Diseño, prototipos y noches largas en el taller.
-    - title: Competencia
-      caption: Partidos, el pit y porras desde las gradas.
+    - title: Talleres
+      caption: Fuera de temporada, aprendemos diseño asistido por computadora (CAD), impresión 3D y circuitos en talleres. En la foto, los estudiantes aprenden a fabricar placas de circuitos para luego enseñarles a estudiantes de secundaria.
+      photo:
+        src: /images/2026/Workshop.jpg
+        alt: Estudiantes en un taller de electrónica
+    - title: Competencias fuera de temporada
+      caption: ¡Participamos en tres competencias fuera de temporada durante nuestro primer año! Practicar el manejo del robot fue un gran logro para nuestro equipo debutante.
+      photo:
+        src: /images/2026/Driving Practice.jpg
+        alt: Práctica de manejo del robot
     - title: Comunidad
-      caption: Demostraciones, noches STEM y compartir lo que amamos.
+      caption: Queremos acercar la educación STEM a nuestra comunidad. Como equipo nuevo, seguimos creando oportunidades para compartir con jóvenes lo que hacemos y el impacto que puede tener la educación STEM. Estamos organizando nuevos eventos. ¡Mantente al tanto!
+      photo:
+        src: /images/Lunch.jpg
+        alt: Integrantes del equipo durante el almuerzo
 news:
   title: Últimas novedades
   actionLabel: Todas las noticias
 sponsors:
   title: Gracias a nuestros patrocinadores
-  body: Nuestros patrocinadores hacen todo posible, desde piezas y herramientas hasta la inscripción y los viajes.
-  actionLabel: Ver todos los patrocinadores
+  body: Nuestros patrocinadores hacen posible todo, desde las piezas del robot y las herramientas hasta la inscripción y los viajes. Agradecemos mucho su apoyo. Si quieres patrocinar al equipo, visita la sección Patrocinadores.
+  actionLabel: Descubre cómo patrocinar al equipo
 support:
   title: Apoya al equipo
-  body: Los patrocinios, las donaciones y el tiempo de los mentores ayudan a estudiantes de Salinas a construir algo real. Nos encantaría platicar.
-  actionLabel: Sé patrocinador
+  body: Los patrocinios, las donaciones y el tiempo de los mentores ayudan a estudiantes de Salinas a llevar sus ideas a la práctica. Nos encantaría platicar contigo.
+  actionLabel: Patrocina al equipo
   secondaryLabel: Únete al equipo

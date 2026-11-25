@@ -5,4 +5,5 @@ summaryEs: Diseña, fabrica y ensambla el robot, desde los modelos CAD hasta el 
 photo:
    src: /images/Mechanical.jpg
    alt: Mechanical
+   altEs: Subequipo de mecánica
 order: 10

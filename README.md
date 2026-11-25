@@ -33,7 +33,7 @@ If a file has a typo or is missing something, `npm run dev` and `npm run build` 
 
 ## Common edits
 
-**Add a photo.** Put the picture in `static/images/`, then point to it from the content file. A description (`alt`) is required.
+**Add a photo.** Put the picture in `static/images/`, then point to it from the content file. A description (`alt`) is required. For photos shared by both languages, add `altEs` for the Spanish description.
 
 ```yaml
 photo:
@@ -43,7 +43,7 @@ photo:
   credit: Optional photo credit
 ```
 
-**Add a news story.** Create `src/content/news/en/my-story.md` (and a Spanish one in `news/es/` if you have it). A story with text below the header gets its own page; one without text only shows as a card.
+**Add a news story.** Create `src/content/news/en/my-story.md` and its translation in `news/es/`, using the same `translationKey` on both. For a localized display date such as `marzo de 2026`, set `sortDate: "2026-03-01"` to keep the news in chronological order. A story with text below the header gets its own page. A story without text only shows as a card.
 
 ```md
 ---
@@ -68,7 +68,7 @@ logo:
 website: https://example.com
 ```
 
-The Sponsors page groups logos by tier, largest tier first. Supporter names and the Special Thanks names are lists in the `wall` block of `src/content/pages/en/sponsors.yml` (and `es/`).
+The Sponsors page groups logos by tier, largest tier first. Both languages use the Supporter and Special Thanks names from the `wall` block of `src/content/pages/en/sponsors.yml`.
 
 **Show a robot season.** In `src/content/seasons/2026.yml`, set `public: true` and fill in `robotName`, `gameName`, `summaryEn`, `summaryEs`, `photo` and `blueAllianceUrl`. The newest public season is featured; older ones fill the archive.
 

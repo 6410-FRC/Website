@@ -1,41 +1,40 @@
 title: Patrocinadores
-intro: Las personas y empresas que hacen posible nuestra temporada.
+intro: " "
 body:
-  - Construir un robot de competencia requiere piezas, herramientas, cuotas de inscripción y viajes. Nuestros patrocinadores cubren esos costos y dan a estudiantes de Salinas la oportunidad de hacer ingeniería real.
+  - Gracias a quienes hacen posible cada temporada para los estudiantes de Salinas. Construir un robot de competencia requiere piezas, herramientas, cuotas de inscripción y viajes. Nuestros patrocinadores cubren esos costos y les dan a los estudiantes oportunidades de aplicar la ingeniería en la práctica.
 why:
-  title: Por qué patrocinar a WingNuts
+  title: ¿Por qué patrocinar al equipo?
   items:
     - title: Financia la temporada
-      body: Inscripción, materiales, herramientas, equipo de seguridad y transporte a los eventos.
-    - title: Llega a los estudiantes
-      body: Apoya la educación STEM práctica de estudiantes de preparatoria en el Valle de Salinas.
-    - title: Obtén reconocimiento
-      body: Tu nombre en el robot, el pit, las playeras del equipo, este sitio web y en cada evento.
+      body: Apoya a los estudiantes cubriendo los costos de inscripción, materiales, herramientas, equipo de seguridad, comida, hospedaje y transporte a las competencias.
+    - title: Apoya a los estudiantes
+      body: Impulsa la educación práctica en STEM para estudiantes de preparatoria del Valle de Salinas. También aceptamos donaciones en especie, como alimentos, tarjetas de regalo, madera y otros materiales.
+    - title: Recibe reconocimiento
+      body: Tu nombre aparecerá en el robot, el área del equipo en las competencias, las playeras, este sitio web y en cada evento.
 tiers:
   title: Niveles de patrocinio
-  intro: Los montos y los beneficios completos están en nuestro paquete de patrocinio.
+  intro: Consulta los montos y todos los beneficios en nuestro paquete de patrocinio.
   items:
-    - name: Platino
+    - name: Colaborador
       benefits:
-        - Logotipo grande en el robot y la lona del pit
-        - Logotipo en las playeras del equipo
-        - Logotipo y enlace en este sitio
-        - Visita del equipo o demostración del robot
-    - name: Oro
-      benefits:
-        - Logotipo en el robot y la lona del pit
-        - Logotipo en las playeras del equipo
-        - Logotipo y enlace en este sitio
-    - name: Plata
-      benefits:
-        - Logotipo en la lona del pit
-        - Logotipo en este sitio
+        - Nombre en la lista de colaboradores del equipo
+        - Agradecimiento en las redes sociales del equipo
     - name: Bronce
       benefits:
-        - Nombre en la lona del pit
-        - Nombre en este sitio
-  packetNote: El paquete de patrocinio (inglés y español) estará disponible para descargar pronto.
-# El muro de patrocinadores al inicio de la página. Los patrocinadores y sus niveles están en src/content/sponsors/.
+        - Nombre en la lona del equipo
+        - Reconocimiento en las redes sociales del equipo
+        - Todos los beneficios del nivel Colaborador
+    - name: Oro
+      benefits:
+        - Lugar destacado en la lona del área del equipo
+        - Reconocimiento verbal en competencias y eventos comunitarios
+        - Todos los beneficios del nivel Plata
+    - name: Platino
+      benefits:
+        - Recorrido por el taller
+        - Placa personalizada
+        - Todos los beneficios del nivel Oro
+  packetNote: El paquete de patrocinio estará disponible para descargar pronto. ¿Te interesa patrocinar al equipo? Escribe a 2026frc6410@gmail.com
 wall:
   tierNames:
     Diamond: Diamante
@@ -45,16 +44,11 @@ wall:
     Bronze: Bronce
     Supporter: Colaboradores
   emptyTitle: Tu logotipo aquí
-  emptyBody: Sé nuestro primer patrocinador {tier}
-  supporterBody: Cada aportación ayuda al equipo a crecer. Aquí aparecen los nombres de quienes nos apoyan.
+  emptyBody: Sé quien inaugure el nivel {tier} como patrocinador
+  supporterBody: Cada aportación ayuda al equipo a crecer. Aquí reconocemos por nombre a quienes nos apoyan.
   supporterInvite: Agrega tu nombre
-  supporters: []
   thanksTitle: Agradecimientos especiales
-  thanks:
-    - Sheenal Kumar
-    - Israel Fernandez
-    - Daniel Lopez
 cta:
-  title: ¿Listo para apoyar al equipo?
+  title: ¿Quieres apoyar al equipo?
   body: Contáctanos para hablar de patrocinio, donaciones en especie o mentoría.
   actionLabel: Contacta al equipo

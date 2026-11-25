@@ -16,7 +16,7 @@
 
 <section class="section section-tight" aria-label={locale === 'es' ? 'Caminos para unirse' : 'Ways to join'}>
 	<div class="container" style="text-align: center;">
-		<div class="prose" style="white-space: nowrap; font-size: 1rem; text-align: center;">
+		<div class="prose">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
 		<ul class="cards cards-3">
@@ -45,11 +45,11 @@
 		<div class="panel">
 			<h2>{c.contact.title}</h2>
 			<p>
-    {#each c.contact.body.split(/(Email|Phone|2026frc6410@gmail\.com)/) as part}
-        {#if part === 'Phone'}
+    {#each c.contact.body.split(/(Email|Phone|Correo|Teléfono|2026frc6410@gmail\.com)/) as part}
+        {#if part === 'Phone' || part === 'Teléfono'}
             <br />
             <strong>{part}</strong>
-        {:else if part === 'Email'}
+        {:else if part === 'Email' || part === 'Correo'}
             <strong>{part}</strong>
         {:else if part === '2026frc6410@gmail.com'}
             <a href={settings.contactFormUrl} target="_blank" rel="noopener">

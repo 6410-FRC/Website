@@ -5,4 +5,5 @@ summaryEs: Maneja el robot en competencia y estudia a los demás equipos para pl
 photo:
    src: /images/Scouting.jpg
    alt: Scouting 
+   altEs: Observación de equipos en competencia
 order: 50

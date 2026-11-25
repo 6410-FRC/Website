@@ -1,25 +1,28 @@
 title: Robots
-intro: Nuestros robots, temporada por temporada.
+intro: ""
 current:
-  title: Esta temporada
+  title: Rebuilt 2026
+  photo:
+    src: /images/2026/Robot Photo.jpg
+    alt: Foto del robot Sticky Bot
   label: Robot 2026
-  heading: Revelación del robot tras la autorización del equipo
-  body: Nuestro robot 2026 se está construyendo ahora mismo. Las fotos, el nombre del robot y los detalles se publicarán cuando el equipo autorice su publicación.
+  heading: Sticky Bot
+  body: En Rebuilt, el juego de este año, los equipos anotan con piezas de combustible, cruzan obstáculos e intentan impedir que sus rivales anoten. Nuestro robot se centró en la defensa, ayudando a bloquear a las alianzas rivales y a apoyar a nuestros compañeros en la cancha. Con los materiales, recursos y experiencia limitados de un equipo debutante, superamos problemas mecánicos y reparaciones constantes. Incluso cambiamos varias veces las barras hexagonales de acero que se doblaron durante el evento. Sticky Bot reflejó nuestro crecimiento técnico y la determinación con la que trabajamos juntos en nuestra primera temporada. Como amuleto, el robot lleva cartas de Pokémon que encontramos por casualidad al desempacar nuestra nueva impresora 3D.
 archive:
   title: Archivo de robots
-  body: Las temporadas anteriores se agregarán aquí conforme el equipo complete el archivo. Cada entrada incluirá el juego, el robot y fotos de la competencia.
+  body: Agregaremos las temporadas anteriores conforme el equipo complete el archivo. Cada entrada incluirá el juego, el robot y fotos de la competencia.
   placeholderTitle: Temporada anterior
   placeholderCaption: Fotos y detalles próximamente
 process:
-  title: Cómo funciona una temporada
+  title: Etapas de una temporada de robótica
   items:
-    - title: Kickoff
-      body: En enero, FIRST revela un juego nuevo. Leemos las reglas y decidimos cómo queremos jugarlo.
-    - title: Diseño y construcción
-      body: Hacemos prototipos, modelamos el robot en CAD, fabricamos piezas, lo cableamos y escribimos el código.
-    - title: Competencia
-      body: Llevamos el robot a eventos regionales, trabajamos en el pit entre partidos y hacemos scouting de otros equipos.
+    - title: Lanzamiento (enero)
+      body: En enero, FIRST presenta un nuevo juego. Los equipos de robótica del condado de Monterey se reúnen para hablar de estrategia y recibir su kit de piezas. El equipo obtiene el kit al pagar la inscripción.
+    - title: Diseño y construcción (enero a febrero)
+      body: Construimos juntos el robot base con el kit, lo probamos y lo mejoramos. Tenemos seis semanas para desarrollar el robot y prepararlo para competir.
+    - title: Competencias (marzo a abril)
+      body: Llevamos el robot a eventos regionales en el norte de California. Entre partidos, trabajamos en el área técnica para repararlo o ajustarlo y observamos a otros equipos para conocer cómo trabajan.
 cta:
   title: Sigue el proceso
-  body: Las novedades de construcción y los resúmenes de competencia se publican en la página de Noticias.
+  body: Las novedades sobre la construcción y los resúmenes de las competencias se publican en la sección Noticias.
   actionLabel: Lee las noticias
