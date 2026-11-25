@@ -58,7 +58,7 @@ published: true
 The story goes here, written in Markdown.
 ```
 
-**Change the falling wingnut picture.** The home page rains small wingnuts when it loads. To use a different picture, replace `static/images/wingnut.png` with another transparent PNG of the same name (about 220px wide is plenty). The number of wingnuts, how long the pile stays, how slowly they vanish, and the landing sound (on or off, and how loud) are set at the top of `src/lib/components/WingnutRain.svelte`.
+**Change the falling wingnut picture.** The home page rains small wingnuts when someone clicks the logo or a Home link (not on a plain page load or refresh). To use a different picture, replace `static/images/wingnut.png` with another transparent PNG of the same name (about 220px wide is plenty). The number of wingnuts, how long the pile stays, how slowly they vanish, and the landing sound (on or off, and how loud) are set at the top of `src/lib/components/WingnutRain.svelte`.
 
 **Add a sponsor.** Put the logo in `static/images/` and create `src/content/sponsors/acme.yml`:
 

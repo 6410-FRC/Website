@@ -1,6 +1,6 @@
 <script lang="ts">
 	/**
-	 * Wingnuts rain down the screen when the home page loads and pile up along the bottom. Then they vanish one
+	 * Wingnuts rain down the screen when a visitor clicks a link to the home page, and pile up along the bottom. Then they vanish one
 	 * at a time in a random order, each fading slowly, and the pile keeps settling under gravity as they go.
 	 * They spin freely in the air; hitting each other, the walls or the floor changes their spin and sets them rolling.
 	 * They sit on top of the page but never block clicks. Skipped for visitors who have turned animations off.
@@ -123,9 +123,12 @@
 		frame = requestAnimationFrame(() => run(shape, wide < 640, mine));
 	}
 
-	/* It rains whenever the home page is arrived at: a fresh load, coming from another page, switching language,
-	   and also a click on a link to the home page while already on it (the logo in the top left). */
-	afterNavigate(() => { start(); });
+	/* It rains only when a visitor clicks a link to the home page: the logo or Home, from another page or while
+	   already on the home page. A fresh load, a refresh, the back button and switching language do not start it.
+	   (A click is also what lets the browser play the landing sounds, so every shower can be heard.) */
+	afterNavigate((navigation) => {
+		if (navigation.type === 'link' && navigation.from?.params?.lang === navigation.to?.params?.lang) start();
+	});
 	onMount(() => {
 		const onclick = (event: MouseEvent) => {
 			const link = (event.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
