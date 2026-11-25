@@ -52,33 +52,33 @@ wall:
   supporterInvite: Add your name
   # Supporter names, one per line starting with "- ". Leave as [] for none.
   supporters: 
-      - Ana Barrera
-      - Brianna Woodard
-      - Mr. Lopez
-      - Eric Espinoza 
-      - Erica Hashiba
-      - Scott Rose
-      - Ivan Garcia 
-      - Fernanda Rodriguez 
-      - Stephanie DeYoung
-      - Brian Tumminelli 
-      - Ruth Ayala 
-      - Tanya Alvarado 
-      - Roanda Susarrey 
-      - Tera Brant 
-      - Diana Gomez 
-      - Stephanie Blomquist 
-      - Maria Villalpando
-      - Jahaira Navarro 
-      - Carlos Albanil 
-      - Ryan Snyder
-      - Jennifer Ostrowski 
-      - Mr. Manie
-      - Rose Adams
       - Adrienne Uribe
-      - Nicolas O'Brien
-      - Geraldine Kau 
+      - Ana Barrera
       - Brenda Jurado
+      - Brian Tumminelli
+      - Brianna Woodard
+      - Carlos Albanil
+      - Diana Gomez
+      - Eric Espinoza
+      - Erica Hashiba
+      - Fernanda Rodriguez
+      - Geraldine Kau
+      - Ivan Garcia
+      - Jahaira Navarro
+      - Jennifer Ostrowski
+      - Maria Villalpando
+      - Mr. Lopez
+      - Mr. Manie
+      - Nicolas O'Brien
+      - Roanda Susarrey
+      - Rose Adams
+      - Ruth Ayala
+      - Ryan Snyder
+      - Scott Rose
+      - Stephanie Blomquist
+      - Stephanie DeYoung
+      - Tanya Alvarado
+      - Tera Brant
   thanksTitle: Special Thanks
   thanks:
     - Sheenal Kumar
