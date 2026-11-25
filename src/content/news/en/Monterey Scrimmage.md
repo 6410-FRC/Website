@@ -1,6 +1,6 @@
 ---
 lang: en
-date: March 2026
+date: November 2026
 title: "Monterey Scrimmage"
 category: competition
 summary: Along with our Local Central Coast Alliance, we were honored to play at Monterey High's first official off-season event on their brand new practice field.
