@@ -33,7 +33,7 @@
 
 <section class="section band-gray" aria-labelledby="tiers-title">
 	<div class="container">
-		<div class="section-title">
+		<div class="section-title center">
 			<h2 id="tiers-title">{c.tiers.title}</h2>
 			<p>{c.tiers.intro}</p>
 		</div>
