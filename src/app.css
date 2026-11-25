@@ -540,3 +540,7 @@ a.wall-logo:hover { transform: scale(1.07); }
   .wall-tendril { animation: none; stroke-dashoffset: 0; }
   .wall-flourish path { animation: none; stroke-dashoffset: 0; }
 }
+
+/* Wingnuts raining down the home page (WingnutRain.svelte): a layer over the whole screen that never blocks clicks ---- */
+.wingnut-rain { position: fixed; inset: 0; z-index: 60; overflow: hidden; pointer-events: none; }
+.wingnut-rain img { position: absolute; top: 0; left: 0; max-width: none; height: auto; opacity: 0; will-change: transform; filter: drop-shadow(0 3px 3px rgb(11 37 69 / .28)); }
