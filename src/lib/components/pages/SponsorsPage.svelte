@@ -35,7 +35,20 @@
 	<div class="container">
 		<div class="section-title center">
 			<h2 id="tiers-title">{c.tiers.title}</h2>
-			<p>{c.tiers.intro}</p>
+			<p>
+    {#each c.tiers.intro.split(/(sponsorship packet)/) as part}
+        {#if part === 'sponsorship packet'}
+            <a class="text-link"
+               href="https://docs.google.com/document/d/1eWS19Xn4C88J3egWaL5Td4f8ndHJ8Sr-FD7L5zqt5to/edit?usp=sharing"
+               target="_blank"
+               rel="noopener">
+                {part}
+            </a>
+        {:else}
+            {part}
+        {/if}
+    {/each}
+</p>
 		</div>
 		{#if showLevelCards}
 		<ul class="cards cards-4">

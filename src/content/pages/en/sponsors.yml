@@ -34,7 +34,7 @@ tiers:
         - Tour of lab space
         - Customized Plaque
         - All Gold Benefits 
-  packetNote: Interested in sponsoring? 2026frc6410@gmail.com 
+  packetNote: Interested in sponsoring? Email us at 2026frc6410@gmail.com 
 # The sponsor wall at the top of the page. Sponsors and their tiers are in src/content/sponsors/.
 wall:
   tierNames:
