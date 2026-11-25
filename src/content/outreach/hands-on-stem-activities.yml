@@ -4,7 +4,6 @@ bodyEn: Currently an event in progress, check back for updates.
 bodyEs: Actividades sencillas de construir y probar que permiten a los estudiantes más jóvenes vivir la ingeniería por sí mismos.
 photo:
     src: /images/2026/In progress photo.jpg
-    expand: false
     alt: Photo
 active: true
 order: 20
