@@ -31,7 +31,7 @@ export const ui = {
 		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
 		location: 'Salinas, California',
 		footer: {
-			tagline: 'Student-led FIRST Robotics Competition team.',
+			tagline: 'Student-led FIRST Robotics Team',
 			explore: 'Explore', contact: 'Contact', follow: 'Follow us', comingSoon: 'coming soon',
 			 contactNote: [
     '2026frc6410@gmail.com',
