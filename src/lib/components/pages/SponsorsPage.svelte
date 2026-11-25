@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SponsorGrid from '../SponsorGrid.svelte';
+	import SponsorWall from '../SponsorWall.svelte';
 	import type { Settings } from '#lib/schema.ts';
 	import type { ViewOf } from '#lib/server/pages.ts';
 	import { routeFor, type Locale } from '#lib/site.ts';
@@ -7,6 +7,9 @@
 	interface Props { view: ViewOf<'sponsors'>; locale: Locale; settings: Settings }
 	let { view, locale, settings }: Props = $props();
 	const c = $derived(view.c);
+	/* The level cards are shelved for now (a new design is planned). Set to true to show them again. */
+	const showLevelCards = false;
+	const contactHref = $derived(settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join'));
 </script>
 
 <section class="section section-tight" aria-labelledby="why-title">
@@ -26,12 +29,15 @@
 	</div>
 </section>
 
+<SponsorWall sponsors={view.sponsors} c={c.wall} {contactHref} teamName={settings.teamName} />
+
 <section class="section band-gray" aria-labelledby="tiers-title">
 	<div class="container">
 		<div class="section-title">
 			<h2 id="tiers-title">{c.tiers.title}</h2>
 			<p>{c.tiers.intro}</p>
 		</div>
+		{#if showLevelCards}
 		<ul class="cards cards-4">
 			{#each c.tiers.items as tier (tier.name)}
 				<li class="card tier">
@@ -44,6 +50,7 @@
 				</li>
 			{/each}
 		</ul>
+		{/if}
 		{#if view.packets.length}
 			<div class="button-row downloads">
 				{#each view.packets as packet (packet.file)}<a class="button button-outline" href={packet.file}  target = "_blank" rel="noopener" download>{packet.title}</a>{/each}
@@ -64,26 +71,16 @@
 	</div>
 </section>
 
-<section class="section" aria-labelledby="grid-title">
-	<div class="container">
-		<div class="section-title center">
-			<h2 id="grid-title">{c.grid.title}</h2>
-			<p>{c.grid.body}</p>
-		</div>
-		<SponsorGrid sponsors={view.sponsors} {locale} label={c.grid.title} cells={8} />
-	</div>
-</section>
-
 <section class="section band-navy support" aria-labelledby="sponsors-cta-title">
 	<div class="container support-inner">
 		<h2 id="sponsors-cta-title">{c.cta.title}</h2>
 		<p>{c.cta.body}</p>
-		<a class="button button-gold" href={settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join')} target = "_blank" rel="noopener" >{c.cta.actionLabel}</a>
+		<a class="button button-gold" href={contactHref} target="_blank" rel="noopener">{c.cta.actionLabel}</a>
 		<!-- <a class="button button-paypal"
    href="https://www.paypal.com/donate/?business=WMYBJGJSPPF5N&no_recurring=0&currency_code=USD"
    target="_blank"
    rel="noopener">
     Donate with PayPal
-</a>
-	</div> -->
+</a> -->
+	</div>
 </section>

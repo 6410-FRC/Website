@@ -68,7 +68,13 @@ export const pageSchemas = {
 		...pageShape,
 		why: z.object({ title: z.string(), items: titled }),
 		tiers: z.object({ title: z.string(), intro: z.string(), items: z.array(z.object({ name: z.string(), benefits: strings })), packetNote: z.string() }),
-		grid: z.object({ title: z.string(), body: z.string() }),
+		/** The sponsor wall: tier names, the invitation shown in an empty tier, supporter names and special thanks. */
+		wall: z.object({
+			tierNames: z.object({ Diamond: z.string(), Platinum: z.string(), Gold: z.string(), Silver: z.string(), Bronze: z.string(), Supporter: z.string() }),
+			emptyTitle: z.string(), emptyBody: z.string(),
+			supporterBody: z.string(), supporterInvite: z.string(), supporters: strings.nullish().transform((v) => v ?? []),
+			thanksTitle: z.string(), thanks: strings.nullish().transform((v) => v ?? [])
+		}),
 		cta
 	}),
 	news: z.object({
@@ -101,7 +107,7 @@ export const seasonSchema = z.object({
 export const programSchema = z.object({ titleEn: z.string().min(1), titleEs: opt, bodyEn: z.string(), bodyEs: opt, photo: imageSchema, active: z.boolean().default(true), order });
 export const subteamSchema = z.object({ nameEn: z.string().min(1), nameEs: opt, summaryEn: z.string(), summaryEs: opt, photo: imageSchema, order });
 export const sponsorSchema = z.object({
-	name: z.string().min(1), tier: z.enum(['Platinum', 'Gold', 'Silver', 'Bronze']).default('Gold'),
+	name: z.string().min(1), tier: z.enum(['Diamond', 'Platinum', 'Gold', 'Silver', 'Bronze']).default('Gold'),
 	logo: z.object({ src: z.string().min(1), alt: opt }), website: url, active: z.boolean().default(true), order
 });
 export const downloadSchema = z.object({

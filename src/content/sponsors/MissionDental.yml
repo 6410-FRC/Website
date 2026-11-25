@@ -4,5 +4,5 @@ logo:
    src: /images/2026/Logos/FIRST Logo (Color) .jpg
    alt: MissionDental
 website: https://mybestdentists.com/mbd-newest-approved-dentists/MissionDental
-
-   
+# Hidden for now: not on the current sponsor list, and the logo above is a placeholder. Delete this line to show it.
+active: false

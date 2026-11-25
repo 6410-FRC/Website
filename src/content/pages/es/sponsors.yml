@@ -35,9 +35,25 @@ tiers:
         - Nombre en la lona del pit
         - Nombre en este sitio
   packetNote: El paquete de patrocinio (inglés y español) estará disponible para descargar pronto.
-grid:
-  title: Nuestros patrocinadores
-  body: Los logotipos aparecerán aquí conforme se sumen patrocinadores para la temporada 2026.
+# El muro de patrocinadores al inicio de la página. Los patrocinadores y sus niveles están en src/content/sponsors/.
+wall:
+  tierNames:
+    Diamond: Diamante
+    Platinum: Platino
+    Gold: Oro
+    Silver: Plata
+    Bronze: Bronce
+    Supporter: Colaboradores
+  emptyTitle: Tu logotipo aquí
+  emptyBody: Sé nuestro primer patrocinador {tier}
+  supporterBody: Cada aportación ayuda al equipo a crecer. Aquí aparecen los nombres de quienes nos apoyan.
+  supporterInvite: Agrega tu nombre
+  supporters: []
+  thanksTitle: Agradecimientos especiales
+  thanks:
+    - Sheenal Kumar
+    - Israel Fernandez
+    - Daniel Lopez
 cta:
   title: ¿Listo para apoyar al equipo?
   body: Contáctanos para hablar de patrocinio, donaciones en especie o mentoría.

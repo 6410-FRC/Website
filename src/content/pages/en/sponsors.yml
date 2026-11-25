@@ -1,5 +1,5 @@
 title: Sponsors
-intro: ""
+intro: Thank you to the partners who make every season possible for students in Salinas.
 body:
   - Building a competition robot takes parts, tools, registration fees, and travel. Our sponsors cover those costs and give students in Salinas the opportunity to do real hands-on engineering.
 why:
@@ -36,9 +36,27 @@ tiers:
         - All Gold Benefits 
 
   packetNote: The sponsorship packet will be available for download soon. Interested in sponsoring? Email 2026frc6410@gmail.com 
-grid:
-  title: Our sponsors
-  body: Thank you sponsors for supporting us!
+# The sponsor wall at the top of the page. Sponsors and their tiers are in src/content/sponsors/.
+wall:
+  tierNames:
+    Diamond: Diamond
+    Platinum: Platinum
+    Gold: Gold
+    Silver: Silver
+    Bronze: Bronze
+    Supporter: Supporter
+  # Shown in a tier that has no sponsor yet. {tier} becomes the tier's name.
+  emptyTitle: Your logo here
+  emptyBody: Become our first {tier} sponsor
+  supporterBody: Every contribution helps the team grow. Supporters are listed here by name.
+  supporterInvite: Add your name
+  # Supporter names, one per line starting with "- ". Leave as [] for none.
+  supporters: []
+  thanksTitle: Special Thanks
+  thanks:
+    - Sheenal Kumar
+    - Israel Fernandez
+    - Daniel Lopez
 cta:
   title: Ready to support the team?
   body: Contact us to talk about sponsorship, in-kind donations, or mentoring.

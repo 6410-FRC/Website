@@ -1,6 +1,7 @@
-name: EAHS
-tier: Bronze
+name: Everett Alvarez High School
+tier: Diamond
 logo:
    src: /images/2026/Logos/EAHS Logo (1).png
    alt: EAHS
 website: https://eahs.salinasuhsd.org/
+order: 10   # position within the tier; lower shows first

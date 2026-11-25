@@ -1,7 +1,7 @@
-name: DoW
-tier: Bronze
+name: DoW STEM
+tier: Diamond
 logo:
    src: /images/2026/Logos/DoW.jpg
    alt: DoW
 website: https://www.dowstem.us/
-   
+order: 40   # position within the tier; lower shows first

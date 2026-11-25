@@ -1,7 +1,7 @@
 name: Apple
-tier: Bronze
+tier: Diamond
 logo:
    src: /images/2026/Logos/Apple.png
    alt: Apple
 website: https://www.apple.com/
-   
+order: 30   # position within the tier; lower shows first

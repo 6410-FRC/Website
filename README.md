@@ -62,11 +62,13 @@ The story goes here, written in Markdown.
 
 ```yaml
 name: Acme Tools
-tier: Gold            # Platinum, Gold, Silver or Bronze
+tier: Gold            # Diamond, Platinum, Gold, Silver or Bronze
 logo:
   src: /images/acme.png
 website: https://example.com
 ```
+
+The Sponsors page groups logos by tier, largest tier first. Supporter names and the Special Thanks names are lists in the `wall` block of `src/content/pages/en/sponsors.yml` (and `es/`).
 
 **Show a robot season.** In `src/content/seasons/2026.yml`, set `public: true` and fill in `robotName`, `gameName`, `summaryEn`, `summaryEs`, `photo` and `blueAllianceUrl`. The newest public season is featured; older ones fill the archive.
 

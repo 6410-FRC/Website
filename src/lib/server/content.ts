@@ -89,7 +89,7 @@ export const getSeasons = () => folder('seasons', seasonSchema).map((s) => s.dat
 export const getPrograms = () => folder('outreach', programSchema).filter((p) => p.data.active).sort(byOrder).map((p) => p.data);
 export const getSubteams = () => folder('team', subteamSchema).sort(byOrder).map((t) => t.data);
 
-const tierRank = { Platinum: 0, Gold: 1, Silver: 2, Bronze: 3 } as const;
+const tierRank = { Diamond: 0, Platinum: 1, Gold: 2, Silver: 3, Bronze: 4 } as const;
 export const getSponsors = () =>
 	folder('sponsors', sponsorSchema).map((s) => s.data).filter((s) => s.active)
 		.sort((a, b) => tierRank[a.tier] - tierRank[b.tier] || a.order - b.order || a.name.localeCompare(b.name));
