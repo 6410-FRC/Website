@@ -179,8 +179,10 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .step-list li { position: relative; counter-increment: s; padding: .35rem 0 .35rem 2rem; color: var(--ink); font-size: .95rem; }
 .step-list li::before { content: counter(s); position: absolute; left: 0; top: .45rem; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--navy); color: var(--white); font-size: .75rem; font-weight: 700; line-height: 1.4rem; text-align: center; }
 .category-list { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.75rem 0 2rem; }
-.category-list li { padding: .35rem .9rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--slate); font-size: .88rem; font-weight: 500; }
-.category-list li.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.category-list button { padding: .35rem .9rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--white); color: var(--slate); font: inherit; font-size: .88rem; font-weight: 500; cursor: pointer; transition: background-color var(--fast), border-color var(--fast), color var(--fast); }
+.category-list button:hover { border-color: var(--navy); color: var(--navy); }
+.category-list button.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.category-empty { padding: 2.5rem 1rem; border: 1px dashed var(--line-strong); border-radius: var(--radius); color: var(--slate); text-align: center; }
 .panel { padding: 1.75rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
 .panel h2 { font-size: 1.3rem; }
 .panel p { color: var(--slate); }
