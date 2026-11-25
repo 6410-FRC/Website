@@ -25,7 +25,16 @@
 	<div class="container">
 		<div class="section-title">
 			<h2 id="subteams-title">{c.subteams.title}</h2>
-			<p>{c.subteams.intro}</p>
+			<p>
+    {c.subteams.intro}
+    <a class="text-link"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScn_vRWJvyA4tG4gzb4vIXEHAoMFEfc4v3b-8PucwuYm8j9Lw/viewform?usp=dialog"
+        target="_blank"
+        rel="noopener">
+        {locale === 'es' ? '¿Qué roles te interesan?' : 'Which roles interest you?'}
+    </a>
+</p>
+values:
 		</div>
 		<ul class="cards cards-3">
 			{#each view.subteams as team (team.nameEn)}
