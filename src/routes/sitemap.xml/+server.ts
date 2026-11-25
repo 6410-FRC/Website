@@ -7,6 +7,7 @@ export function GET() {
 	const paths = locales.flatMap((locale) => [
 		routeFor(locale),
 		...(Object.keys(routes[locale]) as PageKey[]).map((page) => routeFor(locale, page)),
+		`${routeFor(locale, 'gallery')}videos/`,
 		...getNews(locale).flatMap((post) => (post.url ? [post.url] : []))
 	]);
 	const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((path) => `  <url><loc>${SITE_URL}${path}</loc></url>`).join('\n')}\n</urlset>\n`;

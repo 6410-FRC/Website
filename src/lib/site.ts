@@ -5,13 +5,13 @@ export const SITE_URL = 'https://wingnuts6410.pages.dev';
 
 export const locales = ['en', 'es'] as const;
 export type Locale = (typeof locales)[number];
-export type PageKey = 'team' | 'robots' | 'outreach' | 'sponsors' | 'news' | 'join';
+export type PageKey = 'team' | 'robots' | 'outreach' | 'sponsors' | 'news' | 'gallery' | 'join';
 
 export const isLocale = (value: string): value is Locale => (locales as readonly string[]).includes(value);
 
 export const routes: Record<Locale, Record<PageKey, string>> = {
-	en: { team: 'team', robots: 'robots', outreach: 'outreach', sponsors: 'sponsors', news: 'news', join: 'join' },
-	es: { team: 'equipo', robots: 'robots', outreach: 'comunidad', sponsors: 'patrocinadores', news: 'noticias', join: 'unete' }
+	en: { team: 'team', robots: 'robots', outreach: 'outreach', sponsors: 'sponsors', news: 'news', gallery: 'gallery', join: 'join' },
+	es: { team: 'equipo', robots: 'robots', outreach: 'comunidad', sponsors: 'patrocinadores', news: 'noticias', gallery: 'galeria', join: 'unete' }
 };
 
 export const routeFor = (locale: Locale, page?: PageKey) => (page ? `/${locale}/${routes[locale][page]}/` : `/${locale}/`);
@@ -28,7 +28,7 @@ export const ui = {
 		language: 'Español', skip: 'Skip to content', support: 'Support us', menu: 'Menu', close: 'Close', viewPhoto: 'View photo', previous: 'Previous photo', next: 'Next photo', zoomIn: 'Zoom in', zoomOut: 'Zoom out',
 		photoSoon: 'Team photo coming soon', logoSoon: 'Your logo here', allNews: 'All news',
 		primaryNav: 'Primary navigation', notFound: 'Page not found', backHome: 'Back to the home page',
-		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
+		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', gallery: 'Gallery', join: 'Join' },
 		location: 'Salinas, California',
 		footer: {
 			tagline: 'Student-led FIRST Robotics Team',
@@ -47,7 +47,7 @@ export const ui = {
 		language: 'English', skip: 'Saltar al contenido', support: 'Apóyanos', menu: 'Menú', close: 'Cerrar', viewPhoto: 'Ver foto', previous: 'Foto anterior', next: 'Foto siguiente', zoomIn: 'Acercar', zoomOut: 'Alejar',
 		photoSoon: 'Foto del equipo próximamente', logoSoon: 'Tu logotipo aquí', allNews: 'Todas las noticias',
 		primaryNav: 'Navegación principal', notFound: 'Página no encontrada', backHome: 'Volver al inicio',
-		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', join: 'Únete' },
+		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', gallery: 'Galería', join: 'Únete' },
 		location: 'Salinas, California',
 		footer: {
 			tagline: 'Equipo de FIRST Robotics dirigido por estudiantes',

@@ -82,6 +82,17 @@ export const pageSchemas = {
 		categories: z.object({ team: z.string(), build: z.string(), competition: z.string(), outreach: z.string() }),
 		soonLabel: z.string(), note: z.string()
 	}),
+	gallery: z.object({
+		title: z.string().min(1), intro: z.string(),
+		albums: z.array(z.object({
+			title: z.string().min(1), titleEs: opt, date: opt, dateEs: opt,
+			photos: z.array(z.object({ src: z.string().min(1), alt: z.string().min(1), altEs: opt })).min(1)
+		})).default([]),
+		videos: z.array(z.object({
+			title: z.string().min(1), titleEs: opt,
+			youtubeId: z.string().regex(/^[A-Za-z0-9_-]{11}$/)
+		})).default([])
+	}),
 	join: z.object({
 		...pageShape,
 		paths: z.array(z.object({ title: z.string(), body: z.string(), steps: strings, actionLabel: z.string(), url })),

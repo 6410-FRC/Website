@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GalleryPage from '#lib/components/pages/GalleryPage.svelte';
 	import JoinPage from '#lib/components/pages/JoinPage.svelte';
 	import NewsPage from '#lib/components/pages/NewsPage.svelte';
 	import OutreachPage from '#lib/components/pages/OutreachPage.svelte';
@@ -14,7 +15,7 @@
 	<header class="page-header">
 		<div class="container" style= "text-align:center; justify-content: center;" >
 			<h1>{view.c.title}</h1>
-			<p>{view.c.intro}</p>
+			{#if view.view !== 'gallery'}<p>{view.c.intro}</p>{/if}
 		</div>
 	</header>
 	{#if view.view === 'team'}<TeamPage {view} {locale} {settings} />
@@ -22,6 +23,7 @@
 	{:else if view.view === 'outreach'}<OutreachPage {view} {locale} {settings} />
 	{:else if view.view === 'sponsors'}<SponsorsPage {view} {locale} {settings} />
 	{:else if view.view === 'news'}<NewsPage {view} {locale} />
+	{:else if view.view === 'gallery'}<GalleryPage {view} {locale} />
 	{:else if view.view === 'join'}<JoinPage {view} {locale} {settings} />
 	{/if}
 </article>

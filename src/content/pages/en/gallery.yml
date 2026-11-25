@@ -1,0 +1,98 @@
+title: Gallery
+intro: Explore our journey through photos and videos.
+albums:
+  - title: Monterey Scrimmage
+    titleEs: Competencia de Monterey
+    # date: 2026 • Competition
+    # dateEs: 2026 • Competencia
+    photos:
+      - src: "/images/2026/MS2026/IMG_20261115_140729.jpg"
+        alt: Monterey Scrimmage — photo 1
+        altEs: Competencia de Monterey — foto 1
+      - src: "/images/2026/MS2026/20261114_094702.jpg"
+        alt: Monterey Scrimmage — photo 2
+        altEs: Competencia de Monterey — foto 2
+      - src: "/images/2026/MS2026/20261114_122925.jpg"
+        alt: Monterey Scrimmage — photo 3
+        altEs: Competencia de Monterey — foto 3
+      - src: "/images/2026/MS2026/20261114_143301.jpg"
+        alt: Monterey Scrimmage — photo 4
+        altEs: Competencia de Monterey — foto 4
+      - src: "/images/2026/MS2026/20261114_154822.jpg"
+        alt: Monterey Scrimmage — photo 5
+        altEs: Competencia de Monterey — foto 5
+      - src: "/images/2026/MS2026/IMG_20261115_140750.jpg"
+        alt: Monterey Scrimmage — photo 6
+        altEs: Competencia de Monterey — foto 6
+      - src: "/images/2026/MS2026/image_attachment.jpg"
+        alt: Monterey Scrimmage — photo 7
+        altEs: Competencia de Monterey — foto 7
+  - title: Sunset Showdown
+    titleEs: Sunset Showdown
+    # date: 2026 • Competition
+    # dateEs: 2026 • Competencia
+    photos:
+      - src: "/images/2026/SS2026/20261024_154135 (1).jpg"
+        alt: Sunset Showdown — photo 1
+        altEs: Sunset Showdown — foto 1
+      - src: "/images/2026/SS2026/20261025_084505 (2).jpg"
+        alt: Sunset Showdown — photo 2
+        altEs: Sunset Showdown — foto 2
+  - title: Team Life
+    titleEs: Vida del equipo
+    # date: 2026 • Behind the scenes
+    # dateEs: 2026 • Detrás de cámaras
+    photos:
+      - src: "/images/2026/Teampic.jpg"
+        alt: Team Life — photo 1
+        altEs: Vida del equipo — foto 1
+      - src: "/images/2026/Workshop.jpg"
+        alt: Team Life — photo 2
+        altEs: Vida del equipo — foto 2
+      - src: "/images/2026/Driving Practice.jpg"
+        alt: Team Life — photo 3
+        altEs: Vida del equipo — foto 3
+      - src: "/images/2026/Programming Photo.jpg"
+        alt: Team Life — photo 4
+        altEs: Vida del equipo — foto 4
+      - src: "/images/2026/Tap Practice.jpg"
+        alt: Team Life — photo 5
+        altEs: Vida del equipo — foto 5
+      - src: "/images/2026/Robot Photo.jpg"
+        alt: Team Life — photo 6
+        altEs: Vida del equipo — foto 6
+  - title: Community Outreach
+    titleEs: Actividades comunitarias
+    # date: 2026 • Outreach
+    # dateEs: 2026 • Comunidad
+    photos:
+      - src: "/images/2026/Candybot.jpg"
+        alt: Community Outreach — photo 1
+        altEs: Actividades comunitarias — foto 1
+      - src: "/images/2026/Outreach.jpg"
+        alt: Community Outreach — photo 2
+        altEs: Actividades comunitarias — foto 2
+  - title: Capital City Classic
+    titleEs: Actividades comunitarias
+    # date: " "
+    # dateEs: 2026 • Comunidad
+    photos:
+      - src: /images/2026/In progress photo.jpg
+        alt: In progress
+  
+     
+
+# Add videos here when you have their YouTube video IDs.
+# Example format: title, titleEs (optional), youtubeId (11 characters).
+# videos:
+#   - title: Robot Reveal
+#     youtubeId: "VIDEO_ID_1"
+
+#   - title: Monterey Scrimmage
+#     youtubeId: "VIDEO_ID_2"
+
+#   - title: Driving Practice
+#     youtubeId: "VIDEO_ID_3"
+
+#   - title: Competition Highlights
+#     youtubeId: "VIDEO_ID_4"

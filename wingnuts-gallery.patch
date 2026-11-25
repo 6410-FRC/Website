@@ -1,0 +1,330 @@
+diff --git a/src/lib/site.ts b/src/lib/site.ts
+--- a/src/lib/site.ts
++++ b/src/lib/site.ts
+@@ -6,4 +6,4 @@
+ export const locales = ['en', 'es'] as const;
+ export type Locale = (typeof locales)[number];
+-export type PageKey = 'team' | 'robots' | 'outreach' | 'sponsors' | 'news' | 'join';
++export type PageKey = 'team' | 'robots' | 'outreach' | 'sponsors' | 'news' | 'gallery' | 'join';
+ 
+@@ -12,4 +12,4 @@
+ export const routes: Record<Locale, Record<PageKey, string>> = {
+-	en: { team: 'team', robots: 'robots', outreach: 'outreach', sponsors: 'sponsors', news: 'news', join: 'join' },
++	en: { team: 'team', robots: 'robots', outreach: 'outreach', sponsors: 'sponsors', news: 'news', gallery: 'gallery', join: 'join' },
+-	es: { team: 'equipo', robots: 'robots', outreach: 'comunidad', sponsors: 'patrocinadores', news: 'noticias', join: 'unete' }
++	es: { team: 'equipo', robots: 'robots', outreach: 'comunidad', sponsors: 'patrocinadores', news: 'noticias', gallery: 'galeria', join: 'unete' }
+ };
+@@ -30,3 +30,3 @@
+ 		primaryNav: 'Primary navigation', notFound: 'Page not found', backHome: 'Back to the home page',
+-		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
++		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', gallery: 'Gallery', join: 'Join' },
+ 		location: 'Salinas, California',
+@@ -49,3 +49,3 @@
+ 		primaryNav: 'Navegación principal', notFound: 'Página no encontrada', backHome: 'Volver al inicio',
+-		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', join: 'Únete' },
++		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', gallery: 'Galería', join: 'Únete' },
+ 		location: 'Salinas, California',
+diff --git a/src/lib/schema.ts b/src/lib/schema.ts
+--- a/src/lib/schema.ts
++++ b/src/lib/schema.ts
+@@ -84,3 +84,14 @@
++	}),
++	gallery: z.object({
++		title: z.string().min(1), intro: z.string(),
++		albums: z.array(z.object({
++			title: z.string().min(1), titleEs: opt, date: opt, dateEs: opt,
++			photos: z.array(z.object({ src: z.string().min(1), alt: z.string().min(1), altEs: opt })).min(1)
++		})).default([]),
++		videos: z.array(z.object({
++			title: z.string().min(1), titleEs: opt,
++			youtubeId: z.string().regex(/^[A-Za-z0-9_-]{11}$/)
++		})).default([])
+ 	}),
+ 	join: z.object({
+ 		...pageShape,
+diff --git a/src/lib/server/pages.ts b/src/lib/server/pages.ts
+--- a/src/lib/server/pages.ts
++++ b/src/lib/server/pages.ts
+@@ -18,2 +18,7 @@
+ 		case 'news': return { view: 'news' as const, c: getPage('news', locale), posts: getNews(locale).map(newsCard) };
++		case 'gallery': {
++			const c = getPage('gallery', locale);
++			const albums = locale === 'en' ? c.albums : getPage('gallery', 'en').albums;
++			return { view: 'gallery' as const, c, albums };
++		}
+ 		case 'join': return { view: 'join' as const, c: getPage('join', locale), files: getDownloads(locale, false) };
+diff --git a/src/routes/[lang]/[slug]/+page.svelte b/src/routes/[lang]/[slug]/+page.svelte
+--- a/src/routes/[lang]/[slug]/+page.svelte
++++ b/src/routes/[lang]/[slug]/+page.svelte
+@@ -1,2 +1,3 @@
+ <script lang="ts">
++	import GalleryPage from '#lib/components/pages/GalleryPage.svelte';
+ 	import JoinPage from '#lib/components/pages/JoinPage.svelte';
+@@ -16,3 +17,3 @@
+ 			<h1>{view.c.title}</h1>
+-			<p>{view.c.intro}</p>
++			{#if view.view !== 'gallery'}<p>{view.c.intro}</p>{/if}
+ 		</div>
+@@ -24,3 +25,4 @@
+ 	{:else if view.view === 'news'}<NewsPage {view} {locale} />
++	{:else if view.view === 'gallery'}<GalleryPage {view} {locale} />
+ 	{:else if view.view === 'join'}<JoinPage {view} {locale} {settings} />
+ 	{/if}
+diff --git a/src/routes/sitemap.xml/+server.ts b/src/routes/sitemap.xml/+server.ts
+--- a/src/routes/sitemap.xml/+server.ts
++++ b/src/routes/sitemap.xml/+server.ts
+@@ -8,3 +8,4 @@
+ 		routeFor(locale),
+ 		...(Object.keys(routes[locale]) as PageKey[]).map((page) => routeFor(locale, page)),
++		`${routeFor(locale, 'gallery')}videos/`,
+ 		...getNews(locale).flatMap((post) => (post.url ? [post.url] : []))
+diff --git a/src/routes/[lang]/[slug]/videos/+page.server.ts b/src/routes/[lang]/[slug]/videos/+page.server.ts
+new file mode 100644
+--- /dev/null
++++ b/src/routes/[lang]/[slug]/videos/+page.server.ts
+@@ -0,0 +1,21 @@
++import { error } from '@sveltejs/kit';
++import { getPage } from '#lib/server/content.ts';
++import { isLocale, locales, routeFor, routes } from '#lib/site.ts';
++import type { EntryGenerator, PageServerLoad } from './$types';
++
++export const entries: EntryGenerator = () =>
++    locales.map(lang => ({ lang, slug: routes[lang].gallery }));
++
++export const load: PageServerLoad = ({ params }) => {
++    const locale = params.lang;
++    if (!isLocale(locale) || params.slug !== routes[locale].gallery) error(404, 'Not found');
++    return {
++        videos: getPage('gallery', 'en').videos,
++        meta: {
++            title: 'Videos',
++            description: locale === 'es' ? 'Mira a nuestro equipo en acción.' : 'Watch our team in action.',
++            page: 'gallery' as const,
++            path: `${routeFor(locale, 'gallery')}videos/`
++        }
++    };
++};
+diff --git a/src/routes/[lang]/[slug]/videos/+page.svelte b/src/routes/[lang]/[slug]/videos/+page.svelte
+new file mode 100644
+--- /dev/null
++++ b/src/routes/[lang]/[slug]/videos/+page.svelte
+@@ -0,0 +1,45 @@
++<script lang="ts">
++    import { routeFor } from '#lib/site.ts';
++    let { data } = $props();
++    const es = $derived(data.locale === 'es');
++</script>
++
++<article class="inner-page page-gallery-videos">
++    <header class="page-header">
++        <div class="container" style="text-align: center;">
++            <h1>{es ? 'Galería de videos' : 'Video Gallery'}</h1>
++        </div>
++    </header>
++    <section class="section section-tight">
++        <div class="container">
++            <p class="video-intro">{data.meta.description}</p>
++            <div class="video-grid">
++                {#each data.videos as video (video.youtubeId)}
++                    {@const title = es ? video.titleEs || video.title : video.title}
++                    <article class="card">
++                        <iframe
++                            src={`https://www.youtube.com/embed/${video.youtubeId}`}
++                            {title} loading="lazy" allowfullscreen
++                            allow="encrypted-media; picture-in-picture; fullscreen"
++                            referrerpolicy="strict-origin-when-cross-origin"
++                        ></iframe>
++                        <div class="card-body"><h2>{title}</h2></div>
++                    </article>
++                {:else}
++                    <p class="video-empty">{es ? 'Videos próximamente.' : 'Videos coming soon.'}</p>
++                {/each}
++            </div>
++            <p class="video-back"><a class="button button-gold" href={routeFor(data.locale, 'gallery')}>{es ? 'Volver a la galería' : 'Back to Gallery'}</a></p>
++        </div>
++    </section>
++</article>
++
++<style>
++    .video-intro { font-size: 1.25rem; text-align: center; color: var(--navy); margin-bottom: 2rem; }
++    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem; }
++    .video-grid iframe { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; border: 0; background: var(--navy); }
++    .video-grid h2 { font-size: 1.35rem; margin: 0; }
++    .video-empty { grid-column: 1 / -1; text-align: center; color: var(--slate); padding: 2rem; }
++    .video-back { display: flex; justify-content: flex-end; margin-top: 2rem; }
++    @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } }
++</style>
+diff --git a/src/lib/components/pages/GalleryPage.svelte b/src/lib/components/pages/GalleryPage.svelte
+new file mode 100644
+--- /dev/null
++++ b/src/lib/components/pages/GalleryPage.svelte
+@@ -0,0 +1,78 @@
++<script lang="ts">
++    import type { ViewOf } from '#lib/server/pages.ts';
++    import { routeFor, type Locale } from '#lib/site.ts';
++    import { viewer } from '#lib/lightbox.svelte.ts';
++
++    let { view, locale }: { view: ViewOf<'gallery'>; locale: Locale } = $props();
++    const es = $derived(locale === 'es');
++    type Album = ViewOf<'gallery'>['albums'][number];
++
++    function albumTitle(album: Album) {
++        return es ? album.titleEs || album.title : album.title;
++    }
++
++    function photoAlt(photo: Album['photos'][number]) {
++        return es ? photo.altEs || photo.alt : photo.alt;
++    }
++
++    function openAlbum(album: Album) {
++        // The existing site lightbox handles swipe, arrows, keyboard and zoom.
++        viewer.slides = album.photos.map(photo => ({
++            src: photo.src, alt: photoAlt(photo), title: albumTitle(album)
++        }));
++        viewer.index = 0;
++    }
++</script>
++
++<section class="section section-tight" aria-label={view.c.title}>
++    <div class="container">
++        <p class="gallery-intro">{view.c.intro}</p>
++        <div class="album-grid">
++            {#each view.albums as album (album.title)}
++                <button class="album" type="button" onclick={() => openAlbum(album)}
++                    aria-label={`${albumTitle(album)} — ${album.photos.length} ${es ? 'fotos' : 'photos'}`}>
++                    <span class="stack" class:single={album.photos.length === 1}>
++                        <span class="cover">
++                            <span class="cover-picture">
++                                <img src={album.photos[0].src} alt={photoAlt(album.photos[0])} loading="lazy" decoding="async" />
++                                <span class="photo-count">{album.photos.length} {es ? 'fotos' : 'photos'}</span>
++                            </span>
++                        </span>
++                    </span>
++                    <span class="album-name">{albumTitle(album)}</span>
++                    {#if album.date}<span class="album-meta">{es ? album.dateEs || album.date : album.date}</span>{/if}
++                </button>
++            {:else}
++                <p class="album-empty">{es ? 'Fotos próximamente.' : 'Photos coming soon.'}</p>
++            {/each}
++        </div>
++        <div class="gallery-toolbar">
++            <a class="button button-gold" href={`${routeFor(locale, 'gallery')}videos/`}>Videos</a>
++        </div>
++    </div>
++</section>
++
++<style>
++    .gallery-intro { text-align: center; font-size: clamp(1.1rem, 2.1vw, 1.3rem); color: var(--navy); margin-bottom: 1.75rem; }
++    .album-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.875rem; }
++    .album { display: block; width: 100%; min-width: 0; border: 0; background: transparent; color: var(--navy); font: inherit; text-align: left; padding: .75rem .875rem 0; cursor: pointer; }
++    .stack { position: relative; display: block; isolation: isolate; margin: 0 .5rem .95rem; }
++    .stack::before, .stack::after { content: ''; position: absolute; inset: 0; border: 1px solid #cdd4dd; border-radius: 7px; background: #e8edf3; box-shadow: 0 3px 9px #0b25451a; z-index: -1; transition: transform .25s; }
++    .stack::before { transform: rotate(-6deg); }
++    .stack::after { transform: rotate(5deg); background: #f5f6f7; }
++    .stack.single::before, .stack.single::after { display: none; }
++    .album:hover .stack::before, .album:focus-visible .stack::before { transform: rotate(-10deg) translate(-3px, -2px); }
++    .album:hover .stack::after, .album:focus-visible .stack::after { transform: rotate(9deg) translate(4px, -2px); }
++    .cover { display: block; background: #fff; padding: 9px 9px 12px; border: 1px solid #d8dde5; border-radius: 7px; box-shadow: 0 6px 14px #0b254520; transition: transform .25s; }
++    .album:hover .cover, .album:focus-visible .cover { transform: translateY(-4px); }
++    .cover-picture { display: block; position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 3px; background: var(--navy); }
++    .cover-picture img { width: 100%; height: 100%; object-fit: cover; }
++    .photo-count { position: absolute; bottom: 9px; right: 9px; background: #0b2545df; color: white; border-radius: 5px; padding: 4px 9px; font-size: .75rem; }
++    .album-name { display: block; font-size: 1.35rem; font-weight: 700; line-height: 1.25; margin-bottom: .25rem; }
++    .album-meta { display: block; color: var(--slate); font-size: .9rem; }
++    .album-empty { grid-column: 1 / -1; text-align: center; color: var(--slate); }
++    .gallery-toolbar { display: flex; justify-content: flex-end; margin-top: 2.25rem; }
++    @media (max-width: 780px) { .album-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem .875rem; } .album { padding: .5rem .5rem 0; } .album-name { font-size: 1.15rem; } }
++    @media (max-width: 480px) { .album-grid { gap: 1.375rem .5rem; } .stack { margin: 0 .2rem .625rem; } .cover { padding: 5px 5px 8px; } .album-name { font-size: 1.05rem; } .photo-count { font-size: .65rem; right: 5px; bottom: 5px; } }
++    @media (prefers-reduced-motion: reduce) { .stack::before, .stack::after, .cover { transition: none; } }
++</style>
+diff --git a/src/content/pages/en/gallery.yml b/src/content/pages/en/gallery.yml
+new file mode 100644
+--- /dev/null
++++ b/src/content/pages/en/gallery.yml
+@@ -0,0 +1,78 @@
++title: Gallery
++intro: Explore our journey through photos and videos.
++albums:
++  - title: Monterey Scrimmage
++    titleEs: Competencia de Monterey
++    date: 2026 • Competition
++    dateEs: 2026 • Competencia
++    photos:
++      - src: "/images/2026/MS2026/IMG_20261115_140729.jpg"
++        alt: Monterey Scrimmage — photo 1
++        altEs: Competencia de Monterey — foto 1
++      - src: "/images/2026/MS2026/20261114_094702.jpg"
++        alt: Monterey Scrimmage — photo 2
++        altEs: Competencia de Monterey — foto 2
++      - src: "/images/2026/MS2026/20261114_122925.jpg"
++        alt: Monterey Scrimmage — photo 3
++        altEs: Competencia de Monterey — foto 3
++      - src: "/images/2026/MS2026/20261114_143301.jpg"
++        alt: Monterey Scrimmage — photo 4
++        altEs: Competencia de Monterey — foto 4
++      - src: "/images/2026/MS2026/20261114_154822.jpg"
++        alt: Monterey Scrimmage — photo 5
++        altEs: Competencia de Monterey — foto 5
++      - src: "/images/2026/MS2026/IMG_20261115_140750.jpg"
++        alt: Monterey Scrimmage — photo 6
++        altEs: Competencia de Monterey — foto 6
++      - src: "/images/2026/MS2026/image_attachment.jpg"
++        alt: Monterey Scrimmage — photo 7
++        altEs: Competencia de Monterey — foto 7
++  - title: Sunset Showdown
++    titleEs: Sunset Showdown
++    date: 2026 • Competition
++    dateEs: 2026 • Competencia
++    photos:
++      - src: "/images/2026/SS2026/20261024_154135 (1).jpg"
++        alt: Sunset Showdown — photo 1
++        altEs: Sunset Showdown — foto 1
++      - src: "/images/2026/SS2026/20261025_084505 (2).jpg"
++        alt: Sunset Showdown — photo 2
++        altEs: Sunset Showdown — foto 2
++  - title: Team Life
++    titleEs: Vida del equipo
++    date: 2026 • Behind the scenes
++    dateEs: 2026 • Detrás de cámaras
++    photos:
++      - src: "/images/2026/Teampic.jpg"
++        alt: Team Life — photo 1
++        altEs: Vida del equipo — foto 1
++      - src: "/images/2026/Workshop.jpg"
++        alt: Team Life — photo 2
++        altEs: Vida del equipo — foto 2
++      - src: "/images/2026/Driving Practice.jpg"
++        alt: Team Life — photo 3
++        altEs: Vida del equipo — foto 3
++      - src: "/images/2026/Programming Photo.jpg"
++        alt: Team Life — photo 4
++        altEs: Vida del equipo — foto 4
++      - src: "/images/2026/Tap Practice.jpg"
++        alt: Team Life — photo 5
++        altEs: Vida del equipo — foto 5
++      - src: "/images/2026/Robot Photo.jpg"
++        alt: Team Life — photo 6
++        altEs: Vida del equipo — foto 6
++  - title: Community Outreach
++    titleEs: Actividades comunitarias
++    date: 2026 • Outreach
++    dateEs: 2026 • Comunidad
++    photos:
++      - src: "/images/2026/Candybot.jpg"
++        alt: Community Outreach — photo 1
++        altEs: Actividades comunitarias — foto 1
++      - src: "/images/2026/Outreach.jpg"
++        alt: Community Outreach — photo 2
++        altEs: Actividades comunitarias — foto 2
++
++# Add videos here when you have their YouTube video IDs.
++# Example format: title, titleEs (optional), youtubeId (11 characters).
++videos: []
+diff --git a/src/content/pages/es/gallery.yml b/src/content/pages/es/gallery.yml
+new file mode 100644
+--- /dev/null
++++ b/src/content/pages/es/gallery.yml
+@@ -0,0 +1,3 @@
++title: Galería
++intro: Explora nuestro recorrido a través de fotos y videos.
++# Photos and videos are shared from the English gallery.yml.
