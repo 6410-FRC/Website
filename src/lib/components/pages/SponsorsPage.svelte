@@ -12,9 +12,9 @@
 	const contactHref = $derived(settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join'));
 </script>
 
-<section class="section section-tight" aria-labelledby="why-title">
+<section class="section sponsor-overview" aria-labelledby="why-title">
 	<div class="container">
-		<div class="prose" style="text-align: center;">
+		<div class="prose sponsor-intro">
 			{#each c.body as paragraph}<p>{paragraph}</p>{/each}
 		</div>
 		<h2 id="why-title" class="section-heading">{c.why.title}</h2>
