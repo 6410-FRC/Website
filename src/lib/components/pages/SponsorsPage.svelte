@@ -79,11 +79,11 @@
 		<h2 id="sponsors-cta-title">{c.cta.title}</h2>
 		<p>{c.cta.body}</p>
 		<a class="button button-gold" href={settings.sponsorFormUrl || settings.contactFormUrl || routeFor(locale, 'join')} target = "_blank" rel="noopener" >{c.cta.actionLabel}</a>
-		<!-- <a class="button button-paypal"
+		<a class="button button-paypal"
    href="https://www.paypal.com/donate/?business=WMYBJGJSPPF5N&no_recurring=0&currency_code=USD"
    target="_blank"
    rel="noopener">
     Donate with PayPal
 </a>
-	</div> -->
+	</div>
 </section>

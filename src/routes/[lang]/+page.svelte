@@ -20,7 +20,7 @@
 			<p class="hero-tagline">{c.hero.tagline}</p>
 			<p class="hero-lead">{c.hero.lead}</p>
 			<div class="button-row">
-				<a class="button" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.hero.joinLabel}</a>
+				<a class="button button-gold" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.hero.joinLabel}</a>
 				<a class="button button-outline" href={routeFor(locale, 'sponsors')}>{c.hero.sponsorLabel}</a>
 			</div>
 		</div>
@@ -112,7 +112,6 @@
 		<p>{c.support.body}</p>
 		<div class="button-row">
 			<a class="button button-gold" href={settings.sponsorFormUrl || routeFor(locale, 'sponsors')}>{c.support.actionLabel}</a>
-			<a class="button button-outline" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.support.secondaryLabel}</a>
-		</div>
+<a class="button button-gold" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.support.secondaryLabel}</a>		</div>
 	</div>
 </section>

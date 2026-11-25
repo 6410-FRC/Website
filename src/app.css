@@ -64,8 +64,12 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* Buttons ------------------------------------------------------------------- */
 .button { display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1.4rem; border: 1.5px solid var(--navy); border-radius: var(--radius); background: var(--navy); color: var(--white); font: 600 .98rem/1 var(--sans); text-decoration: none; transition: background-color var(--fast), border-color var(--fast), color var(--fast); }
-.button:hover { background: var(--navy-2); border-color: var(--navy-2); }
-.button-gold { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.button:hover {
+    background: var(--navy-2);
+    border-color: var(--navy-2);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}.button-gold { background: var(--gold); border-color: var(--gold); color: var(--navy); }
 .button-gold:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
 .button-outline { background: transparent; color: var(--navy); }
 .button-outline:hover { background: var(--gray); }
@@ -358,14 +362,14 @@ a[href^="mailto:"]:hover {
     text-decoration: underline;
 }
 .button-paypal {
-    background: #ffc439;
-    color: #003087;
-    border-color: #ffc439;
-    font-weight: 700;
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
     margin-left: .5rem;
 }
 
 .button-paypal:hover {
-    background: #d4a72c;
-    border-color: #d4a72c;
+    background: var(--gold-hover);
+    border-color: var(--gold-hover);
+    text-decoration: underline;
 }
