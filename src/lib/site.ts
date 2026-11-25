@@ -25,7 +25,7 @@ export const splitTeamName = (name: string) => name.split(/\s+(?=\d+$)/) as [str
 /* Shared UI strings: header, footer, placeholders. */
 export const ui = {
 	en: {
-		language: 'Español', skip: 'Skip to content', support: 'Support us', menu: 'Menu', close: 'Close', viewPhoto: 'View photo', previous: 'Previous photo', next: 'Next photo',
+		language: 'Español', skip: 'Skip to content', support: 'Support us', menu: 'Menu', close: 'Close', viewPhoto: 'View photo', previous: 'Previous photo', next: 'Next photo', zoomIn: 'Zoom in', zoomOut: 'Zoom out',
 		photoSoon: 'Team photo coming soon', logoSoon: 'Your logo here', allNews: 'All news',
 		primaryNav: 'Primary navigation', notFound: 'Page not found', backHome: 'Back to the home page',
 		nav: { home: 'Home', team: 'Team', robots: 'Robots', outreach: 'Outreach', sponsors: 'Sponsors', news: 'News', join: 'Join' },
@@ -42,7 +42,7 @@ export const ui = {
 		}
 	},
 	es: {
-		language: 'English', skip: 'Saltar al contenido', support: 'Apóyanos', menu: 'Menú', close: 'Cerrar', viewPhoto: 'Ver foto', previous: 'Foto anterior', next: 'Foto siguiente',
+		language: 'English', skip: 'Saltar al contenido', support: 'Apóyanos', menu: 'Menú', close: 'Cerrar', viewPhoto: 'Ver foto', previous: 'Foto anterior', next: 'Foto siguiente', zoomIn: 'Acercar', zoomOut: 'Alejar',
 		photoSoon: 'Foto del equipo próximamente', logoSoon: 'Tu logotipo aquí', allNews: 'Todas las noticias',
 		primaryNav: 'Navegación principal', notFound: 'Página no encontrada', backHome: 'Volver al inicio',
 		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', join: 'Únete' },

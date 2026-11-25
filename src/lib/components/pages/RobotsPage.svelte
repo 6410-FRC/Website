@@ -39,7 +39,7 @@
 		<ul class="cards cards-3">
 			{#each archive as season (season.year)}
 				<li class="card">
-					<Media photo={season.photo} label={t.photoSoon} ratio="4 / 3" tone="gray" />
+					<Media photo={season.photo} label={t.photoSoon} ratio="4 / 3" tone="gray" title={[season.year, season.robotName].filter(Boolean).join(' · ')} />
 					<div class="card-body">
 						<h3>{[season.year, season.robotName].filter(Boolean).join(' · ')}</h3>
 						<p>{season.gameName || pick(season.summaryEn ?? '', season.summaryEs)}</p>

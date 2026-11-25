@@ -10,10 +10,10 @@
 <li class="card post"> 
 	{#if post.url}
 		<a href={post.url} 	tabindex="-1" aria-hidden="true" target = "_blank" rel="noopener">
-			<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" /> 
+			<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" expand={false} />
 		</a>
 	{:else}
-		<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" />
+		<Media photo={post.photo} label={ui[locale].photoSoon} ratio="16 / 10" tone="navy" title={post.title} />
 	{/if}
 	<div class="card-body">
 		<p class="post-meta"><span>{categories[post.category]}</span> · {post.dateLabel ?? soonLabel}</p>

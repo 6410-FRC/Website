@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Lightbox from '../Lightbox.svelte';
 	import Media from '../Media.svelte';
 	import type { Settings } from '#lib/schema.ts';
 	import type { ViewOf } from '#lib/server/pages.ts';
@@ -11,13 +10,6 @@
 	const t = $derived(ui[locale]);
 	/** Spanish text when it exists, otherwise the English text. */
 	const pick = (en: string, es?: string | null) => (locale === 'es' && es ? es : en);
-	/* Subteams that have a picture: clicking one opens it in the full-screen viewer. */
-	const gallery = $derived(view.subteams.filter((team) => team.photo?.src));
-	const slides = $derived(gallery.map((team) => ({
-		src: team.photo?.src ?? '', alt: team.photo?.alt ?? '',
-		title: pick(team.nameEn, team.nameEs), text: pick(team.summaryEn, team.summaryEs)
-	})));
-	let open = $state<number | null>(null);
 </script>
 
 <section class="section section-tight " aria-label={t.nav.team}>
@@ -38,16 +30,7 @@
 		<ul class="cards cards-3">
 			{#each view.subteams as team (team.nameEn)}
 				<li class="card">
-					{#if team.photo?.src}
-						<button class="media-button" type="button" aria-label={`${t.viewPhoto}: ${pick(team.nameEn, team.nameEs)}`} onclick={() => (open = gallery.indexOf(team))}>
-							<Media photo={team.photo} label={t.photoSoon} ratio="3 / 2" tone="gray" />
-							<span class="media-zoom" aria-hidden="true">
-								<svg viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" /></svg>
-							</span>
-						</button>
-					{:else}
-						<Media photo={team.photo} label={t.photoSoon} ratio="3 / 2" tone="gray" />
-					{/if}
+					<Media photo={team.photo} label={t.photoSoon} ratio="3 / 2" tone="gray" title={pick(team.nameEn, team.nameEs)} text={pick(team.summaryEn, team.summaryEs)} />
 					<div class="card-body">
 						<h3>{pick(team.nameEn, team.nameEs)}</h3>
 						<p>{pick(team.summaryEn, team.summaryEs)}</p>
@@ -91,5 +74,3 @@
 		<a class="button button-gold" href={settings.joinFormUrl || routeFor(locale, 'join')}>{c.cta.actionLabel}</a>
 	</div>
 </section>
-
-<Lightbox {slides} bind:index={open} labels={{ close: t.close, previous: t.previous, next: t.next }} />

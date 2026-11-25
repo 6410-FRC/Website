@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import Footer from '#lib/components/Footer.svelte';
 	import Header from '#lib/components/Header.svelte';
+	import Lightbox from '#lib/components/Lightbox.svelte';
 	import { SITE_URL, routeFor } from '#lib/site.ts';
 
 	let { data, children } = $props();
@@ -35,3 +36,4 @@
 <Header locale={data.locale} page={meta?.page} settings={data.settings} />
 <main id="main">{@render children()}</main>
 <Footer locale={data.locale} settings={data.settings} />
+<Lightbox locale={data.locale} />
