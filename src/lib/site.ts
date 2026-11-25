@@ -33,6 +33,8 @@ export const ui = {
 		footer: {
 			tagline: 'Student-led FIRST Robotics Team',
 			explore: 'Explore', contact: 'Contact', follow: 'Follow us', comingSoon: 'coming soon',
+			/* Words shown before the school name in the footer. Leave empty for none, but keep the line. */
+			affiliation: '',
 			 contactNote: [
     '2026frc6410@gmail.com',
     'Reach us at the school office'
