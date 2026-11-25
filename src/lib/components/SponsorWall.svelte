@@ -54,19 +54,6 @@
 		return { destroy: () => watcher.disconnect() };
 	}
 
-	/**
-	 * Adds `in-view` while the element is on screen and removes it when it leaves, so the Special Thanks
-	 * underline draws itself every time the section scrolls into view, not only the first time.
-	 */
-	function reveal(element: Element) {
-		if (!('IntersectionObserver' in window)) { element.classList.add('in-view'); return; }
-		const watcher = new IntersectionObserver((entries) => {
-			for (const entry of entries) element.classList.toggle('in-view', entry.isIntersecting);
-		}, { threshold: 0.6 });
-		watcher.observe(element);
-		return { destroy: () => watcher.disconnect() };
-	}
-
 	/** Diamond follows the pointer: tell the band where it is (--mx/--my in percent, --nx/--ny from -1 to 1). */
 	function track(event: PointerEvent) {
 		const band = event.currentTarget as HTMLElement;
@@ -147,7 +134,7 @@
 	<section class="wall-thanks" aria-labelledby="thanks-title">
 		<div class="container">
 			<h2 id="thanks-title">{c.thanksTitle}</h2>
-			<svg class="wall-flourish" aria-hidden="true" viewBox="0 0 220 16" use:reveal><path d="M4 10C40 2 70 14 110 8S180 2 216 9" /></svg>
+			<svg class="wall-flourish" aria-hidden="true" viewBox="0 0 220 16"><path d="M4 10C40 2 70 14 110 8S180 2 216 9" /></svg>
 			<!-- The team logo beside each name shows that person is part of the program. -->
 			<ul class="wall-names" use:lineStarts>
 				{#each c.thanks as name}<li><img class="wall-thanks-logo" src="/images/2026/Logos/eagle2.svg" alt={teamName} />{name}</li>{/each}

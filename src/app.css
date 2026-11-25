@@ -506,11 +506,10 @@ a.wall-logo:hover { transform: scale(1.07); }
 /* Special thanks: plain and still. */
 .wall-thanks { padding-block: clamp(3rem, 5vw, 3.75rem); background: var(--white); text-align: center; }
 .wall-thanks h2 { margin-bottom: .5rem; font-family: "Yeseva One", Georgia, serif; font-size: 2rem; font-weight: 400; }
-/* A hand-drawn gold underline that draws itself when the section scrolls into view. */
+/* A hand-drawn gold underline on a loop: it draws from left to right, stays a while, wipes away the same way, then draws again. */
 .wall-flourish { width: 13.75rem; height: 1rem; margin: 0 auto 1.5rem; }
-/* Off screen the line is undrawn (it resets instantly); on screen it draws from left to right. */
-.wall-flourish path { fill: none; stroke: #b8962a; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 260; stroke-dashoffset: 260; }
-.wall-flourish.in-view path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8s cubic-bezier(.45, 0, .2, 1) .35s; }
+.wall-flourish path { fill: none; stroke: #b8962a; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 260; stroke-dashoffset: 260; animation: wall-flourish 7s cubic-bezier(.45, 0, .2, 1) infinite; }
+@keyframes wall-flourish { 0%, 6% { stroke-dashoffset: 260; } 32%, 74% { stroke-dashoffset: 0; } 96%, 100% { stroke-dashoffset: -260; } }
 .wall-thanks .wall-names { color: var(--navy); }
 /* Each name has the team logo to its left, centred on the name, with the gold diamonds still between names. */
 .wall-thanks .wall-names { gap: 1rem 1.4rem; }
@@ -523,4 +522,5 @@ a.wall-logo:hover { transform: scale(1.07); }
   .wall-diamond .wall-head, .wall-diamond .wall-logo, .wall-diamond a.wall-logo:hover { transform: none; }
   .wall-tier, .wall-bronze::before, .wall-leaf, .wall-bud { animation: none; }
   .wall-tendril { animation: none; stroke-dashoffset: 0; }
+  .wall-flourish path { animation: none; stroke-dashoffset: 0; }
 }
