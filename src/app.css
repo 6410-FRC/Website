@@ -324,6 +324,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .post { transition: transform 250ms cubic-bezier(.2, .7, .2, 1), box-shadow 250ms, border-color 250ms; }
 .post:hover { border-color: var(--line-strong); box-shadow: 0 14px 32px rgb(11 37 69 / .14); transform: translateY(-4px); }
 .post-media { position: relative; overflow: hidden; }
+.post-media > a[href$=".pdf"] .media { object-position: center top; }
 .post .media { transition: transform 450ms cubic-bezier(.2, .7, .2, 1); }
 .post:hover .media { transform: scale(1.06); }
 .post-media > .media-zoom { padding: 0; border: 0; opacity: 1; transform: none; cursor: zoom-in; transition: background-color var(--fast), color var(--fast); }

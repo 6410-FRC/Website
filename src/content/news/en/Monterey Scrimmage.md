@@ -7,7 +7,7 @@ summary: Along with our Local Central Coast Alliance, we were honored to play at
 published: true
 link: /downloads/Monterey Scrimmage 111426.pdf
 photo:
-    src: /images/2026/MS2026/MScrimmage.png
-    alt: Photo
+    src: /images/2026/newsletters/monterey-scrimmage.webp
+    alt: Monterey Scrimmage newsletter cover
 translationKey: first-event
 ---

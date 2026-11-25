@@ -6,9 +6,9 @@ title: Talleres en Capital City Classic
 category: competition
 summary: Viajamos a Elk Grove para participar en nuestra segunda competencia fuera de temporada del año.
 photo:
-    src: /images/2026/CCC2026/CCC2026.png
+    src: /images/2026/newsletters/capital-city-classic.webp
     alt: Portada del boletín de Capital City Classic
 published: true
-link: https://canva.link/j8ae0ptpsmwqnlp
+link: /downloads/Capital City Classic 2026 FRC First Robotics Newsletter (1).pdf
 translationKey: kickoff-build-season
 ---
