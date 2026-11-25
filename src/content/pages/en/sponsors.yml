@@ -47,7 +47,7 @@ wall:
     Supporter: Supporter
   # Shown in a tier that has no sponsor yet. {tier} becomes the tier's name.
   emptyTitle: Your logo here
-  emptyBody: Become our first {tier} sponsor
+  emptyBody: Be a {tier} sponsor!
   supporterBody: Every contribution helps the team grow. Supporters are listed here by name.
   supporterInvite: Add your name
   # Supporter names, one per line starting with "- ". Leave as [] for none.
