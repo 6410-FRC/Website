@@ -88,8 +88,8 @@ export type PageContent<P extends ContentPage> = z.infer<(typeof pageSchemas)[P]
 
 export const newsSchema = z.object({
 	lang, title: z.string().min(1),
-	/** YYYY-MM-DD. Leave out for a story that has not happened yet. */
-	date: z.preprocess((v) => (v ? new Date(v as string) : undefined), z.date().optional()),
+	/** Shown on the card exactly as typed, e.g. "2026 October". Leave out for a story that has not happened yet. */
+	date: z.preprocess((v) => (v == null || v === '' ? undefined : String(v).trim()), z.string().max(60).optional()),
 	category: z.enum(['team', 'build', 'competition', 'outreach']).default('team'),
 	summary: z.string(), photo: imageSchema, published: z.boolean().default(true),
 	translationKey: opt, link: url

@@ -1,6 +1,6 @@
 ---
 lang: en
-date: 2026-03
+date: March 2026
 title: "A new name for a new season..."
 category: competition
 photo:

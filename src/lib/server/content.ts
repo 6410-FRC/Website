@@ -44,13 +44,6 @@ export function getPage<P extends ContentPage>(page: P, locale: Locale): PageCon
 	return check(pageSchemas[page], readYaml(file), file) as PageContent<P>;
 }
 
-/** "Mar 27, 2026", or "March 2026" for a date written without a day (`date: 2026-03`). */
-const formatDate = (date: Date, locale: Locale, monthOnly = false) =>
-	date.toLocaleDateString(
-		locale === 'es' ? 'es-MX' : 'en-US',
-		monthOnly ? { year: 'numeric', month: 'long', timeZone: 'UTC' } : { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }
-	);
-
 export type NewsPost = ReturnType<typeof getNews>[number];
 
 /** Published stories in one language, newest first. Stories without a date come last. */
@@ -65,13 +58,14 @@ export function getNews(locale: Locale) {
 			try { header = parse(match[1]!) ?? {}; }
 			catch (e) { throw new Error(`Could not read the header of ${file.slice(1)}: ${(e as Error).message}`); }
 			const data = check(newsSchema, header, file);
-			const monthOnly = /^\d{4}-\d{2}$/.test(String((header as { date?: unknown }).date ?? '').trim());
 			const body = match[2]!.trim();
 			const slug = file.slice(prefix.length, -'.md'.length);
 			return {
 				slug, ...data,
-				time: data.date?.getTime(),
-				dateLabel: data.date ? formatDate(data.date, locale, monthOnly) : undefined,
+				/** Used only to sort newest first; text that is not a recognisable date sorts with the undated stories. */
+				time: (data.date && Date.parse(data.date)) || undefined,
+				/** The date exactly as the story file has it. */
+				dateLabel: data.date,
 				/** Only stories with text get their own page. */
 				url: data.link || ( body ? `${routeFor(locale, 'news')}${slug}/` : undefined),
 				html: body ? (marked.parse(body, { async: false }) as string) : ''

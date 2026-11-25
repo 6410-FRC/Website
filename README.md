@@ -49,7 +49,7 @@ photo:
 ---
 lang: en
 title: "Our first event of the season"
-date: 2026-03-14        # or just the month: 2026-03. Leave out to show "Coming soon"
+date: March 14, 2026     # shown exactly as typed, e.g. "2026 October". Leave out to show "Coming soon"
 category: competition   # team, build, competition or outreach
 summary: One or two sentences for the card.
 published: true
