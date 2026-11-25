@@ -57,9 +57,16 @@
 			</div>
 		{:else}
 			<p class="note">
-    {#each c.tiers.packetNote.split(/(2026frc6410@gmail\.com)/) as part}
-        {#if part === '2026frc6410@gmail.com'}
-            <a href={settings.contactFormUrl} target="_blank" rel="noopener">
+    {#each c.tiers.packetNote.split(/(sponsorship packet\?|2026frc6410@gmail\.com)/) as part}
+        {#if part === 'sponsorship packet'}
+            <a class="text-link"
+               href="https://docs.google.com/document/d/1eWS19Xn4C88J3egWaL5Td4f8ndHJ8Sr-FD7L5zqt5to/edit?usp=sharing"
+               target="_blank"
+               rel="noopener">
+                {part}
+            </a>
+        {:else if part === '2026frc6410@gmail.com'}
+            <a href={settings.contactFormUrl}>
                 {part}
             </a>
         {:else}
