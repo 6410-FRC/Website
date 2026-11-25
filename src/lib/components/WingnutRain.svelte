@@ -7,9 +7,11 @@
 	 *
 	 * To change the picture: replace static/images/wingnut.png with another transparent PNG of the same name
 	 * (about 220px wide is plenty), or point IMAGE at a different file. Any shape works.
+	 * The landing sound is in src/lib/wingnut-sound.ts.
 	 */
 	import { onDestroy, onMount, tick as rendered } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
+	import { thud } from '#lib/wingnut-sound.ts';
 
 	const IMAGE = '/images/wingnut.png';
 	/** How many fall on a wide screen; narrower screens get fewer. */
@@ -20,10 +22,6 @@
 	const VANISH = 6000;
 	/** How long one wingnut takes to fade out, in milliseconds. */
 	const FADE = 1100;
-	/** Sound effects: soft thuds when wingnuts land. `false` turns them off. */
-	const SOUND = true;
-	/** How loud the sound effects are, from 0 (silent) to 1. */
-	const VOLUME = 0.9;
 	/**
 	 * Which hits make a sound. 'floor': only wingnuts landing on the bottom of the screen thud.
 	 * 'all': wingnuts landing on other wingnuts thud too, more quietly, so the pile building up is not silent.
@@ -33,70 +31,6 @@
 
 	let pieces = $state<number[]>([]);
 	let layer = $state<HTMLElement>();
-
-	/*
-	 * Sound is made on the spot with the Web Audio API, so there are no audio files. Browsers keep a page silent
-	 * until the visitor clicks, taps or presses a key on it, so the very first shower of a visit makes no sound;
-	 * showers after any click do (for example clicking the logo to make it rain again).
-	 */
-	let audio: AudioContext | undefined;
-	let out: GainNode | undefined;
-	let noise: AudioBuffer | undefined;
-	let lastThud = 0;
-
-	/** Called on the visitor's first click, tap or key press: after this the page is allowed to make sound. */
-	function wake() {
-		if (!SOUND) return;
-		if (!audio) {
-			const Ctx = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-			if (!Ctx) return;
-			audio = new Ctx();
-			out = audio.createGain();
-			out.gain.value = VOLUME;
-			const squash = audio.createDynamicsCompressor();
-			out.connect(squash);
-			squash.connect(audio.destination);
-			noise = audio.createBuffer(1, audio.sampleRate * 0.25, audio.sampleRate);
-			const data = noise.getChannelData(0);
-			for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
-		}
-		if (audio.state === 'suspended') audio.resume();
-	}
-	/** Where a sound comes from, left to right, so it matches where it happened on screen. */
-	function placed(pan: number): AudioNode {
-		if (!audio!.createStereoPanner) return out!;
-		const side = audio!.createStereoPanner();
-		side.pan.value = Math.max(-1, Math.min(1, pan));
-		side.connect(out!);
-		return side;
-	}
-	/** A landing: a low, short, muffled bump. `soft` is for a wingnut landing on other wingnuts rather than the floor. */
-	function thud(strength: number, pan: number, soft = false) {
-		if (!audio || !noise || audio.state !== 'running') return;
-		const now = audio.currentTime;
-		if (now - lastThud < 0.03) return;
-		lastThud = now;
-		const level = (0.3 + Math.min(1, strength) * 0.7) * (soft ? 0.32 : 0.7);
-		const dest = placed(pan);
-		const tone = audio.createOscillator();
-		const amp = audio.createGain();
-		/* Low, but not so low that laptop and phone speakers cannot reproduce it. */
-		tone.frequency.setValueAtTime(190 + Math.random() * 40, now);
-		tone.frequency.exponentialRampToValueAtTime(95, now + 0.11);
-		amp.gain.setValueAtTime(level, now);
-		amp.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
-		tone.connect(amp); amp.connect(dest);
-		tone.start(now); tone.stop(now + 0.16);
-		const puff = audio.createBufferSource();
-		const dull = audio.createBiquadFilter();
-		const quiet = audio.createGain();
-		puff.buffer = noise;
-		dull.type = 'lowpass'; dull.frequency.value = 900;
-		quiet.gain.setValueAtTime(level * 0.7, now);
-		quiet.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
-		puff.connect(dull); dull.connect(quiet); quiet.connect(dest);
-		puff.start(now); puff.stop(now + 0.07);
-	}
 
 	let frame = 0;
 	/** Counts the showers started, so an older one stops as soon as a newer one begins. */
@@ -135,15 +69,11 @@
 			if (link && !link.target && link.origin === location.origin && link.pathname === location.pathname && !link.hash) start();
 		};
 		document.addEventListener('click', onclick);
-		/* Any of these counts as the visitor's first interaction; browsers differ on which ones unlock sound. */
-		const unlock = ['pointerdown', 'mousedown', 'mouseup', 'touchend', 'click', 'keydown'];
-		for (const type of unlock) document.addEventListener(type, wake, true);
 		return () => {
 			document.removeEventListener('click', onclick);
-			for (const type of unlock) document.removeEventListener(type, wake, true);
 		};
 	});
-	onDestroy(() => { shower++; if (typeof cancelAnimationFrame === 'function') cancelAnimationFrame(frame); audio?.close(); audio = undefined; });
+	onDestroy(() => { shower++; if (typeof cancelAnimationFrame === 'function') cancelAnimationFrame(frame); });
 
 	function run(shape: number, small: boolean, mine: number) {
 		if (mine !== shower || !layer) return;
