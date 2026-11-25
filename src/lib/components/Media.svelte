@@ -21,19 +21,20 @@
 </script>
 
 {#snippet picture(image: NonNullable<Image>, extra: string)}
+	{@const alt = (lang === 'es' ? image.altEs?.trim() || image.alt : image.alt) ?? ''}
 	{#if canExpand}
 		<button
-			class={['media-button', extra]} type="button" aria-label={`${viewPhoto}: ${title || image.alt || ''}`}
-			data-zoom={image.src} data-alt={image.alt ?? ''} data-title={title ?? image.caption ?? ''} data-text={text ?? ''}
+			class={['media-button', extra]} type="button" aria-label={`${viewPhoto}: ${title || alt}`}
+			data-zoom={image.src} data-alt={alt} data-title={title ?? image.caption ?? ''} data-text={text ?? ''}
 			onclick={(event) => openPicture(event.currentTarget)}
 		>
-			<img class="media" src={image.src} alt={image.alt ?? ''} loading="lazy" decoding="async" style:--ratio={ratio} />
+			<img class="media" src={image.src} {alt} loading="lazy" decoding="async" style:--ratio={ratio} />
 			<span class="media-zoom" aria-hidden="true">
 				<svg viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" /></svg>
 			</span>
 		</button>
 	{:else}
-		<img class={['media', extra]} src={image.src} alt={image.alt ?? ''} loading="lazy" decoding="async" style:--ratio={ratio} />
+		<img class={['media', extra]} src={image.src} {alt} loading="lazy" decoding="async" style:--ratio={ratio} />
 	{/if}
 {/snippet}
 

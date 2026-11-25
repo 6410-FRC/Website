@@ -50,9 +50,10 @@ export const ui = {
 		nav: { home: 'Inicio', team: 'Equipo', robots: 'Robots', outreach: 'Comunidad', sponsors: 'Patrocinadores', news: 'Noticias', join: 'Únete' },
 		location: 'Salinas, California',
 		footer: {
-			tagline: 'Un equipo estudiantil de FIRST Robotics Competition en Salinas, California.',
+			tagline: 'Equipo de FIRST Robotics dirigido por estudiantes',
 			explore: 'Explorar', contact: 'Contacto', follow: 'Síguenos', comingSoon: 'próximamente',
-			affiliation: 'Equipo estudiantil de', contactNote: 'Comunícate con el equipo a través de la escuela o la página Únete.',
+			affiliation: '',
+			contactNote: ['2026frc6410@gmail.com', 'Contáctanos en la oficina de la escuela'],
 			social: ['Instagram', 'YouTube', 'Facebook'],
 			legal: 'FIRST®, FRC® y FIRST Robotics Competition® son marcas registradas de For Inspiration and Recognition of Science and Technology.'
 		}

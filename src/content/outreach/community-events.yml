@@ -1,9 +1,10 @@
-titleEn: Fundraising 
-titleEs: Eventos comunitarios
+titleEn: Fundraising
+titleEs: Recaudación de fondos
 bodyEn:  We fundraise at all school events as well as on a monthly basis. We use this opportunity to demonstrate the robot and recruit new members.
-bodyEs: Participamos donde se reúne nuestra comunidad, desde noches escolares hasta festivales locales, para compartir lo que hacemos.
+bodyEs: Recaudamos fondos en los eventos escolares y cada mes. Aprovechamos estas actividades para mostrar cómo funciona el robot e invitar a nuevos integrantes al equipo.
 photo:
     src: /images/2026/Fundraising/Fundraising.jpg
     alt: In Progress
+    altEs: Actividad de recaudación de fondos
 active: true
 order: 30

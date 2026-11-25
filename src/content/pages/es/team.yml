@@ -1,24 +1,29 @@
 title: Equipo
-intro: Conoce a los estudiantes y mentores detrás de WingNuts 6410.
+intro: Conoce a los estudiantes y mentores de WINGNUTS 6410.
 body:
-  - WingNuts 6410 es el equipo de FIRST Robotics Competition de Everett Alvarez High School en Salinas, California. Cada temporada tenemos seis semanas para diseñar y construir un robot que juegue un juego completamente nuevo, y luego lo llevamos a competir.
-  - Estamos abiertos a todos los estudiantes de la escuela. Algunos llegamos sabiendo programar o usar un taladro, y muchos no. Lo que importa es presentarse y tener ganas de aprender.
+  - Unirte al equipo de robótica es gratis y cualquier estudiante de Everett Alvarez High School puede participar. Solo necesitas ganas de aprender, compromiso y disposición para crecer. Habla con la Sra. Kumar en el salón 106/107 para solicitar una inscripción o ven a ver cómo trabaja el equipo.
+photo:
+  src: /images/2026/Teampic.jpg
+  alt: Foto del equipo con el águila
 subteams:
   title: Subequipos
-  intro: Cada integrante se une al menos a un subequipo. La mayoría termina ayudando en varios.
+  intro: Cada integrante se une al menos a un subequipo. La mayoría termina apoyando a varios. No se requiere experiencia previa.
 values:
   title: Cómo trabajamos
   items:
     - title: Los estudiantes lideran
-      body: Los estudiantes dirigen cada subequipo y toman las decisiones técnicas y de negocio.
+      body: Los estudiantes dirigen cada subequipo y toman las decisiones importantes en las áreas técnicas y de gestión.
     - title: Los mentores guían
-      body: Los mentores enseñan herramientas y habilidades, cuidan la seguridad y hacen buenas preguntas.
-    - title: Todos tienen lugar
-      body: No se necesita experiencia. Te enseñamos lo que necesitas saber.
+      body: Los mentores enseñan a usar las herramientas con seguridad, comparten lo que saben, hacen preguntas y ayudan a que el equipo siga funcionando.
+    - title: Hay lugar para todos
+      body: Te enseñamos todo lo que necesitas saber para empezar.
 mentors:
-  title: Mentores y liderazgo
-  body: Los líderes estudiantiles y los mentores aparecerán aquí cuando el equipo publique la lista de la temporada.
+  title: Mentores
+  body: Ingenieros y docentes acompañan a los estudiantes durante la temporada. Los mentores fomentan el profesionalismo con respeto (Gracious Professionalism®) y ayudan a que los estudiantes hagan por sí mismos la mayor parte del trabajo.
+  photo:
+    src: /images/2026/In progress photo.jpg
+    alt: Foto de los mentores próximamente
 cta:
-  title: ¿Quieres ser parte?
-  body: Los nuevos integrantes son bienvenidos al inicio de cada temporada.
+  title: ¿Quieres ser parte del equipo?
+  body: ¡Puedes unirte como estudiante o mentor en cualquier momento!
   actionLabel: Únete al equipo

@@ -60,10 +60,11 @@ export function getNews(locale: Locale) {
 			const data = check(newsSchema, header, file);
 			const body = match[2]!.trim();
 			const slug = file.slice(prefix.length, -'.md'.length);
+			const sortDate = data.sortDate ?? data.date;
 			return {
 				slug, ...data,
 				/** Used only to sort newest first; text that is not a recognisable date sorts with the undated stories. */
-				time: (data.date && Date.parse(data.date)) || undefined,
+				time: sortDate ? Date.parse(sortDate) : NaN,
 				/** The date exactly as the story file has it. */
 				dateLabel: data.date,
 				/** Only stories with text get their own page. */
@@ -73,8 +74,10 @@ export function getNews(locale: Locale) {
 		})
 		.filter((post) => post.lang === locale && post.published);
 	return posts.sort((a, b) => {
-		if (a.time && b.time) return b.time - a.time;
-		if (a.time || b.time) return a.time ? -1 : 1;
+		const aHasDate = Number.isFinite(a.time);
+		const bHasDate = Number.isFinite(b.time);
+		if (aHasDate && bHasDate) return b.time - a.time;
+		if (aHasDate !== bHasDate) return aHasDate ? -1 : 1;
 		return a.slug.localeCompare(b.slug);
 	});
 }

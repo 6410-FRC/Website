@@ -1,9 +1,10 @@
-titleEn: STEM - Day 
-titleEs: Actividades STEM prácticas
-bodyEn: Currently an event in progress, check back for updates. 
-bodyEs: Actividades sencillas de construir y probar que permiten a los estudiantes más jóvenes vivir la ingeniería por sí mismos.
+titleEn: STEM - Day
+titleEs: Día de STEM
+bodyEn: Currently an event in progress, check back for updates.
+bodyEs: Estamos preparando este evento. Vuelve pronto para conocer las novedades.
 photo:
     src: /images/2026/In progress photo.jpg
     alt: Photo
+    altEs: Imagen de aviso de trabajo en curso
 active: true
 order: 20

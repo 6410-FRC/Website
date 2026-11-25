@@ -14,7 +14,7 @@ const lang = z.enum(['en', 'es']);
 
 /** A picture: `src` is a path under static/ (for example /images/team.jpg). `alt` is required with a picture. */
 export const imageSchema = z
-	.object({ src: opt, alt: z.string().max(160).nullish(), caption: z.string().max(240).nullish(), credit: z.string().max(120).nullish(),
+	.object({ src: opt, alt: z.string().max(160).nullish(), altEs: z.string().max(160).nullish(), caption: z.string().max(240).nullish(), credit: z.string().max(120).nullish(),
 		/** `expand: false` stops the picture opening full-screen (for placeholder pictures). */
 		expand: z.boolean().nullish() })
 	.nullish()
@@ -96,6 +96,8 @@ export const newsSchema = z.object({
 	lang, title: z.string().min(1),
 	/** Shown on the card exactly as typed, e.g. "2026 October". Leave out for a story that has not happened yet. */
 	date: z.preprocess((v) => (v == null || v === '' ? undefined : String(v).trim()), z.string().max(60).optional()),
+	/** ISO date for sorting when the displayed date is localized. */
+	sortDate: z.iso.date().optional(),
 	category: z.enum(['team', 'build', 'competition', 'outreach']).default('team'),
 	summary: z.string(), photo: imageSchema, published: z.boolean().default(true),
 	translationKey: opt, link: url

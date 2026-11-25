@@ -1,8 +1,9 @@
 nameEn: Grants & Outreach
-nameEs: Programación
+nameEs: Subvenciones y actividades comunitarias
 summaryEn: Writes the code that drives the robot, runs autonomous routines, and reads the sensors.
-summaryEs: Escribe el código que maneja el robot, ejecuta rutinas autónomas y lee los sensores.
+summaryEs: Busca oportunidades de subvenciones y ayuda a organizar las actividades comunitarias del equipo.
 photo:
    src: /images/Media.jpg
    alt: Media
+   altEs: Foto del equipo de trabajo
 order: 30
