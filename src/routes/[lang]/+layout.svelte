@@ -1,11 +1,16 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import Footer from '#lib/components/Footer.svelte';
 	import Header from '#lib/components/Header.svelte';
 	import Lightbox from '#lib/components/Lightbox.svelte';
 	import { SITE_URL, routeFor } from '#lib/site.ts';
+	import { listenForFirstClick } from '#lib/wingnut-sound.ts';
 
 	let { data, children } = $props();
+
+	/* On every page, so a click made anywhere unlocks the wingnut landing sound for the home page. */
+	onMount(listenForFirstClick);
 
 	const meta = $derived(page.data.meta);
 	const siteName = $derived(data.settings.teamName);
