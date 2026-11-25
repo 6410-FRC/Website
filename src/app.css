@@ -357,3 +357,15 @@ html:has(.lightbox[open]) { overflow: hidden; }
 a[href^="mailto:"]:hover {
     text-decoration: underline;
 }
+.button-paypal {
+    background: #ffc439;
+    color: #003087;
+    border-color: #ffc439;
+    font-weight: 700;
+    margin-left: .5rem;
+}
+
+.button-paypal:hover {
+    background: #d4a72c;
+    border-color: #d4a72c;
+}
