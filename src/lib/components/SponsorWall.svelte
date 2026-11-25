@@ -31,6 +31,29 @@
 	const tendrils = ['M150 40c10 22 34 22 34 6s-18-12-14 2', 'M450 12c8-20 32-16 28 0s-18 8-12-4', 'M750 70c12 20 36 14 30-2s-20-8-12 4', 'M1050 12c8-20 32-16 28 0s-18 8-12-4'];
 	const buds: [number, number][] = [[150, 40], [450, 10], [750, 70], [1050, 10]];
 
+	/**
+	 * A row of names wraps onto several lines when there are many. The separator belongs between two names
+	 * on the same line, so the name that starts each line is marked and loses the separator in front of it.
+	 */
+	function lineStarts(list: HTMLElement) {
+		const mark = () => {
+			const items = [...list.children] as HTMLElement[];
+			/* A name starts a line when it sits wholly below the name before it. */
+			const starts = () => items.map((item, i) => i === 0 || item.getBoundingClientRect().top >= items[i - 1]!.getBoundingClientRect().bottom - 1);
+			for (const item of items) item.classList.remove('line-start');
+			const first = starts();
+			items.forEach((item, i) => item.classList.toggle('line-start', first[i]!));
+			/* Removing a separator frees a little room, which can pull a name up a line: give that name its separator back. */
+			const second = starts();
+			items.forEach((item, i) => { if (!second[i]) item.classList.remove('line-start'); });
+		};
+		mark();
+		const watcher = new ResizeObserver(mark);
+		watcher.observe(list);
+		document.fonts?.ready.then(mark);
+		return { destroy: () => watcher.disconnect() };
+	}
+
 	/** Diamond follows the pointer: tell the band where it is (--mx/--my in percent, --nx/--ny from -1 to 1). */
 	function track(event: PointerEvent) {
 		const band = event.currentTarget as HTMLElement;
@@ -58,7 +81,7 @@
 {#each groups as group (group.tier)}
 	<section class={['wall-tier', `wall-${group.key}`, { 'wall-sheen': group.key !== 'bronze' }]} aria-labelledby={`tier-${group.key}`} onpointermove={group.key === 'diamond' ? track : undefined}>
 		{#if group.key === 'diamond'}
-			{#each ['glare', 'foil', 'foil-2', 'glitter'] as layer}<div class={['wall-light', `wall-${layer}`]}></div>{/each}
+			{#each ['glare', 'foil', 'foil-2'] as layer}<div class={['wall-light', `wall-${layer}`]}></div>{/each}
 			{#each sparks as style}<svg class="wall-spark" aria-hidden="true" viewBox="0 0 24 24" {style}><path fill="currentColor" d="M12 0l2 10 10 2-10 2-2 10-2-10-10-2 10-2z" /></svg>{/each}
 		{/if}
 		{#each motes[group.key] ?? [] as style}<span class="wall-mote" aria-hidden="true" {style}></span>{/each}
@@ -101,7 +124,7 @@
 		</div>
 		<p class="wall-note">{c.supporterBody}</p>
 		{#if c.supporters.length}
-			<ul class="wall-names">{#each c.supporters as name}<li>{name}</li>{/each}</ul>
+			<ul class="wall-names" use:lineStarts>{#each c.supporters as name}<li>{name}</li>{/each}</ul>
 		{/if}
 		<a class="wall-invite" href={contactHref} target="_blank" rel="noopener">{c.supporterInvite}</a>
 	</div>
@@ -111,8 +134,9 @@
 	<section class="wall-thanks" aria-labelledby="thanks-title">
 		<div class="container">
 			<h2 id="thanks-title">{c.thanksTitle}</h2>
+			<svg class="wall-flourish" aria-hidden="true" viewBox="0 0 220 16"><path d="M4 10C40 2 70 14 110 8S180 2 216 9" /></svg>
 			<!-- The team logo beside each name shows that person is part of the program. -->
-			<ul class="wall-names">
+			<ul class="wall-names" use:lineStarts>
 				{#each c.thanks as name}<li><img class="wall-thanks-logo" src="/images/2026/Logos/eagle2.svg" alt={teamName} />{name}</li>{/each}
 			</ul>
 		</div>
