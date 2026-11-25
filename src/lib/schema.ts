@@ -14,7 +14,9 @@ const lang = z.enum(['en', 'es']);
 
 /** A picture: `src` is a path under static/ (for example /images/team.jpg). `alt` is required with a picture. */
 export const imageSchema = z
-	.object({ src: opt, alt: z.string().max(160).nullish(), caption: z.string().max(240).nullish(), credit: z.string().max(120).nullish() })
+	.object({ src: opt, alt: z.string().max(160).nullish(), caption: z.string().max(240).nullish(), credit: z.string().max(120).nullish(),
+		/** `expand: false` stops the picture opening full-screen (for placeholder pictures). */
+		expand: z.boolean().nullish() })
 	.nullish()
 	.superRefine((v, ctx) => {
 		if (v?.src && !v.alt?.trim()) ctx.addIssue({ code: 'custom', path: ['alt'], message: 'Add "alt": a few words describing the picture.' });

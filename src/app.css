@@ -313,6 +313,14 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .media-zoom svg, .lightbox-button svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (hover: none) { .media-zoom { opacity: 1; transform: none; } }
 .story-body img { cursor: zoom-in; }
+/* News cards: hovering a card lifts it and brings its picture forward a little. */
+.post { transition: transform 250ms cubic-bezier(.2, .7, .2, 1), box-shadow 250ms, border-color 250ms; }
+.post:hover { border-color: var(--line-strong); box-shadow: 0 14px 32px rgb(11 37 69 / .14); transform: translateY(-4px); }
+.post-media { position: relative; overflow: hidden; }
+.post .media { transition: transform 450ms cubic-bezier(.2, .7, .2, 1); }
+.post:hover .media { transform: scale(1.06); }
+.post-media > .media-zoom { padding: 0; border: 0; opacity: 1; transform: none; cursor: zoom-in; transition: background-color var(--fast), color var(--fast); }
+.post-media > .media-zoom:hover { background: var(--gold); color: var(--navy); }
 
 html:has(.lightbox[open]) { overflow: hidden; }
 .lightbox { position: fixed; inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 4.5rem clamp(.75rem, 3vw, 2rem) 1.5rem; border: 0; background: rgb(7 22 42 / .94); color: var(--white); overflow: hidden; cursor: zoom-out; backdrop-filter: blur(6px); }

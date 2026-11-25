@@ -6,6 +6,7 @@ summary: Posted after the team clears the robot for release.
 published: true
 photo:
     src: /images/2026/In progress photo.jpg
+    expand: false
     alt: Photo
 translationKey: robot-reveal
 ---

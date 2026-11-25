@@ -3,7 +3,7 @@
 	 * A picture area. Shows the real picture when the content file names one (with an optional caption
 	 * and photo credit); otherwise a quiet navy or gray block with a short note such as "Team photo coming soon".
 	 * A real picture is a button that opens the full-screen viewer, where `title` and `text` show under it.
-	 * Use `expand={false}` for a picture that sits inside a link.
+	 * Use `expand={false}` for a picture that sits inside a link; a content file can also say `expand: false` on a photo.
 	 */
 	import { page } from '$app/state';
 	import { openPicture } from '#lib/lightbox.svelte.ts';
@@ -15,12 +15,13 @@
 		expand?: boolean; title?: string; text?: string;
 	}
 	let { photo, label, ratio = '4 / 3', tone = 'navy', class: className = '', expand = true, title, text }: Props = $props();
+	const canExpand = $derived(expand && photo?.expand !== false);
 	const lang = $derived(page.params.lang ?? '');
 	const viewPhoto = $derived(ui[isLocale(lang) ? lang : 'en'].viewPhoto);
 </script>
 
 {#snippet picture(image: NonNullable<Image>, extra: string)}
-	{#if expand}
+	{#if canExpand}
 		<button
 			class={['media-button', extra]} type="button" aria-label={`${viewPhoto}: ${title || image.alt || ''}`}
 			data-zoom={image.src} data-alt={image.alt ?? ''} data-title={title ?? image.caption ?? ''} data-text={text ?? ''}
