@@ -1,5 +1,6 @@
 ---
 lang: en
+date: 2026-03
 title: "WINGNUTS at Sunset Showdown!"
 category: competition
 summary: First off-season event at San Francisco, filled with thrills!
