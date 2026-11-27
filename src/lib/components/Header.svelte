@@ -38,7 +38,7 @@
 	</div>
 {/if}
 <header class="site-header">
-	<div class="container header-inner">
+	<div class="header-inner">
 		<a class="brand" href={routeFor(locale)} aria-label={`${settings.teamName} — ${t.nav.home}`}>
 			<BrandMark />
 			<span class="brand-text">

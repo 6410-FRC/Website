@@ -124,7 +124,7 @@
 		</div>
 		<p class="wall-note">{c.supporterBody}</p>
 		{#if c.supporters.length}
-			<ul class="wall-names" use:lineStarts>{#each c.supporters as name}<li>{name}</li>{/each}</ul>
+			<ul class="wall-names" use:lineStarts>{#each c.supporters as name, i}<li style:--delay={`-${((i * 0.37) % 1.4).toFixed(2)}s`}>{name}</li>{/each}</ul>
 		{/if}
 		<a class="wall-invite" href={contactHref} target="_blank" rel="noopener">{c.supporterInvite}</a>
 	</div>

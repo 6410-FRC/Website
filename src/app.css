@@ -26,14 +26,18 @@
 
   --sans: "Times New Roman", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --gutter: clamp(1.25rem, 3vw, 2.75rem);
   --section: clamp(3.5rem, 7vw, 6rem);
-  --container: 85rem;
+  --container: 100rem;
   --radius: 8px;
   --fast: 150ms;
 }
 
 * { box-sizing: border-box; }
+/* Desktop scaling: 16px up to a 1440px-wide screen, then grows smoothly to 20px at 2560px.
+   Everything sized in rem (type, spacing, --container) scales with it, so the layout keeps
+   the same proportions on a laptop, a 1080p monitor, and a 1440p/4K monitor. */
+html { font-size: clamp(1rem, 0.679rem + 0.357vw, 1.25rem); }
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; background: var(--white); }
 body { margin: 0; color: var(--ink); background: var(--white); font: 400 1.05rem/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
@@ -49,7 +53,7 @@ p { margin: 0 0 1rem; }
 p:last-child { margin-bottom: 0; }
 ol, ul { margin: 0; padding: 0; list-style: none; }
 
-.container { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
+.container { width: min(100% - 2 * var(--gutter), var(--container)); max-width: none; margin-inline: auto; } /* max-width: none cancels Tailwind's built-in .container breakpoints */
 .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 100; padding: .7rem 1rem; border-radius: var(--radius); background: var(--navy); color: var(--white); font-weight: 600; transform: translateY(-180%); }
 .skip-link:focus { transform: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -84,7 +88,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* Header -------------------------------------------------------------------- */
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); }
 .header-inner {
-    width: calc(100% - 2 * clamp(0.75rem, 1.5vw, 1em));
+    padding-inline: clamp(1rem, 1.5vw, 1.5rem);
     min-height: 4.5rem;
     display: flex;
     align-items: center;
@@ -251,6 +255,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* Responsive ---------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .menu-toggle { display: inline-flex; }
+  .header-actions { margin-left: auto; }
   .header-actions .lang { display: none; }
   .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: .5rem var(--gutter) 1rem; border-bottom: 1px solid var(--line); background: var(--white); flex-direction: column; align-items: stretch; gap: 0; }
   .site-nav.open { display: flex; }
@@ -512,8 +517,12 @@ a.wall-logo:hover { transform: scale(1.07); }
 /* The vine stems stay inside the band; only the tips of the outermost leaves poke past its edges. */
 .wall-supporter { z-index: 1; overflow: visible; }
 .wall-supporter .wall-note { color: #d4ecc8; }
-/* Supporter names are separated by small leaves. */
-.wall-supporter .wall-names li + li::before { border-radius: 0 60% 0 60%; background: #8fd06f; transform: none; }
+/* Supporter names are separated by small leaves that rock back and forth, each on its own timing (--delay is set per name).
+   The leaf sits in the gap between two names and takes no room of its own, so hiding it at the start of a line never re-wraps the names. */
+.wall-supporter .wall-names { column-gap: 3.4rem; }
+.wall-supporter .wall-names li { position: relative; gap: 0; }
+.wall-supporter .wall-names li + li::before { position: absolute; left: calc(-1.7rem - .4rem); top: calc(50% - .4rem); width: .8rem; height: .8rem; border-radius: 0 60% 0 60%; background: #8fd06f; transform: none; animation: wall-leaf-rock .5s ease-in-out infinite alternate; animation-delay: var(--delay, 0s); }
+@keyframes wall-leaf-rock { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
 .wall-vine { position: absolute; z-index: -1; top: calc(-1 * max(22px, 1.83vw)); left: 0; width: 100%; height: max(128px, 10.67vw); max-width: none; pointer-events: none; }
 .wall-vine.flipped { top: auto; bottom: calc(-1 * max(22px, 1.83vw)); transform: scale(-1, -1); }
 .wall-stem { fill: none; stroke: #6fae5c; stroke-width: 4; stroke-linecap: round; }
@@ -542,7 +551,7 @@ a.wall-logo:hover { transform: scale(1.07); }
 @media (prefers-reduced-motion: reduce) {
   .wall-sheen::after, .wall-spark, .wall-mote, .wall-light { display: none; }
   .wall-diamond .wall-head, .wall-diamond .wall-logo, .wall-diamond a.wall-logo:hover { transform: none; }
-  .wall-tier, .wall-bronze::before, .wall-leaf, .wall-bud { animation: none; }
+  .wall-tier, .wall-bronze::before, .wall-leaf, .wall-bud, .wall-supporter .wall-names li::before { animation: none; }
   .wall-tendril { animation: none; stroke-dashoffset: 0; }
   .wall-flourish path { animation: none; stroke-dashoffset: 0; }
 }
