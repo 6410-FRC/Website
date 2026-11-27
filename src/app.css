@@ -28,7 +28,7 @@
 
   --gutter: clamp(1.25rem, 5vw, 3rem);
   --section: clamp(3.5rem, 7vw, 6rem);
-  --container: 72rem;
+  --container: 85rem;
   --radius: 8px;
   --fast: 150ms;
 }
@@ -83,7 +83,13 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* Header -------------------------------------------------------------------- */
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); }
-.header-inner { min-height: 4.5rem; display: flex; align-items: center; gap: 2rem; }
+.header-inner {
+    width: calc(100% - 2 * var(--gutter));
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+}
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--navy); text-decoration: none; white-space: nowrap; }
 .brand-mark { width: 2.4rem; height: 2.4rem; flex: none; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
